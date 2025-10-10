@@ -117,7 +117,7 @@ export default function HomePage() {
               Ready to Create Something Unforgettable?
             </h2>
             <p className="body-lg text-pearl-white/90">
-              Let's bring your vision to life with custom décor that tells your unique story
+              Let&apos;s bring your vision to life with custom décor that tells your unique story
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">

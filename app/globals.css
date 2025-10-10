@@ -1,23 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-signature-gold: #D4AF37;
+  --color-pearl-white: #F8F6F0;
+  --color-pearl-light: #FAFAFA;
+  --color-charcoal-black: #1A1A1A;
+  --color-meadow-sage: #9CAF88;
+  --color-meadow-lavender: #B19CD9;
+  --color-forest-green: #2C3E28;
+  --color-forest-emerald: #014421;
+  --color-light-red: #F6C6CD;
+  --color-wine-burgundy: #4A1C28;
+  --color-warm-terracotta: #D2691E;
+  --color-warm-eggshell: #F0EAD6;
+
+  /* Font Families */
+  --font-family-playfair: var(--font-playfair), serif;
+  --font-family-montserrat: var(--font-montserrat), sans-serif;
+
+  /* Animations */
+  --animate-flower-grow: grow 2s ease-out forwards;
+  --animate-petal-float: float 8s ease-in-out infinite;
+  --animate-logo-shimmer: shimmer 1.5s ease-out;
+  --animate-fade-in: fadeIn 0.8s ease-out;
+}
 
 @layer base {
-  :root {
-    --color-signature-gold: #D4AF37;
-    --color-pearl-white: #F8F6F0;
-    --color-pearl-light: #FAFAFA;
-    --color-charcoal-black: #1A1A1A;
-    --color-meadow-sage: #9CAF88;
-    --color-meadow-lavender: #B19CD9;
-    --color-forest-green: #2C3E28;
-    --color-forest-emerald: #014421;
-    --color-light-red: #F6C6CD;
-    --color-wine-burgundy: #4A1C28;
-    --color-warm-terracotta: #D2691E;
-    --color-warm-eggshell: #F0EAD6;
-  }
-
   html {
     scroll-behavior: smooth;
   }
@@ -30,7 +39,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-playfair);
+    font-family: var(--font-playfair), serif;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
@@ -76,54 +85,67 @@
   .btn-secondary {
     @apply px-8 py-4 border-2 border-signature-gold text-signature-gold font-montserrat font-semibold tracking-wide uppercase text-sm transition-all duration-300 hover:bg-signature-gold hover:text-charcoal-black;
   }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .animate-shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--color-signature-gold) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 2s ease-in-out;
-  }
-
-  @keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
-  }
 
   .gradient-meadow {
     background: linear-gradient(
       135deg,
-      var(--color-forest-emerald) 0%,
-      var(--color-meadow-sage) 50%,
-      var(--color-forest-green) 100%
+      #014421 0%,
+      #9CAF88 50%,
+      #2C3E28 100%
     );
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
   }
+}
 
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
+@keyframes grow {
+  0% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 

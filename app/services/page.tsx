@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import ServiceCategories from "@/components/services/ServiceCategories";
 import PricingCards from "@/components/services/PricingCards";
 import CustomRequestForm from "@/components/services/CustomRequestForm";

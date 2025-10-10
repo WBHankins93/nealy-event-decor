@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function FeaturedWork() {
   const featuredProjects = [
@@ -55,27 +54,28 @@ export default function FeaturedWork() {
               <div className="absolute inset-0 bg-gradient-to-br from-forest-emerald to-meadow-sage" />
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/80 via-charcoal-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-pearl-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <p className="text-sm tracking-widest uppercase text-signature-gold mb-2">
-                  {project.category}
-                </p>
-                <h3 className="heading-sm">{project.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/80 via-charcoal-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-pearl-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <p className="text-xs tracking-widest uppercase text-signature-gold mb-2">
+                    {project.category}
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-playfair font-semibold">
+                    {project.title}
+                  </h3>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link href="/gallery" className="btn-primary">
+          <Link href="/gallery" className="btn-primary inline-block">
             View Full Portfolio
           </Link>
         </motion.div>

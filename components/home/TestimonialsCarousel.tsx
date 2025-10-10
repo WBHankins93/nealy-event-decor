@@ -61,7 +61,7 @@ export default function TestimonialsCarousel() {
                 className="text-center space-y-6"
               >
                 <p className="text-2xl md:text-3xl font-playfair italic text-charcoal-black leading-relaxed">
-                  "{testimonials[current].quote}"
+                  &ldquo;{testimonials[current].quote}&rdquo;
                 </p>
                 <div>
                   <p className="font-montserrat font-semibold text-signature-gold">
@@ -79,7 +79,7 @@ export default function TestimonialsCarousel() {
           <div className="flex items-center justify-center space-x-4 mt-12">
             <button
               onClick={prev}
-              className="p-3 rounded-full border-2 border-signature-gold text-signature-gold hover:bg-signature-gold hover:text-charcoal-black transition-all duration-300"
+              className="p-3 rounded-full border-2 border-signature-gold text-signature-gold hover:bg-signature-gold hover:text-pearl-white transition-all duration-300"
               aria-label="Previous testimonial"
             >
               <svg
@@ -102,7 +102,7 @@ export default function TestimonialsCarousel() {
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === current
                       ? "bg-signature-gold w-8"
                       : "bg-signature-gold/30"
@@ -114,7 +114,7 @@ export default function TestimonialsCarousel() {
 
             <button
               onClick={next}
-              className="p-3 rounded-full border-2 border-signature-gold text-signature-gold hover:bg-signature-gold hover:text-charcoal-black transition-all duration-300"
+              className="p-3 rounded-full border-2 border-signature-gold text-signature-gold hover:bg-signature-gold hover:text-pearl-white transition-all duration-300"
               aria-label="Next testimonial"
             >
               <svg

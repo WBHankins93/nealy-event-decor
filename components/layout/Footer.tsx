@@ -110,7 +110,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-pearl-white/60">
           <p>
-            &copy; {currentYear} Nealy's Event Decor LLC. All rights reserved.
+            &copy; {currentYear} Nealy&apos;s Event Decor LLC. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link

@@ -12,9 +12,9 @@ export default function FloralDivider({
   color = "gold",
 }: FloralDividerProps) {
   const sizes = {
-    small: "w-4 h-4",
-    medium: "w-8 h-8",
-    large: "w-16 h-16",
+    small: { class: "w-4 h-4", dimension: 16 },
+    medium: { class: "w-8 h-8", dimension: 32 },
+    large: { class: "w-16 h-16", dimension: 64 },
   };
 
   const colors = {
@@ -26,7 +26,9 @@ export default function FloralDivider({
   return (
     <div className={cn("flex items-center justify-center", className)}>
       <svg
-        className={cn(sizes[size], colors[color])}
+        className={cn(sizes[size].class, colors[color])}
+        width={sizes[size].dimension}
+        height={sizes[size].dimension}
         viewBox="0 0 24 24"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"

@@ -43,7 +43,7 @@ export default function CustomRequestForm() {
             Request a Custom Quote
           </h2>
           <p className="body-lg text-charcoal-black/80">
-            Tell us about your event and we'll create a personalized proposal
+            Tell us about your event and we&apos;ll create a personalized proposal
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function CustomRequestForm() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               />
             </div>
 
@@ -88,12 +88,10 @@ export default function CustomRequestForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               />
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label
                 htmlFor="phone"
@@ -107,7 +105,7 @@ export default function CustomRequestForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               />
             </div>
 
@@ -125,12 +123,10 @@ export default function CustomRequestForm() {
                 value={formData.eventDate}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               />
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label
                 htmlFor="eventType"
@@ -144,12 +140,13 @@ export default function CustomRequestForm() {
                 value={formData.eventType}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               >
                 <option value="">Select event type</option>
                 <option value="wedding">Wedding</option>
                 <option value="corporate">Corporate Event</option>
                 <option value="gala">Gala</option>
+                <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
                 <option value="other">Other</option>
               </select>
@@ -168,8 +165,8 @@ export default function CustomRequestForm() {
                 name="guestCount"
                 value={formData.guestCount}
                 onChange={handleChange}
-                placeholder="Approximate number"
-                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white"
+                min="1"
+                className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors"
               />
             </div>
           </div>
@@ -188,22 +185,17 @@ export default function CustomRequestForm() {
               onChange={handleChange}
               rows={6}
               required
-              className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors bg-pearl-white resize-none"
-              placeholder="Describe your event style, color palette, and any specific items you're interested in..."
+              placeholder="Share details about your event, style preferences, and any specific items you&apos;re interested in..."
+              className="w-full px-4 py-3 border-2 border-signature-gold/30 focus:border-signature-gold outline-none transition-colors resize-none"
             />
           </div>
 
-          <motion.button
-            type="submit"
-            className="w-full btn-primary"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Submit Request
-          </motion.button>
+          <button type="submit" className="w-full btn-primary">
+            Request Quote
+          </button>
 
           <p className="text-sm text-center text-charcoal-black/60">
-            We'll respond within 24-48 hours with a personalized proposal
+            We&apos;ll respond to your request within 24-48 hours
           </p>
         </motion.form>
       </div>
