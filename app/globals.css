@@ -66,39 +66,43 @@
     background: linear-gradient(
       135deg,
       #014421 0%,
+      #2C3E28 25%,
       #9CAF88 50%,
-      #2C3E28 100%
+      #B19CD9 75%,
+      #D4AF37 100%
+    );
+  }
+
+  /* NEW: Animated Meadow Gradient for Entrance */
+  .meadow-gradient-animated {
+    background: linear-gradient(
+      135deg,
+      #014421 0%,
+      #2C3E28 20%,
+      #9CAF88 40%,
+      #B19CD9 60%,
+      #F6C6CD 80%,
+      #D4AF37 100%
     );
     background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
+    animation: meadowFlow 8s ease infinite;
+  }
+
+  @keyframes meadowFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
   }
 }
