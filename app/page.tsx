@@ -2,37 +2,19 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HeroSection from "@/components/home/HeroSection";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import TestimonialsCarousel from "@/components/home/TestimonialsCarousel";
 import EntranceOverlay from "@/components/entrance/EntranceOverlay";
 
 export default function HomePage() {
-  const [showEntrance, setShowEntrance] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = localStorage.getItem("nealy_visited");
-    
-    if (!hasVisited) {
-      setShowEntrance(true);
-    }
-    
-    setIsLoading(false);
-  }, []);
+  // Always show entrance on page load
+  const [showEntrance, setShowEntrance] = useState(true);
 
   const handleEntranceComplete = () => {
     setShowEntrance(false);
-    // Mark as visited
-    localStorage.setItem("nealy_visited", "true");
   };
-
-  // Don't render anything until we check localStorage
-  if (isLoading) {
-    return null;
-  }
 
   return (
     <>

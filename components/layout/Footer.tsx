@@ -7,8 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const handleViewEntrance = () => {
-    // Clear the visited flag and reload page to show entrance
-    localStorage.removeItem("nealy_visited");
+    // Reload page to show entrance (now shows every time)
     window.location.href = "/";
   };
 
