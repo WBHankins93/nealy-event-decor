@@ -115,7 +115,7 @@ export default function AboutPage() {
               Ready to Start Planning?
             </h2>
             <p className="body-lg text-charcoal-black/80">
-              Let's create something beautiful together
+              Let&apos;s create something beautiful together
             </p>
             <Link href="/contact" className="btn-primary inline-block">
               Get in Touch

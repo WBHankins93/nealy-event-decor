@@ -37,7 +37,7 @@ export function ContactPage() {
               Get In Touch
             </h1>
             <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
-              Let's discuss how we can bring your event vision to life
+              Let&apos;s discuss how we can bring your event vision to life
             </p>
           </motion.div>
         </div>

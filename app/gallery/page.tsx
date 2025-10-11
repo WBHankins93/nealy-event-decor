@@ -73,10 +73,10 @@ export default function GalleryPage() {
             className="max-w-3xl mx-auto text-center space-y-8"
           >
             <h2 className="heading-lg text-signature-gold">
-              Let's Create Your Vision
+              Let&apos;s Create Your Vision
             </h2>
             <p className="body-lg text-pearl-white/90">
-              Ready to bring your event to life with custom décor that's uniquely yours?
+              Ready to bring your event to life with custom décor that&apos;s uniquely yours?
             </p>
             <motion.a
               href="/contact"
