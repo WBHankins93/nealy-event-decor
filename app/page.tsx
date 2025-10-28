@@ -7,7 +7,7 @@ import HeroSection from "@/components/home/HeroSection";
 import EntranceOverlay from "@/components/entrance/EntranceOverlay";
 
 export default function HomePage() {
-  // Always show entrance on page load
+  // Always show entrance on homepage load
   const [showEntrance, setShowEntrance] = useState(true);
 
   const handleEntranceComplete = () => {
@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Entrance Overlay */}
+      {/* Entrance Overlay - Shows every time homepage loads */}
       <AnimatePresence mode="wait">
         {showEntrance && (
           <EntranceOverlay onComplete={handleEntranceComplete} />
@@ -116,7 +116,7 @@ export default function HomePage() {
         </section>
 
         {/* Services Overview */}
-        <section className="section-padding bg-forest-green text-pearl-white">
+        <section className="section-padding bg-wine-burgundy text-pearl-white">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

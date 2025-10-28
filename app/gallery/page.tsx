@@ -9,10 +9,6 @@ export default function GalleryPage() {
 
   const filters = [
     { id: "all", label: "All Events" },
-    { id: "weddings", label: "Weddings" },
-    { id: "corporate", label: "Corporate" },
-    { id: "galas", label: "Galas" },
-    { id: "custom", label: "Custom Fabrication" },
   ];
 
   return (
@@ -26,7 +22,7 @@ export default function GalleryPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="heading-xl text-signature-gold mb-6">
-              Portfolio
+              Gallery
             </h1>
             <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
               Explore our collection of breathtaking events and custom creations. 

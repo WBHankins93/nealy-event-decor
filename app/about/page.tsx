@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="pt-24">
-      {/* Hero Section */}
+    <div className="min-h-screen pt-24">
+      {/* Simple Hero */}
       <section className="section-padding bg-wine-burgundy text-pearl-white">
         <div className="container-custom text-center">
           <motion.div
@@ -17,92 +17,44 @@ export default function AboutPage() {
             <h1 className="heading-xl text-signature-gold mb-6">
               Our Story
             </h1>
-            <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
-              Creating dream events through luxury fabrication and timeless design
+            <p className="text-xl md:text-2xl font-playfair text-pearl-white/90 italic">
+              Where legacy meets creation.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Story Content - All in One Section */}
       <section className="section-padding bg-pearl-white">
-        <div className="container-custom max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6 text-charcoal-black/80 leading-relaxed"
-          >
-            <p className="body-lg">
-              Nealy was born from a simple belief: every celebration deserves to be extraordinary. 
-              What started as a passion for transforming spaces has evolved into a full-service event 
-              design company specializing in custom fabrication and luxury rentals.
-            </p>
-            <p className="body-lg">
-              Our name carries legacy—a family tradition of craftsmanship and attention to detail 
-              that spans generations. We bring that same dedication to every arch, every bar, every 
-              custom piece we create for your special day.
-            </p>
-            <p className="body-lg">
-              From intimate garden weddings to grand corporate galas, we approach each event as a 
-              unique canvas. Our team combines artistic vision with technical precision, ensuring 
-              that your celebration reflects your personality and exceeds your expectations.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="section-padding bg-forest-green text-pearl-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="max-w-4xl mx-auto space-y-6"
           >
-            <h2 className="heading-lg text-signature-gold mb-6">
-              What Drives Us
-            </h2>
-          </motion.div>
+            <p className="body-lg text-charcoal-black/90 leading-relaxed">
+              Nealy was born from a lifelong desire to create beauty and elevate spaces into something extraordinary. With a deep love for architecture, design, and the art of building, every piece crafted under Nealy carries intention, emotion, and artistry.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Creativity",
-                description: "Every event is an opportunity to push boundaries and create something truly unique.",
-              },
-              {
-                title: "Quality",
-                description: "We never compromise on materials, craftsmanship, or service excellence.",
-              },
-              {
-                title: "Partnership",
-                description: "Your vision guides us. We're here to bring it to life, exceeding expectations every time.",
-              },
-            ].map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center space-y-4"
-              >
-                <h3 className="text-2xl font-playfair font-semibold text-signature-gold">
-                  {value.title}
-                </h3>
-                <p className="text-pearl-white/80">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
+            <p className="body-lg text-charcoal-black/90 leading-relaxed">
+              The name Nealy holds a special place in my heart — it's the family name I grew up with, the name I believed was mine until I was fourteen. Though it never appeared on paper, it has always felt like home. Naming this company Nealy is my way of honoring that part of myself — the roots, the history, and the creative spirit that shaped who I am today.
+            </p>
+
+            <p className="body-lg text-charcoal-black/90 leading-relaxed">
+              At Nealy, we don't just design décor; we bring imagination into form. From initial sketches to final fabrication, each piece is built to capture your vision in a way that feels deeply personal and unforgettable. I believe in crafting environments that speak — where every line, texture, and color flows seamlessly to tell your story.
+            </p>
+
+            <p className="body-lg text-charcoal-black/90 leading-relaxed italic">
+              More than a backdrop, each installation is a feeling — a reflection of your dream brought to life with precision, passion, and care.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-pearl-light">
+      <section className="section-padding bg-forest-green text-pearl-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -111,14 +63,14 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center space-y-8"
           >
-            <h2 className="heading-lg text-forest-green">
-              Ready to Start Planning?
+            <h2 className="heading-lg text-signature-gold">
+              Let's Create Together
             </h2>
-            <p className="body-lg text-charcoal-black/80">
-              Let&apos;s create something beautiful together
+            <p className="body-lg text-pearl-white/90">
+              Every event is an opportunity to tell a story. Let us help you tell yours.
             </p>
             <Link href="/contact" className="btn-primary inline-block">
-              Get in Touch
+              Start Your Project
             </Link>
           </motion.div>
         </div>

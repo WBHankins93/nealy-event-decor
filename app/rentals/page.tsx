@@ -2,219 +2,171 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import HeroSection from "@/components/home/HeroSection";
-import EntranceOverlay from "@/components/entrance/EntranceOverlay";
+import { useState } from "react";
 
-export default function HomePage() {
-  const [showEntrance, setShowEntrance] = useState(false);
+export default function RentalsPage() {
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Only show entrance if user hasn't seen it this session
-    const hasSeenEntrance = sessionStorage.getItem('hasSeenEntrance');
-    
-    if (!hasSeenEntrance) {
-      setShowEntrance(true);
-      sessionStorage.setItem('hasSeenEntrance', 'true');
+  const rentalCategories = [
+    {
+      name: "Bars",
+      items: ["Bar", "Bar Back", "Bar Cart", "Drink Displays"]
+    },
+    {
+      name: "Decor",
+      items: [
+        "Large Decor",
+        "Small Decor",
+        "Games",
+        "Umbrellas",
+        "Vessels + Containers",
+        "Candle Holder + Votives",
+        "Decanter + Vases",
+        "Trays"
+      ]
+    },
+    {
+      name: "Lounge Furniture",
+      items: ["Sofa", "Lounge Tables", "Coffee Table", "End Tables"]
+    },
+    {
+      name: "Lighting",
+      items: ["Statement Lighting", "Table Top Lighting"]
+    },
+    {
+      name: "Table Top",
+      items: ["Dinnerware", "Drinkware", "Accessories", "Linens"]
     }
-  }, []);
+  ];
 
-  const handleEntranceComplete = () => {
-    setShowEntrance(false);
+  const toggleCategory = (categoryName: string) => {
+    setOpenCategory(openCategory === categoryName ? null : categoryName);
   };
 
   return (
-    <>
-      {/* Entrance Overlay */}
-      <AnimatePresence mode="wait">
-        {showEntrance && (
-          <EntranceOverlay onComplete={handleEntranceComplete} />
-        )}
-      </AnimatePresence>
+    <div className="min-h-screen pt-24">
+      {/* Simple Hero */}
+      <section className="section-padding bg-forest-green text-pearl-white">
+        <div className="container-custom text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="heading-xl text-signature-gold mb-6">
+              Rentals
+            </h1>
+            <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
+              Explore our curated collection of luxury event rentals
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Main Homepage Content */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showEntrance ? 0 : 1 }}
-        transition={{ duration: 0.5 }}
-        className="pt-24"
-      >
-        <HeroSection />
-        
-        {/* Introduction Section */}
-        <section className="section-padding bg-pearl-light">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center space-y-6"
-            >
-              <h2 className="heading-lg text-forest-green">
-                Luxury Fabrication for Unforgettable Moments
-              </h2>
-              <p className="body-lg text-charcoal-black/80 leading-relaxed">
-                At Nealy, we believe every event is a canvas for creating dreams. 
-                From elegant weddings to grand galas, our custom fabrication and 
-                premium rentals transform your vision into breathtaking reality.
-              </p>
-              <Link href="/about" className="btn-secondary inline-block">
-                Our Story
-              </Link>
-            </motion.div>
+      {/* Rental Categories with Dropdown */}
+      <section className="section-padding bg-pearl-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="heading-lg text-forest-green mb-6">
+              Browse by Category
+            </h2>
+            <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
+              Select a category to explore our inventory
+            </p>
+          </motion.div>
+
+          {/* Category Headers */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            {rentalCategories.map((category, index) => (
+              <motion.button
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => toggleCategory(category.name)}
+                className={`p-6 rounded-lg text-center font-playfair font-semibold transition-all duration-300 ${
+                  openCategory === category.name
+                    ? "bg-forest-green text-pearl-white shadow-lg"
+                    : "bg-pearl-light text-forest-green hover:bg-pearl-light/80 hover:shadow-md"
+                }`}
+              >
+                {category.name}
+              </motion.button>
+            ))}
           </div>
-        </section>
 
-        {/* Gallery Section */}
-        <section className="section-padding bg-pearl-white">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-lg text-forest-green mb-6">
-                Gallery
-              </h2>
-              <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
-                A glimpse into our world of custom fabrication and luxury event design
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative overflow-hidden rounded-lg aspect-[4/5] bg-forest-green/10"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-forest-emerald to-meadow-sage" />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/80 via-charcoal-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-pearl-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="text-xs tracking-widest uppercase text-signature-gold mb-2">
-                        Event Design
-                      </p>
-                      <h3 className="text-xl md:text-2xl font-playfair font-semibold">
-                        Featured Work {index}
-                      </h3>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center mt-12"
-            >
-              <Link href="/gallery" className="btn-primary inline-block">
-                View Full Gallery
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Services Overview */}
-        <section className="section-padding bg-wine-burgundy text-pearl-white">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
-              className="text-center mb-16"
-            >
-              <h2 className="heading-lg text-signature-gold mb-6">
-                What We Create
-              </h2>
-              <p className="body-lg text-pearl-white/80 max-w-3xl mx-auto">
-                From concept to creation, we craft custom event elements that leave lasting impressions
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Custom Arches",
-                  description: "Dramatic statement pieces tailored to your aesthetic and venue",
-                },
-                {
-                  title: "Luxury Bars",
-                  description: "Bespoke bar designs that become conversation centerpieces",
-                },
-                {
-                  title: "Décor Rentals",
-                  description: "Curated collections of premium furniture and accent pieces",
-                },
-              ].map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-pearl-white/5 backdrop-blur-sm p-8 rounded-lg border border-signature-gold/20 hover:border-signature-gold/50 transition-all duration-300"
-                >
-                  <h3 className="heading-sm text-signature-gold mb-4">
-                    {service.title}
+          {/* Dropdown Content */}
+          <AnimatePresence mode="wait">
+            {openCategory && (
+              <motion.div
+                key={openCategory}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-pearl-light rounded-lg overflow-hidden"
+              >
+                <div className="p-8">
+                  <h3 className="heading-md text-forest-green mb-6">
+                    {openCategory}
                   </h3>
-                  <p className="text-pearl-white/80">{service.description}</p>
-                </motion.div>
-              ))}
-            </div>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+                    {rentalCategories
+                      .find((cat) => cat.name === openCategory)
+                      ?.items.map((item) => (
+                        <div
+                          key={item}
+                          className="bg-white p-6 rounded-lg text-center hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                        >
+                          <p className="text-charcoal-black/80 font-medium group-hover:text-forest-green transition-colors">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                  </div>
+                  
+                  {/* Additional Details Section */}
+                  <div className="p-4 bg-signature-gold/10 rounded-lg border border-signature-gold/20">
+                    <p className="text-sm text-charcoal-black/70 text-center">
+                      Click on any item to see detailed features including dimensions and quantity available
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-center mt-12"
-            >
-              <Link href="/services" className="btn-primary inline-block">
-                Explore Services
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="section-padding bg-forest-green text-pearl-white">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-3xl mx-auto text-center space-y-8"
-            >
-              <h2 className="heading-lg text-signature-gold">
-                Ready to Create Something Unforgettable?
-              </h2>
-              <p className="body-lg text-pearl-white/90">
-                Let&apos;s bring your vision to life with custom décor that tells your unique story
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact" className="btn-primary">
-                  Contact!
-                </Link>
-                <Link href="/contact" className="btn-secondary border-pearl-white text-pearl-white hover:bg-pearl-white hover:text-forest-green">
-                  Sign Up for Newsletter
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      </motion.div>
-    </>
+      {/* CTA */}
+      <section className="section-padding bg-wine-burgundy text-pearl-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center space-y-8"
+          >
+            <h2 className="heading-lg text-signature-gold">
+              Ready to Reserve?
+            </h2>
+            <p className="body-lg text-pearl-white/90">
+              Contact us to check availability and book your rentals
+            </p>
+            <Link href="/contact" className="btn-primary inline-block">
+              Get in Touch
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 }

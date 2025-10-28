@@ -12,15 +12,9 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryItems = [
-    { id: 1, title: "Garden Wedding Arch", category: "weddings", image: "/images/gallery/1.jpg" },
-    { id: 2, title: "Corporate Event Bar", category: "corporate", image: "/images/gallery/2.jpg" },
-    { id: 3, title: "Gala Centerpieces", category: "galas", image: "/images/gallery/3.jpg" },
-    { id: 4, title: "Custom Ceremony Backdrop", category: "weddings", image: "/images/gallery/4.jpg" },
-    { id: 5, title: "Luxury Lounge Setup", category: "corporate", image: "/images/gallery/5.jpg" },
-    { id: 6, title: "Anniversary Tablescape", category: "galas", image: "/images/gallery/6.jpg" },
-    { id: 7, title: "Custom Floral Installation", category: "custom", image: "/images/gallery/7.jpg" },
-    { id: 8, title: "Wedding Reception Design", category: "weddings", image: "/images/gallery/8.jpg" },
-    { id: 9, title: "Brand Activation Setup", category: "corporate", image: "/images/gallery/9.jpg" },
+    { id: 1, title: "Blue Sofa Lounge", category: "weddings", image: "/images/gallery/1.jpg" },
+    { id: 2, title: "Italian Romance Setup", category: "weddings", image: "/images/gallery/2.jpg" },
+    { id: 3, title: "Wedding Highlights", category: "weddings", image: "/images/gallery/3.jpg" },
   ];
 
   const filteredItems = activeFilter === "all" 

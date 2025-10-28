@@ -69,7 +69,7 @@ export default function Footer() {
                   href="mailto:hello@nealyeventdecor.com"
                   className="hover:text-signature-gold transition-colors duration-300"
                 >
-                  hello@nealyeventdecor.com
+                  nealy.eventdecor@gmail.com
                 </a>
               </li>
               <li>
@@ -77,7 +77,7 @@ export default function Footer() {
                   href="tel:+1234567890"
                   className="hover:text-signature-gold transition-colors duration-300"
                 >
-                  (123) 456-7890
+                  (972) 415-3514
                 </a>
               </li>
               <li className="pt-2">
