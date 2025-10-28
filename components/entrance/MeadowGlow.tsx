@@ -50,7 +50,7 @@ export default function MeadowGlow() {
               rgba(156, 175, 136, 0.08) 0%, 
               transparent 40%),
             radial-gradient(ellipse at 70% 60%, 
-              rgba(177, 156, 217, 0.08) 0%, 
+              rgba(184, 212, 168, 0.08) 0%, 
               transparent 40%)
           `,
         }}

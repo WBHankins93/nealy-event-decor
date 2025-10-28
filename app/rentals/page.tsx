@@ -2,13 +2,22 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeroSection from "@/components/home/HeroSection";
 import EntranceOverlay from "@/components/entrance/EntranceOverlay";
 
 export default function HomePage() {
-  // Always show entrance on page load
-  const [showEntrance, setShowEntrance] = useState(true);
+  const [showEntrance, setShowEntrance] = useState(false);
+
+  useEffect(() => {
+    // Only show entrance if user hasn't seen it this session
+    const hasSeenEntrance = sessionStorage.getItem('hasSeenEntrance');
+    
+    if (!hasSeenEntrance) {
+      setShowEntrance(true);
+      sessionStorage.setItem('hasSeenEntrance', 'true');
+    }
+  }, []);
 
   const handleEntranceComplete = () => {
     setShowEntrance(false);
@@ -116,7 +125,7 @@ export default function HomePage() {
         </section>
 
         {/* Services Overview */}
-        <section className="section-padding bg-forest-green text-pearl-white">
+        <section className="section-padding bg-wine-burgundy text-pearl-white">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

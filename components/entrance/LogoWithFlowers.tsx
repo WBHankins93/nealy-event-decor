@@ -32,7 +32,7 @@ export default function LogoWithFlowers() {
           <line x1="30" y1="38" x2="30" y2="60" stroke="#2C3E28" strokeWidth="2" />
           
           {/* Small bud */}
-          <circle cx="50" cy="50" r="4" fill="#B19CD9" opacity="0.7" />
+          <circle cx="50" cy="50" r="4" fill="#B8D4A8" opacity="0.7" />
           <line x1="50" y1="54" x2="50" y2="68" stroke="#2C3E28" strokeWidth="1.5" />
         </svg>
       </motion.div>
@@ -46,11 +46,11 @@ export default function LogoWithFlowers() {
       >
         <svg width="80" height="80" viewBox="0 0 80 80" className="opacity-70">
           {/* Wildflower 2 */}
-          <circle cx="50" cy="30" r="7" fill="#B19CD9" opacity="0.8" />
-          <circle cx="43" cy="26" r="5" fill="#B19CD9" opacity="0.6" />
-          <circle cx="57" cy="26" r="5" fill="#B19CD9" opacity="0.6" />
-          <circle cx="46" cy="35" r="5" fill="#B19CD9" opacity="0.6" />
-          <circle cx="54" cy="35" r="5" fill="#B19CD9" opacity="0.6" />
+          <circle cx="50" cy="30" r="7" fill="#B8D4A8" opacity="0.8" />
+          <circle cx="43" cy="26" r="5" fill="#B8D4A8" opacity="0.6" />
+          <circle cx="57" cy="26" r="5" fill="#B8D4A8" opacity="0.6" />
+          <circle cx="46" cy="35" r="5" fill="#B8D4A8" opacity="0.6" />
+          <circle cx="54" cy="35" r="5" fill="#B8D4A8" opacity="0.6" />
           <circle cx="50" cy="30" r="3" fill="#D4AF37" />
           <line x1="50" y1="37" x2="50" y2="58" stroke="#2C3E28" strokeWidth="2" />
           
@@ -63,7 +63,7 @@ export default function LogoWithFlowers() {
       {/* Main Logo Text */}
       <div className="relative">
         <motion.h1
-          className="text-7xl md:text-9xl lg:text-[10rem] font-playfair font-bold text-pearl-white tracking-tight"
+          className="text-8xl md:text-[11rem] lg:text-[13rem] font-playfair font-bold text-pearl-white tracking-tight"
           style={{
             textShadow: "0 2px 40px rgba(212, 175, 55, 0.4)",
           }}
@@ -121,10 +121,10 @@ export default function LogoWithFlowers() {
         {/* Small flower accent right */}
         <svg width="20" height="20" viewBox="0 0 20 20" className="opacity-60">
           <circle cx="10" cy="10" r="3" fill="#D4AF37" />
-          <circle cx="6" cy="8" r="2" fill="#B19CD9" opacity="0.8" />
-          <circle cx="14" cy="8" r="2" fill="#B19CD9" opacity="0.8" />
-          <circle cx="8" cy="13" r="2" fill="#B19CD9" opacity="0.8" />
-          <circle cx="12" cy="13" r="2" fill="#B19CD9" opacity="0.8" />
+          <circle cx="6" cy="8" r="2" fill="#B8D4A8" opacity="0.8" />
+          <circle cx="14" cy="8" r="2" fill="#B8D4A8" opacity="0.8" />
+          <circle cx="8" cy="13" r="2" fill="#B8D4A8" opacity="0.8" />
+          <circle cx="12" cy="13" r="2" fill="#B8D4A8" opacity="0.8" />
         </svg>
       </motion.div>
 
@@ -139,7 +139,7 @@ export default function LogoWithFlowers() {
           {/* Small meadow flowers cluster */}
           <circle cx="40" cy="20" r="5" fill="#9CAF88" opacity="0.7" />
           <circle cx="60" cy="18" r="6" fill="#F6C6CD" opacity="0.7" />
-          <circle cx="80" cy="22" r="5" fill="#B19CD9" opacity="0.7" />
+          <circle cx="80" cy="22" r="5" fill="#B8D4A8" opacity="0.7" />
           <line x1="40" y1="25" x2="40" y2="50" stroke="#2C3E28" strokeWidth="1.5" opacity="0.5" />
           <line x1="60" y1="24" x2="60" y2="50" stroke="#2C3E28" strokeWidth="1.5" opacity="0.5" />
           <line x1="80" y1="27" x2="80" y2="50" stroke="#2C3E28" strokeWidth="1.5" opacity="0.5" />

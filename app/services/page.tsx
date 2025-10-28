@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import ServiceCategories from "@/components/services/ServiceCategories";
 import PricingCards from "@/components/services/PricingCards";
-import CustomRequestForm from "@/components/services/CustomRequestForm";
 
 export default function ServicesPage() {
   return (
@@ -94,7 +93,6 @@ export default function ServicesPage() {
       </section>
 
       <PricingCards />
-      <CustomRequestForm />
     </div>
   );
 }

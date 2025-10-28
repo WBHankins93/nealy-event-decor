@@ -37,55 +37,18 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <Link
-              href="/gallery"
+              href="/contact"
               className="btn-primary"
             >
-              View Portfolio
-            </Link>
-            <Link
-              href="/contact"
-              className="btn-secondary border-pearl-white text-pearl-white hover:bg-pearl-white hover:text-forest-green"
-            >
-              Book Consultation
+              Let&apos;s Plan Together
             </Link>
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 1.5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
-          }}
-        >
-          <div className="flex flex-col items-center space-y-2 text-pearl-white/80">
-            <span className="text-sm tracking-widest uppercase">Scroll</span>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </div>
         </motion.div>
       </div>
     </section>

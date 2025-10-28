@@ -58,7 +58,7 @@ export default function PricingCards() {
           className="text-center mb-16"
         >
           <h2 className="heading-lg text-signature-gold mb-6">
-            Packages & Pricing
+            Custom Packages
           </h2>
           <p className="body-lg text-pearl-white/80 max-w-3xl mx-auto">
             Flexible options to suit your vision and budget
