@@ -88,7 +88,7 @@ export default function HeroSection() {
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/animations/home-page-video.mp4" type="video/mp4" />
+        <source src="https://sikaxiyfzkexnnkjkuhg.supabase.co/storage/v1/object/public/gallery/animations/home-page-video.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay for readability */}
