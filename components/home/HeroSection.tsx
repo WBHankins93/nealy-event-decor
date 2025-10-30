@@ -8,13 +8,11 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mounted, setMounted] = useState(false);
 
-  // Ensure component is mounted client-side
   useEffect(() => {
     setMounted(true);
     console.log("🟢 Component mounted!");
   }, []);
 
-  // Handle video once mounted
   useEffect(() => {
     if (!mounted) return;
     
@@ -27,31 +25,55 @@ export default function HeroSection() {
     }
 
     console.log("✅ Video element found");
+    console.log("📊 Video readyState:", video.readyState);
+    console.log("📊 Video src:", video.currentSrc);
+    console.log("📊 Video paused:", video.paused);
     
     const playVideo = async () => {
+      console.log("▶️ Attempting to play video...");
       try {
         video.muted = true;
+        video.playsInline = true;
+        
         await video.play();
         console.log("✅ Video playing!");
+        console.log("📊 After play - paused:", video.paused);
       } catch (err) {
         console.error("❌ Play failed:", err);
       }
     };
 
-    // Wait a bit for video to load
+    // Try multiple approaches
+    console.log("Checking readyState:", video.readyState);
+    
     if (video.readyState >= 3) {
+      console.log("Video ready, playing now");
       playVideo();
     } else {
-      video.addEventListener('loadeddata', playVideo, { once: true });
+      console.log("Video not ready, waiting for loadeddata event");
+      video.addEventListener('loadeddata', () => {
+        console.log("📺 loadeddata event fired!");
+        playVideo();
+      }, { once: true });
+      
+      // Also try on canplay
+      video.addEventListener('canplay', () => {
+        console.log("📺 canplay event fired!");
+      }, { once: true });
     }
+
+    // Force load
+    video.load();
+    console.log("📺 video.load() called");
 
     return () => {
       video.removeEventListener('loadeddata', playVideo);
+      video.removeEventListener('canplay', playVideo);
     };
   }, [mounted]);
 
   if (!mounted) {
-    return null; // Prevent SSR render
+    return null;
   }
 
   return (
