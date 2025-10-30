@@ -1,6 +1,6 @@
 /**
  * Supabase Storage Upload Script
- * Uploads all gallery images to Supabase Storage
+ * Uploads all gallery images and animation videos to Supabase Storage
  */
 
 require('dotenv').config({ path: '.env.local' });
@@ -24,6 +24,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Paths
 const GALLERY_BASE_PATH = './public/images/gallery';
+const ANIMATIONS_BASE_PATH = './public/animations';
 const BUCKET_NAME = 'gallery';
 
 // Track upload results
@@ -34,9 +35,9 @@ const results = {
 };
 
 /**
- * Upload a single image to Supabase Storage
+ * Upload a single file to Supabase Storage
  */
-async function uploadImage(filePath, storagePath) {
+async function uploadFile(filePath, storagePath) {
   try {
     console.log(`Uploading: ${filePath} -> ${storagePath}`);
     
@@ -94,15 +95,22 @@ function getContentType(filePath) {
     '.png': 'image/png',
     '.gif': 'image/gif',
     '.webp': 'image/webp',
-    '.svg': 'image/svg+xml'
+    '.svg': 'image/svg+xml',
+    '.mp4': 'video/mp4',
+    '.mov': 'video/quicktime',
+    '.webm': 'video/webm'
   };
   return types[ext] || 'application/octet-stream';
 }
 
 /**
- * Recursively find all image files in directory
+ * Recursively find all media files in directory
  */
-function findImageFiles(dir, fileList = []) {
+function findMediaFiles(dir, fileList = []) {
+  if (!fs.existsSync(dir)) {
+    return fileList;
+  }
+  
   const files = fs.readdirSync(dir);
   
   files.forEach(file => {
@@ -110,8 +118,8 @@ function findImageFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     
     if (stat.isDirectory()) {
-      findImageFiles(filePath, fileList);
-    } else if (/\.(jpg|jpeg|png|gif|webp|svg)$/i.test(file)) {
+      findMediaFiles(filePath, fileList);
+    } else if (/\.(jpg|jpeg|png|gif|webp|svg|mp4|mov|webm)$/i.test(file)) {
       fileList.push(filePath);
     }
   });
@@ -121,44 +129,59 @@ function findImageFiles(dir, fileList = []) {
 
 /**
  * Convert local file path to Supabase storage path
- * Example: ./public/images/gallery/03-Gallery/BlueSofaLounge/image.png
- * Becomes: 03-Gallery/BlueSofaLounge/image.png
  */
-function getStoragePath(localPath) {
-  const relativePath = path.relative(GALLERY_BASE_PATH, localPath);
+function getStoragePath(localPath, basePath) {
+  const relativePath = path.relative(basePath, localPath);
   return relativePath.replace(/\\/g, '/');
 }
 
 /**
  * Main upload function
  */
-async function uploadAllImages() {
+async function uploadAllMedia() {
   console.log('🚀 Starting Supabase Upload...\n');
   console.log(`Supabase URL: ${supabaseUrl}`);
-  console.log(`Bucket: ${BUCKET_NAME}`);
-  console.log(`Base Path: ${GALLERY_BASE_PATH}\n`);
+  console.log(`Bucket: ${BUCKET_NAME}\n`);
   
-  // Check if gallery directory exists
-  if (!fs.existsSync(GALLERY_BASE_PATH)) {
-    console.error(`❌ Gallery directory not found: ${GALLERY_BASE_PATH}`);
-    process.exit(1);
+  const allFiles = [];
+  
+  // Find gallery images
+  if (fs.existsSync(GALLERY_BASE_PATH)) {
+    console.log('📁 Scanning gallery images...');
+    const galleryFiles = findMediaFiles(GALLERY_BASE_PATH);
+    galleryFiles.forEach(file => {
+      allFiles.push({
+        localPath: file,
+        storagePath: getStoragePath(file, GALLERY_BASE_PATH)
+      });
+    });
+    console.log(`Found ${galleryFiles.length} gallery images`);
   }
   
-  // Find all images
-  console.log('📁 Scanning for images...');
-  const imageFiles = findImageFiles(GALLERY_BASE_PATH);
-  console.log(`Found ${imageFiles.length} images\n`);
+  // Find animation videos
+  if (fs.existsSync(ANIMATIONS_BASE_PATH)) {
+    console.log('📁 Scanning animation videos...');
+    const animationFiles = findMediaFiles(ANIMATIONS_BASE_PATH);
+    animationFiles.forEach(file => {
+      allFiles.push({
+        localPath: file,
+        storagePath: `animations/${path.basename(file)}`
+      });
+    });
+    console.log(`Found ${animationFiles.length} animation videos`);
+  }
   
-  if (imageFiles.length === 0) {
-    console.log('No images found to upload.');
+  console.log(`\nTotal files to upload: ${allFiles.length}\n`);
+  
+  if (allFiles.length === 0) {
+    console.log('No files found to upload.');
     return;
   }
   
-  // Upload each image
+  // Upload each file
   console.log('📤 Starting uploads...\n');
-  for (const filePath of imageFiles) {
-    const storagePath = getStoragePath(filePath);
-    await uploadImage(filePath, storagePath);
+  for (const file of allFiles) {
+    await uploadFile(file.localPath, file.storagePath);
     
     // Small delay to avoid rate limits
     await new Promise(resolve => setTimeout(resolve, 50));
@@ -173,6 +196,16 @@ async function uploadAllImages() {
   console.log(`⊘ Skipped: ${results.skipped.length}`);
   console.log('='.repeat(50) + '\n');
   
+  // Print video URLs if any were uploaded
+  const videoUploads = results.success.filter(r => /\.(mp4|mov|webm)$/i.test(r.storage));
+  if (videoUploads.length > 0) {
+    console.log('🎬 Video URLs:');
+    videoUploads.forEach(video => {
+      console.log(`   ${video.storage}`);
+      console.log(`   → ${video.url}\n`);
+    });
+  }
+  
   // Save detailed results to file
   const reportPath = './supabase-upload-report.json';
   fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
@@ -181,13 +214,13 @@ async function uploadAllImages() {
   if (results.failed.length > 0) {
     console.log('❌ Some uploads failed. Check the report for details.');
   } else {
-    console.log('✅ All images uploaded successfully!');
-    console.log('\n🎉 Your images are now on Supabase CDN!');
+    console.log('✅ All files uploaded successfully!');
+    console.log('\n🎉 Your media is now on Supabase CDN!');
   }
 }
 
 // Run the upload
-uploadAllImages().catch(error => {
+uploadAllMedia().catch(error => {
   console.error('Fatal error:', error);
   process.exit(1);
 });
