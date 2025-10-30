@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import GalleryImage from "./GalleryImage";
 
 interface GalleryItemProps {
   item: {
     id: number;
     title: string;
     category: string;
-    image: string;
+    image: string; // This will now be a Cloudinary path
   };
   index: number;
   onClick: () => void;
@@ -24,8 +25,14 @@ export default function GalleryItem({ item, index, onClick }: GalleryItemProps) 
       onClick={onClick}
       className="group relative overflow-hidden rounded-lg aspect-[4/5] cursor-pointer"
     >
-      {/* Placeholder gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-emerald via-meadow-sage to-signature-gold" />
+      {/* UPDATED: Replace placeholder with Cloudinary image */}
+      <GalleryImage
+        src={item.image}
+        alt={item.title}
+        width={800}
+        height={1000}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
       {/* Organic border overlay */}
       <div className="absolute inset-0 border-4 border-signature-gold/0 group-hover:border-signature-gold/30 rounded-lg transition-all duration-500" />

@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import HeroSection from "@/components/home/HeroSection";
 import EntranceOverlay from "@/components/entrance/EntranceOverlay";
+import GalleryImage from "@/components/gallery/GalleryImage";
+import { getImagePath } from "@/lib/galleryConfig";
 
 export default function HomePage() {
   // Always show entrance on homepage load
@@ -57,7 +59,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Gallery Section */}
+        {/* Gallery Section - UPDATED WITH SUPABASE */}
         <section className="section-padding bg-pearl-white">
           <div className="container-custom">
             <motion.div
@@ -67,16 +69,33 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h2 className="heading-lg text-forest-green mb-6">
-                Gallery
-              </h2>
+              <h2 className="heading-lg text-forest-green mb-6">Gallery</h2>
               <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
                 A glimpse into our world of custom fabrication and luxury event design
               </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((index) => (
+              {[
+                {
+                  title: "Blue Sofa",
+                  subtitle: "Event Design",
+                  // UPDATED: Get Supabase URL using helper function
+                  image: getImagePath('03-Gallery', 'BlueSofaLounge', 'IMG_0936'),
+                },
+                {
+                  title: "Italian Romance",
+                  subtitle: "Luxury Decor",
+                  // UPDATED: Get Supabase URL using helper function
+                  image: getImagePath('03-Gallery', 'ItalianRomanceSetup', 'business-pics-45'),
+                },
+                {
+                  title: "Wedding Highlights",
+                  subtitle: "Event Styling",
+                  // UPDATED: Get Supabase URL using helper function
+                  image: getImagePath('03-Gallery', 'WeddingHighlights', 'IMG_5071'),
+                },
+              ].map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
@@ -85,15 +104,23 @@ export default function HomePage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group relative overflow-hidden rounded-lg aspect-[4/5] bg-forest-green/10"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-forest-emerald to-meadow-sage" />
-                  
+                  {/* Using GalleryImage component with Supabase URL */}
+                  <GalleryImage
+                    src={item.image}
+                    alt={item.title}
+                    width={800}
+                    height={1000}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+
+                  {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/80 via-charcoal-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-pearl-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                       <p className="text-xs tracking-widest uppercase text-signature-gold mb-2">
-                        Event Design
+                        {item.subtitle}
                       </p>
                       <h3 className="text-xl md:text-2xl font-playfair font-semibold">
-                        Featured Work {index}
+                        {item.title}
                       </h3>
                     </div>
                   </div>
@@ -114,6 +141,7 @@ export default function HomePage() {
             </motion.div>
           </div>
         </section>
+
 
         {/* Services Overview */}
         <section className="section-padding bg-wine-burgundy text-pearl-white">

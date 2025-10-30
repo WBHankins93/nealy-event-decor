@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.env.local
+.env*.local
+
+# Gallery images (now on Supabase)
+public/images/gallery/**/*.jpg
+public/images/gallery/**/*.jpeg
+public/images/gallery/**/*.png
+public/images/gallery/**/*.gif
+public/images/gallery/**/*.webp
+
+# Video files
+public/animations/*.mp4
+public/animations/*.mov
+
+# Upload scripts and reports
+supabase-upload-report.json

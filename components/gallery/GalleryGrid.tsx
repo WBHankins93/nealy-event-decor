@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import GalleryItem from "./GalleryItem";
+import GalleryImage from "@/components/gallery/GalleryImage";
+import { getGalleryImages } from "@/lib/galleryHelpers";
 
 interface GalleryGridProps {
   activeFilter: string;
@@ -11,10 +13,34 @@ interface GalleryGridProps {
 export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
+  // UPDATED: Get images from Cloudinary via config
+  const blueSofaImages = getGalleryImages('03-Gallery', 'BlueSofaLounge');
+  const italianRomanceImages = getGalleryImages('03-Gallery', 'ItalianRomanceSetup');
+  const weddingImages = getGalleryImages('03-Gallery', 'WeddingHighlights');
+
+  // UPDATED: Build gallery items with Cloudinary paths
   const galleryItems = [
-    { id: 1, title: "Blue Sofa Lounge", category: "weddings", image: "/images/gallery/1.jpg" },
-    { id: 2, title: "Italian Romance Setup", category: "weddings", image: "/images/gallery/2.jpg" },
-    { id: 3, title: "Wedding Highlights", category: "weddings", image: "/images/gallery/3.jpg" },
+    // Blue Sofa Lounge items
+    ...blueSofaImages.map((image: string, index: number) => ({
+      id: index + 1,
+      title: `Blue Sofa Lounge ${index + 1}`,
+      category: "weddings",
+      image: image // Cloudinary path
+    })),
+    // Italian Romance items
+    ...italianRomanceImages.map((image: string, index: number) => ({
+      id: blueSofaImages.length + index + 1,
+      title: `Italian Romance Setup ${index + 1}`,
+      category: "weddings",
+      image: image // Cloudinary path
+    })),
+    // Wedding Highlights items
+    ...weddingImages.map((image: string, index: number) => ({
+      id: blueSofaImages.length + italianRomanceImages.length + index + 1,
+      title: `Wedding Highlight ${index + 1}`,
+      category: "weddings",
+      image: image // Cloudinary path
+    }))
   ];
 
   const filteredItems = activeFilter === "all" 
@@ -53,7 +79,7 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
         )}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal - UPDATED to show Cloudinary image */}
       <AnimatePresence>
         {selectedImage !== null && (
           <motion.div
@@ -68,17 +94,32 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               className="relative max-w-5xl w-full"
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 text-pearl-white hover:text-signature-gold transition-colors p-2"
+                className="absolute top-4 right-4 text-pearl-white hover:text-signature-gold transition-colors p-2 z-10"
                 aria-label="Close"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <div className="aspect-[4/3] bg-forest-green/20 rounded-lg" />
+              
+              {/* UPDATED: Show actual image in lightbox */}
+              {(() => {
+                const selectedItem = galleryItems.find(item => item.id === selectedImage);
+                return selectedItem ? (
+                  <GalleryImage
+                    src={selectedItem.image}
+                    alt={selectedItem.title}
+                    width={1200}
+                    height={900}
+                    className="w-full h-auto rounded-lg"
+                    priority
+                  />
+                ) : null;
+              })()}
             </motion.div>
           </motion.div>
         )}
