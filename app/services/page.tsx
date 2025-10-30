@@ -249,7 +249,7 @@ export default function ServicesPage() {
                     {pkg.tagline}
                   </p>
                   <p className="text-charcoal-black/90 mb-6 font-medium">
-                    "{pkg.description}"
+                    {pkg.description}
                   </p>
 
                   {/* Includes List */}
