@@ -6,49 +6,53 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
+  // Ensure component is mounted client-side
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    setMounted(true);
+    console.log("🟢 Component mounted!");
+  }, []);
 
-    const handleLoadedData = async () => {
-      console.log("Video loaded, attempting to play...");
-      setIsVideoLoaded(true);
-      
+  // Handle video once mounted
+  useEffect(() => {
+    if (!mounted) return;
+    
+    console.log("🎥 Setting up video...");
+    const video = videoRef.current;
+    
+    if (!video) {
+      console.log("❌ No video ref");
+      return;
+    }
+
+    console.log("✅ Video element found");
+    
+    const playVideo = async () => {
       try {
-        video.muted = true; // Force muted
-        video.loop = true;  // Force loop
+        video.muted = true;
         await video.play();
-        console.log("✅ Video playing successfully");
-      } catch (error) {
-        console.error("❌ Video autoplay failed:", error);
+        console.log("✅ Video playing!");
+      } catch (err) {
+        console.error("❌ Play failed:", err);
       }
     };
 
-    const handleEnded = () => {
-      console.log("Video ended, restarting...");
-      video.currentTime = 0;
-      video.play();
-    };
-
-    const handleError = (e: any) => {
-      console.error("❌ Video error:", e);
-    };
-
-    video.addEventListener("loadeddata", handleLoadedData);
-    video.addEventListener("ended", handleEnded);
-    video.addEventListener("error", handleError);
-
-    // Force load
-    video.load();
+    // Wait a bit for video to load
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener('loadeddata', playVideo, { once: true });
+    }
 
     return () => {
-      video.removeEventListener("loadeddata", handleLoadedData);
-      video.removeEventListener("ended", handleEnded);
-      video.removeEventListener("error", handleError);
+      video.removeEventListener('loadeddata', playVideo);
     };
-  }, []);
+  }, [mounted]);
+
+  if (!mounted) {
+    return null; // Prevent SSR render
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -63,15 +67,7 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/animations/home-page-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
-
-      {/* Debug info - remove after fixing */}
-      {!isVideoLoaded && (
-        <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded z-50">
-          Video Loading...
-        </div>
-      )}
 
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-charcoal-black/30" />
