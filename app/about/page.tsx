@@ -39,11 +39,11 @@ export default function AboutPage() {
             </p>
 
             <p className="body-lg text-charcoal-black/90 leading-relaxed">
-              The name Nealy holds a special place in my heart — it's the family name I grew up with, the name I believed was mine until I was fourteen. Though it never appeared on paper, it has always felt like home. Naming this company Nealy is my way of honoring that part of myself — the roots, the history, and the creative spirit that shaped who I am today.
+              The name Nealy holds a special place in my heart — it&apos;s the family name I grew up with, the name I believed was mine until I was fourteen. Though it never appeared on paper, it has always felt like home. Naming this company Nealy is my way of honoring that part of myself — the roots, the history, and the creative spirit that shaped who I am today.
             </p>
 
             <p className="body-lg text-charcoal-black/90 leading-relaxed">
-              At Nealy, we don't just design décor; we bring imagination into form. From initial sketches to final fabrication, each piece is built to capture your vision in a way that feels deeply personal and unforgettable. I believe in crafting environments that speak — where every line, texture, and color flows seamlessly to tell your story.
+              At Nealy, we don&apos;t just design décor; we bring imagination into form. From initial sketches to final fabrication, each piece is built to capture your vision in a way that feels deeply personal and unforgettable. I believe in crafting environments that speak — where every line, texture, and color flows seamlessly to tell your story.
             </p>
 
             <p className="body-lg text-charcoal-black/90 leading-relaxed italic">
@@ -64,7 +64,7 @@ export default function AboutPage() {
             className="max-w-3xl mx-auto text-center space-y-8"
           >
             <h2 className="heading-lg text-signature-gold">
-              Let's Create Together
+              Let&apos;s Create Together
             </h2>
             <p className="body-lg text-pearl-white/90">
               Every event is an opportunity to tell a story. Let us help you tell yours.

@@ -1,15 +1,11 @@
 "use client";
 
 import Image from 'next/image';
+import type { ComponentProps } from 'react';
 
-interface GalleryImageProps {
+interface GalleryImageProps extends Omit<ComponentProps<typeof Image>, 'src' | 'alt'> {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
-  className?: string;
-  priority?: boolean;
-  [key: string]: any;
 }
 
 export default function GalleryImage({ 

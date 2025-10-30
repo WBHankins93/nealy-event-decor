@@ -21,7 +21,7 @@ export default function WishlistPage() {
               Your Wishlist
             </h1>
             <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
-              Items you've selected for your custom package consultation
+              Items you&apos;ve selected for your custom package consultation
             </p>
           </motion.div>
         </div>
@@ -75,10 +75,10 @@ export default function WishlistPage() {
                   <strong>1. Add Items:</strong> Browse our rental catalog and add items to your wishlist
                 </p>
                 <p>
-                  <strong>2. Schedule Consultation:</strong> Once you've selected items, contact us to discuss your vision
+                  <strong>2. Schedule Consultation:</strong> Once you&apos;ve selected items, contact us to discuss your vision
                 </p>
                 <p>
-                  <strong>3. Custom Package:</strong> We'll create a personalized package based on your wishlist and event needs
+                  <strong>3. Custom Package:</strong> We&apos;ll create a personalized package based on your wishlist and event needs
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function WishlistPage() {
               Ready to Plan Your Event?
             </h2>
             <p className="body-lg text-pearl-white/90">
-              Let's discuss your wishlist and create the perfect package for your celebration
+              Let&apos;s discuss your wishlist and create the perfect package for your celebration
             </p>
             <Link href="/contact" className="btn-primary inline-block">
               Schedule Consultation

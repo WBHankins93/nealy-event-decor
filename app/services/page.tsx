@@ -204,7 +204,7 @@ export default function ServicesPage() {
               Crafted for Your Vision
             </h2>
             <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
-              Three levels of service. Complete customization. You're involved every step.
+              Three levels of service. Complete customization. You&apos;re involved every step.
             </p>
           </motion.div>
 
@@ -314,7 +314,7 @@ export default function ServicesPage() {
               Ready to Create Something Unforgettable?
             </h2>
             <p className="body-lg text-pearl-white/90">
-              Let's bring your vision to life with custom décor that tells your unique story
+              Let&apos;s bring your vision to life with custom décor that tells your unique story
             </p>
             <Link href="/contact" className="btn-primary inline-block">
               Start Your Project
