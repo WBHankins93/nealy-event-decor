@@ -5,29 +5,31 @@ import { motion } from "framer-motion";
 
 export default function LogoBanner() {
   return (
-    <div className="relative flex justify-center py-4">
-      {/* Decorative Gold Lines - Left Side extending to edge */}
-      <div className="absolute left-0 top-0 bottom-0 flex items-center">
-        {[...Array(6)].map((_, i) => (
+    <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center py-3 overflow-hidden bg-pearl-white">
+      {/* Decorative Gold Lines - Left Side - GETS CUT OFF AT EDGE */}
+      <div className="absolute left-0 top-0 bottom-0 right-1/2 mr-32 flex items-center justify-end overflow-hidden">
+        {[...Array(50)].map((_, i) => (
           <motion.div
             key={`left-${i}`}
             initial={{ opacity: 0, scaleY: 0 }}
             animate={{ opacity: 0.3, scaleY: 1 }}
-            transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="w-16 h-full bg-signature-gold"
+            transition={{ duration: 0.6, delay: i * 0.01 }}
+            style={{ width: '48px', height: '100%', marginRight: '4px', flexShrink: 0 }}
+            className="bg-signature-gold"
           />
         ))}
       </div>
 
-      {/* Decorative Gold Lines - Right Side extending to edge */}
-      <div className="absolute right-0 top-0 bottom-0 flex items-center">
-        {[...Array(6)].map((_, i) => (
+      {/* Decorative Gold Lines - Right Side - GETS CUT OFF AT EDGE */}
+      <div className="absolute right-0 top-0 bottom-0 left-1/2 ml-32 flex items-center justify-start overflow-hidden">
+        {[...Array(50)].map((_, i) => (
           <motion.div
             key={`right-${i}`}
             initial={{ opacity: 0, scaleY: 0 }}
             animate={{ opacity: 0.3, scaleY: 1 }}
-            transition={{ duration: 0.6, delay: i * 0.05 }}
-            className="w-16 h-full bg-signature-gold"
+            transition={{ duration: 0.6, delay: i * 0.01 }}
+            style={{ width: '48px', height: '100%', marginLeft: '4px', flexShrink: 0 }}
+            className="bg-signature-gold"
           />
         ))}
       </div>
@@ -35,7 +37,7 @@ export default function LogoBanner() {
       {/* Logo - Centered */}
       <Link href="/" className="group relative z-10">
         <motion.div
-          className="flex flex-col items-center"
+          className="flex flex-col items-center bg-pearl-white px-8 py-2"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >

@@ -30,7 +30,7 @@ export default function HomePage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: showEntrance ? 0 : 1 }}
         transition={{ duration: 0.5 }}
-        className="pt-24"
+        className="pt-32"
       >
         <HeroSection />
         

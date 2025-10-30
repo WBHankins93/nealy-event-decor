@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function BottomNav() {
   return (
-    <nav className="hidden lg:flex justify-center items-center gap-10 py-2 border-t border-signature-gold/10">
+    <nav className="hidden lg:flex justify-center items-center gap-10 py-1 border-t border-signature-gold/10">
       <Link
         href="/gallery"
         className="text-sm font-montserrat tracking-widest uppercase text-charcoal-black hover:text-signature-gold transition-colors duration-300"

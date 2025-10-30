@@ -31,45 +31,18 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container-custom relative">
-        {/* Top Navigation Bar */}
-        <TopNav />
+      {/* Top Navigation Bar - FULL WIDTH */}
+      <TopNav 
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
 
-        {/* Logo Banner */}
-        <LogoBanner />
+      {/* Logo Banner - FULL WIDTH */}
+      <LogoBanner />
 
-        {/* Bottom Navigation Bar */}
+      {/* Bottom Navigation Bar - Contained */}
+      <div className="container-custom">
         <BottomNav />
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden absolute top-1/2 right-4 -translate-y-1/2 p-2 text-charcoal-black hover:text-signature-gold transition-colors"
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isMobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -80,7 +53,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-pearl-white/98 backdrop-blur-md border-t border-signature-gold/20"
+            className="md:hidden bg-pearl-white/98 backdrop-blur-md border-t border-signature-gold/20"
           >
             <nav className="container-custom py-8 space-y-6">
               <Link
