@@ -17,7 +17,7 @@ export default function GalleryPage() {
   return (
     <div className="pt-24">
       {/* Hero Section with Luxury Design */}
-      <section className="relative section-padding bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
+      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-signature-gold rounded-full blur-3xl" />
@@ -70,8 +70,8 @@ export default function GalleryPage() {
       </section>
 
       {/* Filter Section - Sticky with Luxury Design */}
-      <section className="sticky top-24 z-40 bg-pearl-light/95 backdrop-blur-md border-b border-signature-gold/20 shadow-lg">
-        <div className="container-custom py-8">
+      <section className="sticky top-[41px] z-40 bg-pearl-light/95 backdrop-blur-md border-b border-signature-gold/20 shadow-lg">
+        <div className="container-custom py-6">
           <div className="flex flex-wrap justify-center gap-3">
             {filters.map((filter, index) => (
               <motion.button

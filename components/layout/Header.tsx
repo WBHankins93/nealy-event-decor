@@ -13,7 +13,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -35,15 +35,35 @@ export default function Header() {
       <TopNav 
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
+        isScrolled={isScrolled}
       />
 
-      {/* Logo Banner - FULL WIDTH */}
-      <LogoBanner />
+      {/* Logo Banner - FULL WIDTH - Hide when scrolled */}
+      <AnimatePresence>
+        {!isScrolled && (
+          <motion.div
+            initial={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <LogoBanner />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Bottom Navigation Bar - Contained */}
-      <div className="container-custom">
-        <BottomNav />
-      </div>
+      {/* Bottom Navigation Bar - Contained - Hide when scrolled */}
+      <AnimatePresence>
+        {!isScrolled && (
+          <motion.div
+            className="container-custom"
+            initial={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <BottomNav />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu */}
       <AnimatePresence>
