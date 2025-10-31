@@ -232,7 +232,7 @@ export default function WishlistPage() {
                   </h3>
                   <div className="space-y-4 text-charcoal-black/80">
                     <p>
-                      <strong>Ready to move forward?</strong> Click "Email Wishlist" above to send us your selections, or schedule a consultation to discuss your event in detail.
+                      <strong>Ready to move forward?</strong> Click &quot;Email Wishlist&quot; above to send us your selections, or schedule a consultation to discuss your event in detail.
                     </p>
                     <p>
                       We&apos;ll work with you to create a custom package that brings your vision to life!
