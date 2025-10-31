@@ -30,11 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
       <body className="font-montserrat antialiased bg-pearl-white text-charcoal-black">
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
       </body>
     </html>
   );
