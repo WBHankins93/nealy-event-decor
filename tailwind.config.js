@@ -46,6 +46,7 @@ module.exports = {
         'petal-float': 'float 8s ease-in-out infinite',
         'logo-shimmer': 'shimmer 1.5s ease-out',
         'fade-in': 'fadeIn 0.8s ease-out',
+        'spin': 'spin 1s linear infinite', // Added for loading spinner
       },
       keyframes: {
         grow: {
@@ -63,6 +64,10 @@ module.exports = {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
     },
