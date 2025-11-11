@@ -95,7 +95,7 @@ export default function VideoEntranceOptimized({
           {/* Video with immediate display */}
           <video
             ref={videoRef}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain md:object-cover"
             muted
             playsInline
             preload="auto"
