@@ -1,15 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 
 export default function GalleryPage() {
+  const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState("all");
+
+  // Detect filter from URL parameter
+  useEffect(() => {
+    const filterParam = searchParams.get('filter');
+    if (filterParam) {
+      setActiveFilter(filterParam);
+    }
+  }, [searchParams]);
 
   const filters = [
     { id: "all", label: "All Events" },
-    { id: "blue-sofa", label: "Blue Sofa Lounge" },
+    { id: "blue-sofa-lounge", label: "Blue Sofa Lounge" },
     { id: "italian-romance", label: "Italian Romance" },
     { id: "wedding-highlights", label: "Wedding Highlights" },
   ];

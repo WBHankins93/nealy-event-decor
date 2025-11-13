@@ -164,8 +164,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section-padding bg-wine-burgundy text-pearl-white">
+      {/* Curated Packages Section */}
+      <section className="section-padding bg-pearl-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -174,49 +174,108 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="heading-lg text-signature-gold mb-6">
-              Our Process
+            <h2 className="heading-xl text-forest-green mb-6">
+              Curated Packages
             </h2>
-            <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
-              A seamless journey from vision to reality
+            <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
+              Pre-designed collections ready to transform your event
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Consultation",
-                description: "Share your vision and event details with us"
-              },
-              {
-                step: "02",
-                title: "Design & Planning",
-                description: "We create custom designs tailored to your style"
-              },
-              {
-                step: "03",
-                title: "Execution",
-                description: "Professional delivery, setup, and breakdown"
-              }
-            ].map((step, index) => (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-pearl-white/5 backdrop-blur-sm p-8 rounded-lg border border-signature-gold/20"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Italian Romance Setup */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link
+                href="/gallery?filter=italian-romance"
+                className="group block bg-gradient-to-br from-meadow-sage to-forest-emerald rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                <p className="text-5xl font-playfair text-signature-gold/30 mb-4">
-                  {step.step}
-                </p>
-                <h3 className="heading-sm text-signature-gold mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-pearl-white/80">{step.description}</p>
-              </motion.div>
-            ))}
+                {/* Image Placeholder */}
+                <div className="relative h-80 bg-forest-green/20 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
+                  <span className="text-pearl-white/30 text-6xl font-playfair group-hover:scale-110 transition-transform duration-500">
+                    e
+                  </span>
+                  
+                  {/* Overlay on Hover */}
+                  <div className="absolute inset-0 bg-charcoal-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <div className="text-center space-y-3 px-6">
+                      <p className="text-signature-gold font-montserrat text-sm uppercase tracking-wider">
+                        View Gallery
+                      </p>
+                      <p className="text-pearl-white text-sm">
+                        See photos of this curated package
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="bg-white p-6">
+                  <h3 className="font-playfair text-2xl text-forest-green mb-2 group-hover:text-signature-gold transition-colors">
+                    Italian Romance Setup
+                  </h3>
+                  <p className="text-charcoal-black/70 text-sm mb-4">
+                    Eleganza mediterranea for your special day
+                  </p>
+                  <div className="flex items-center gap-2 text-signature-gold text-sm font-semibold">
+                    <span>View Gallery</span>
+                    <span className="transform group-hover:translate-x-2 transition-transform">→</span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Blue Sofa Lounge */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Link
+                href="/gallery?filter=blue-sofa-lounge"
+                className="group block bg-gradient-to-br from-[#4A5F7F] to-[#2C3E50] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+              >
+                {/* Image Placeholder */}
+                <div className="relative h-80 bg-[#3A4F6F]/20 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
+                  <span className="text-pearl-white/30 text-6xl font-playfair group-hover:scale-110 transition-transform duration-500">
+                    e
+                  </span>
+                  
+                  {/* Overlay on Hover */}
+                  <div className="absolute inset-0 bg-charcoal-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                    <div className="text-center space-y-3 px-6">
+                      <p className="text-signature-gold font-montserrat text-sm uppercase tracking-wider">
+                        View Gallery
+                      </p>
+                      <p className="text-pearl-white text-sm">
+                        See photos of this curated package
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="bg-white p-6">
+                  <h3 className="font-playfair text-2xl text-forest-green mb-2 group-hover:text-signature-gold transition-colors">
+                    Blue Sofa Lounge
+                  </h3>
+                  <p className="text-charcoal-black/70 text-sm mb-4">
+                    Luxurious velvet seating for intimate gatherings
+                  </p>
+                  <div className="flex items-center gap-2 text-signature-gold text-sm font-semibold">
+                    <span>View Gallery</span>
+                    <span className="transform group-hover:translate-x-2 transition-transform">→</span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -327,6 +386,63 @@ export default function ServicesPage() {
                     MOST POPULAR
                   </div>
                 )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Process Section */}
+      <section className="section-padding bg-wine-burgundy text-pearl-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="heading-lg text-signature-gold mb-6">
+              Our Process
+            </h2>
+            <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
+              A seamless journey from vision to reality
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Consultation",
+                description: "Share your vision and event details with us"
+              },
+              {
+                step: "02",
+                title: "Design & Planning",
+                description: "We create custom designs tailored to your style"
+              },
+              {
+                step: "03",
+                title: "Execution",
+                description: "Professional delivery, setup, and breakdown"
+              }
+            ].map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-pearl-white/5 backdrop-blur-sm p-8 rounded-lg border border-signature-gold/20"
+              >
+                <p className="text-5xl font-playfair text-signature-gold/30 mb-4">
+                  {step.step}
+                </p>
+                <h3 className="heading-sm text-signature-gold mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-pearl-white/80">{step.description}</p>
               </motion.div>
             ))}
           </div>

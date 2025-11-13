@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useWishlistContext } from "@/lib/wishlistContext";
-import { getAllRentalItems } from "@/lib/rentalData";
+import { getAllRentalItems } from "@/lib/rentalHelpers";
 import { RentalItem } from "@/lib/rentalTypes";
 
 export default function WishlistPage() {
