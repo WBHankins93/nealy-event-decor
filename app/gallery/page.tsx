@@ -1,11 +1,13 @@
 "use client";
 
+import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import GalleryGrid from "@/components/gallery/GalleryGrid";
 
-export default function GalleryPage() {
+// Component that uses useSearchParams - must be wrapped in Suspense
+function GalleryContent() {
   const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState("all");
 
@@ -214,5 +216,26 @@ export default function GalleryPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function GalleryLoading() {
+  return (
+    <div className="pt-24 min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="inline-block w-12 h-12 border-4 border-signature-gold border-t-transparent rounded-full animate-spin mb-4"></div>
+        <p className="body-lg text-charcoal-black/60">Loading gallery...</p>
+      </div>
+    </div>
+  );
+}
+
+// Main export with Suspense boundary
+export default function GalleryPage() {
+  return (
+    <Suspense fallback={<GalleryLoading />}>
+      <GalleryContent />
+    </Suspense>
   );
 }
