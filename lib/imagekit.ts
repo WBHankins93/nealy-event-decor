@@ -11,12 +11,30 @@
 
 import ImageKit from "imagekit";
 
-// Initialize ImageKit
-const imagekit = new ImageKit({
-  publicKey: process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY || "",
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY || "",
-  urlEndpoint: process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT || "",
-});
+// Initialize ImageKit only if keys are available (lazy initialization)
+let imagekit: ImageKit | null = null;
+
+function getImageKitInstance(): ImageKit | null {
+  // Only initialize if all required keys are present
+  const publicKey = process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY;
+  const privateKey = process.env.IMAGEKIT_PRIVATE_KEY;
+  const urlEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+
+  if (!publicKey || !privateKey || !urlEndpoint) {
+    return null;
+  }
+
+  // Initialize on first use
+  if (!imagekit) {
+    imagekit = new ImageKit({
+      publicKey,
+      privateKey,
+      urlEndpoint,
+    });
+  }
+
+  return imagekit;
+}
 
 /**
  * Get ImageKit URL for an image or video
@@ -102,14 +120,13 @@ export async function uploadToImageKit(
   fileName: string,
   folder?: string
 ) {
-  if (!process.env.IMAGEKIT_PRIVATE_KEY) {
-    throw new Error("ImageKit private key not configured");
+  const instance = getImageKitInstance();
+  if (!instance) {
+    throw new Error("ImageKit not configured. Please set IMAGEKIT_PRIVATE_KEY, NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY, and NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT");
   }
 
-  const filePath = folder ? `${folder}/${fileName}` : fileName;
-
   try {
-    const result = await imagekit.upload({
+    const result = await instance.upload({
       file: file,
       fileName: fileName,
       folder: folder,
@@ -126,6 +143,6 @@ export async function uploadToImageKit(
   }
 }
 
-export default imagekit;
+export default getImageKitInstance;
 
 
