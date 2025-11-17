@@ -1,9 +1,19 @@
 // app/api/wishlist/route.ts
 import nodemailer from "nodemailer";
 
+interface WishlistItem {
+  name: string;
+  subtitle?: string;
+}
+
 export async function POST(req: Request) {
   try {
-    const { items, customerName, customerEmail, customerPhone } = await req.json();
+    const { items, customerName, customerEmail, customerPhone } = await req.json() as {
+      items: WishlistItem[];
+      customerName?: string;
+      customerEmail?: string;
+      customerPhone?: string;
+    };
 
     // Validate required environment variables
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
@@ -39,7 +49,7 @@ export async function POST(req: Request) {
 
     // Format items list
     const itemsList = items
-      .map((item: any, index: number) => `${index + 1}. ${item.name}${item.subtitle ? ` - ${item.subtitle}` : ''}`)
+      .map((item: WishlistItem, index: number) => `${index + 1}. ${item.name}${item.subtitle ? ` - ${item.subtitle}` : ''}`)
       .join('\n');
 
     // Build email - hardcode recipient to nealy.eventdecor@gmail.com
@@ -68,7 +78,7 @@ Please contact the customer regarding availability and pricing.
         <hr>
         <p><strong>Wishlist Items (${items.length} item${items.length === 1 ? '' : 's'}):</strong></p>
         <ol>
-          ${items.map((item: any) => `<li>${item.name}${item.subtitle ? ` - ${item.subtitle}` : ''}</li>`).join('\n')}
+          ${items.map((item: WishlistItem) => `<li>${item.name}${item.subtitle ? ` - ${item.subtitle}` : ''}</li>`).join('\n')}
         </ol>
         <p>Please contact the customer regarding availability and pricing.</p>
       `,
@@ -79,12 +89,13 @@ Please contact the customer regarding availability and pricing.
     console.log("Wishlist email sent successfully:", info.messageId);
     
     return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Wishlist email send error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Failed to send email. Please try again later.";
     return new Response(
       JSON.stringify({ 
         success: false, 
-        error: error.message || "Failed to send email. Please try again later." 
+        error: errorMessage
       }), 
       { status: 500 }
     );

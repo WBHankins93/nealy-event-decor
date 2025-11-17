@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { rentalCategories } from "@/lib/rentalData";
-import { RentalItem, RentalCategory, RentalSubcategory } from "@/lib/rentalTypes";
+import { RentalItem, RentalSubcategory } from "@/lib/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlistContext";
 
 export default function RentalsPage() {

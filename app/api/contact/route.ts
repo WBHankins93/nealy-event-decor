@@ -60,12 +60,13 @@ ${message}
     console.log("Email sent successfully:", info.messageId);
     
     return new Response(JSON.stringify({ success: true }), { status: 200 });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Email send error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Failed to send email. Please try again later.";
     return new Response(
       JSON.stringify({ 
         success: false, 
-        error: error.message || "Failed to send email. Please try again later." 
+        error: errorMessage
       }), 
       { status: 500 }
     );
