@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getBlobUrl } from "@/lib/vercelBlob";
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
 
 interface VideoEntranceProps {
   onComplete: () => void;
@@ -13,11 +13,9 @@ export default function VideoEntranceOptimized({
   onComplete,
   videoUrl
 }: VideoEntranceProps) {
-  // Determine video URL - use Vercel Blob if enabled, otherwise use local path
-  const useBlob = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
-  const defaultVideoUrl = useBlob
-    ? getBlobUrl("videos/entrance/Video no text.mp4")
-    : '/videos/entrance/Video no text.mp4';
+  // Use Cloudinary for video (with "public/" prefix to match upload structure)
+  // Note: File is "Video-no-text.mp4" (with hyphens, not spaces)
+  const defaultVideoUrl = getCloudinaryVideoUrl("public/videos/entrance/Video-no-text");
   
   const finalVideoUrl = videoUrl || defaultVideoUrl;
   const [isPlaying, setIsPlaying] = useState(true);
@@ -131,8 +129,17 @@ export default function VideoEntranceOptimized({
             disablePictureInPicture
             controlsList="nodownload nofullscreen noremoteplayback"
             crossOrigin="anonymous"
+            onError={(e) => {
+              console.error('Video load error:', e);
+              // Fallback to local path if Cloudinary fails
+              const video = e.currentTarget;
+              if (video.src && !video.src.includes('/videos/')) {
+                video.src = '/videos/entrance/Video-no-text.mp4';
+              }
+            }}
           >
             <source src={finalVideoUrl} type="video/mp4" />
+            <source src="/videos/entrance/Video-no-text.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

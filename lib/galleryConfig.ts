@@ -1,9 +1,9 @@
 /**
  * Gallery Images Configuration
- * Maps all gallery images with their paths (supports both local and Vercel Blob)
+ * Maps all gallery images with their paths (supports local, Supabase, and Cloudinary)
  */
 
-import { getBlobUrl } from "./vercelBlob";
+import { getCloudinaryImageUrl } from "./cloudinary";
 
 /**
  * Gallery structure mapping
@@ -47,25 +47,25 @@ export const galleryData = {
 };
 
 /**
- * Use Vercel Blob if configured, otherwise use local paths
- * Set NEXT_PUBLIC_BLOB_STORE_URL in .env.local to enable Vercel Blob
+ * Use Cloudinary if configured
+ * Set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME in .env.local to enable Cloudinary
  */
-const USE_BLOB = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
+const USE_CLOUDINARY = !!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
 /**
- * Helper function to get image path (Vercel Blob or local)
+ * Helper function to get image path (Cloudinary or local)
  * @param section - Gallery section (e.g., '03-Gallery')
  * @param folder - Folder name (e.g., 'BlueSofaLounge')
  * @param imageName - Image name without extension
- * @returns Vercel Blob URL or local public folder path
+ * @returns Cloudinary URL or local public folder path
  */
 export function getImagePath(section: string, folder: string, imageName: string): string {
   const localPath = `/images/gallery/${section}/${folder}/${imageName}.jpg`;
   
-  if (USE_BLOB) {
-    // Use Vercel Blob path (matches the folder structure - no 'public/' prefix)
-    const blobPath = `images/gallery/${section}/${folder}/${imageName}.jpg`;
-    return getBlobUrl(blobPath);
+  if (USE_CLOUDINARY) {
+    // Use Cloudinary path (matches the upload structure with "public/" prefix and no extension)
+    const cloudinaryPath = `public/images/gallery/${section}/${folder}/${imageName}`;
+    return getCloudinaryImageUrl(cloudinaryPath);
   }
   
   // Use local public folder paths

@@ -1,11 +1,9 @@
-import { getBlobUrl } from "@/lib/vercelBlob";
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
 
 export default function VideoPreloadHead() {
-    const useBlob = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
-    const videoUrl = useBlob 
-      ? getBlobUrl("videos/entrance/Video no text.mp4")
-      : "/videos/entrance/Video no text.mp4";
-    const blobStoreUrl = process.env.NEXT_PUBLIC_BLOB_STORE_URL;
+    const videoUrl = getCloudinaryVideoUrl("public/videos/entrance/Video-no-text");
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+    const cloudinaryDomain = cloudName ? `res.cloudinary.com` : null;
     
     return (
       <>
@@ -17,17 +15,17 @@ export default function VideoPreloadHead() {
           type="video/mp4"
           crossOrigin="anonymous"
         />
-        {/* Preconnect to Vercel Blob for faster connection */}
-        {useBlob && blobStoreUrl ? (
+        {/* Preconnect to Cloudinary for faster connection */}
+        {cloudinaryDomain ? (
           <>
             <link
               rel="preconnect"
-              href={blobStoreUrl}
+              href={`https://${cloudinaryDomain}`}
               crossOrigin="anonymous"
             />
             <link
               rel="dns-prefetch"
-              href={blobStoreUrl}
+              href={`https://${cloudinaryDomain}`}
             />
           </>
         ) : null}

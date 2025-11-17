@@ -6,7 +6,7 @@ import { useState } from "react";
 import { rentalCategories } from "@/lib/rentalData";
 import { RentalItem, RentalSubcategory } from "@/lib/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlistContext";
-import { convertToBlobPath } from "@/lib/vercelBlob";
+import { convertToCloudinaryPath } from "@/lib/cloudinary";
 
 export default function RentalsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -48,8 +48,8 @@ export default function RentalsPage() {
 
   const getAllImages = (item: RentalItem): string[] => {
     const images = [item.image, ...(item.images || [])];
-    // Convert to Vercel Blob paths if enabled
-    return images.map(img => convertToBlobPath(img));
+    // Convert to Cloudinary paths if enabled
+    return images.map(img => convertToCloudinaryPath(img));
   };
 
   const nextImage = () => {
@@ -325,7 +325,7 @@ export default function RentalsPage() {
                             {/* Image */}
                             <div className="relative h-64 bg-pearl-light overflow-hidden">
                               <img
-                                src={convertToBlobPath(item.image)}
+                                src={convertToCloudinaryPath(item.image)}
                                 alt={item.name}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />
@@ -425,9 +425,21 @@ export default function RentalsPage() {
                       {/* Image */}
                       <div className="relative h-64 bg-pearl-light overflow-hidden">
                         <img
-                          src={item.image}
+                          src={convertToCloudinaryPath(item.image)}
                           alt={item.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          onError={(e) => {
+                            // Fallback to local path if Cloudinary fails
+                            const img = e.currentTarget;
+                            if (!img.src.includes(item.image)) {
+                              img.src = item.image;
+                            }
+                            // If still fails, show placeholder
+                            img.onerror = () => {
+                              img.style.display = 'none';
+                            };
+                          }}
                         />
                         {item.quantity && (
                           <div className="absolute top-3 right-3 bg-white/90 px-3 py-1 rounded-full">

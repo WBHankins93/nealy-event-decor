@@ -66,3 +66,5 @@ public/animations/**/*.webm
 supabase-upload-report.json
 imagekit-upload-report.json
 vercel-blob-upload-report.json
+cloudinary-upload-report.json
+cloudinary-manual-upload-list.txt

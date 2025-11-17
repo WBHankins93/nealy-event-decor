@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getBlobUrl } from "@/lib/vercelBlob";
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -88,12 +88,21 @@ export default function HeroSection() {
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+          console.error('Video load error:', e);
+          // Fallback to local path if Cloudinary fails
+          const video = e.currentTarget;
+          if (video.src && !video.src.includes('/animations/')) {
+            video.src = '/animations/home-page-video.mp4';
+          }
+        }}
       >
         <source 
-          src={process.env.NEXT_PUBLIC_BLOB_STORE_URL
-            ? getBlobUrl("animations/home-page-video.mp4")
-            : "/animations/home-page-video.mp4"
-          } 
+          src={getCloudinaryVideoUrl("public/animations/home-page-video")}
+          type="video/mp4" 
+        />
+        <source 
+          src="/animations/home-page-video.mp4"
           type="video/mp4" 
         />
       </video>
