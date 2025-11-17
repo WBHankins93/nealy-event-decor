@@ -1,10 +1,12 @@
 import { getImageKitVideoUrl } from "@/lib/imagekit";
 
 export default function VideoPreloadHead() {
-    const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true';
+    // Only use ImageKit if explicitly enabled AND endpoint is configured
+    const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
+                       !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
     const videoUrl = useImageKit 
-      ? getImageKitVideoUrl("videos/animations/dreams.mp4")
-      : "/videos/animations/dreams.mp4";
+      ? getImageKitVideoUrl("videos/entrance/Video no text.mp4")
+      : "/videos/entrance/Video no text.mp4";
     const imageKitEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
     
     return (

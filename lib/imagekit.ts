@@ -40,7 +40,7 @@ function getImageKitInstance(): ImageKit | null {
  * Get ImageKit URL for an image or video
  * @param filePath - Path to the file in ImageKit (e.g., "images/gallery/03-Gallery/BlueSofaLounge/IMG_0936.jpg")
  * @param options - Optional transformation parameters
- * @returns ImageKit URL
+ * @returns ImageKit URL or local path fallback
  */
 export function getImageKitUrl(
   filePath: string,
@@ -52,9 +52,12 @@ export function getImageKitUrl(
     format?: "auto" | "webp" | "jpg" | "png";
   }
 ): string {
-  // If ImageKit is not configured, return local path as fallback
-  if (!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT) {
-    console.warn("ImageKit not configured, using local path:", filePath);
+  // Only use ImageKit if explicitly enabled AND endpoint is configured
+  const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
+                     !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+  
+  // If ImageKit is not enabled, return local path as fallback
+  if (!useImageKit) {
     return filePath.startsWith("/") ? filePath : `/${filePath}`;
   }
 

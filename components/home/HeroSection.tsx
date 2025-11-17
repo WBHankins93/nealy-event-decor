@@ -90,9 +90,9 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source 
-          src={process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' 
+          src={process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT
             ? getImageKitVideoUrl("videos/animations/home-page-video.mp4")
-            : "/videos/animations/home-page-video.mp4"
+            : "/animations/home-page-video.mp4"
           } 
           type="video/mp4" 
         />

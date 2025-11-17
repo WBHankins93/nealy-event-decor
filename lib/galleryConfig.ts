@@ -49,8 +49,10 @@ export const galleryData = {
 /**
  * Use ImageKit if configured, otherwise use local paths
  * Set USE_IMAGEKIT=true in .env.local to enable ImageKit
+ * Only use ImageKit if both the flag is true AND the endpoint is configured
  */
-const USE_IMAGEKIT = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true';
+const USE_IMAGEKIT = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
+                     !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
 
 /**
  * Helper function to get image path (ImageKit or local)
