@@ -5,7 +5,7 @@ export default function VideoPreloadHead() {
     const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
                        !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
     const videoUrl = useImageKit 
-      ? getImageKitVideoUrl("videos/entrance/Video no text.mp4")
+      ? getImageKitVideoUrl("public/videos/entrance/Video no text.mp4")
       : "/videos/entrance/Video no text.mp4";
     const imageKitEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
     

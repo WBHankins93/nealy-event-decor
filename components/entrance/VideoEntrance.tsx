@@ -17,7 +17,7 @@ export default function VideoEntranceOptimized({
   const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
                      !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
   const defaultVideoUrl = useImageKit
-    ? getImageKitVideoUrl("videos/entrance/Video no text.mp4")
+    ? getImageKitVideoUrl("public/videos/entrance/Video no text.mp4")
     : '/videos/entrance/Video no text.mp4';
   
   const finalVideoUrl = videoUrl || defaultVideoUrl;

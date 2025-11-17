@@ -112,6 +112,27 @@ export function getImageKitVideoUrl(filePath: string): string {
 }
 
 /**
+ * Convert a local image path to ImageKit path if enabled
+ * Handles paths like "/images/rentals/file.jpg" -> "public/images/rentals/file.jpg" for ImageKit
+ * @param localPath - Local path (e.g., "/images/rentals/file.jpg")
+ * @returns ImageKit URL or local path
+ */
+export function convertToImageKitPath(localPath: string): string {
+  const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
+                     !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+  
+  if (!useImageKit) {
+    return localPath;
+  }
+
+  // Remove leading slash and add 'public/' prefix for ImageKit
+  const cleanPath = localPath.startsWith("/") ? localPath.slice(1) : localPath;
+  const imageKitPath = `public/${cleanPath}`;
+  
+  return getImageKitUrl(imageKitPath, { format: 'auto', quality: 80 });
+}
+
+/**
  * Upload file to ImageKit (server-side only)
  * @param file - File buffer or path
  * @param fileName - Name for the file in ImageKit

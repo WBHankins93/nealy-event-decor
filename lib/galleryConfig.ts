@@ -65,8 +65,8 @@ export function getImagePath(section: string, folder: string, imageName: string)
   const localPath = `/images/gallery/${section}/${folder}/${imageName}.jpg`;
   
   if (USE_IMAGEKIT) {
-    // Use ImageKit path (matches the folder structure in ImageKit)
-    const imageKitPath = `images/gallery/${section}/${folder}/${imageName}.jpg`;
+    // Use ImageKit path (matches the folder structure in ImageKit - includes 'public/' prefix)
+    const imageKitPath = `public/images/gallery/${section}/${folder}/${imageName}.jpg`;
     return getImageKitUrl(imageKitPath, { format: 'auto', quality: 80 });
   }
   

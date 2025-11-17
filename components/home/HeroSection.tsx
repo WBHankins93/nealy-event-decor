@@ -91,7 +91,7 @@ export default function HeroSection() {
       >
         <source 
           src={process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT
-            ? getImageKitVideoUrl("videos/animations/home-page-video.mp4")
+            ? getImageKitVideoUrl("public/animations/home-page-video.mp4")
             : "/animations/home-page-video.mp4"
           } 
           type="video/mp4" 

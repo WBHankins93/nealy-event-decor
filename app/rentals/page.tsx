@@ -6,6 +6,7 @@ import { useState } from "react";
 import { rentalCategories } from "@/lib/rentalData";
 import { RentalItem, RentalSubcategory } from "@/lib/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlistContext";
+import { convertToImageKitPath } from "@/lib/imagekit";
 
 export default function RentalsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -46,7 +47,9 @@ export default function RentalsPage() {
   };
 
   const getAllImages = (item: RentalItem): string[] => {
-    return [item.image, ...(item.images || [])];
+    const images = [item.image, ...(item.images || [])];
+    // Convert to ImageKit paths if enabled
+    return images.map(img => convertToImageKitPath(img));
   };
 
   const nextImage = () => {
@@ -322,7 +325,7 @@ export default function RentalsPage() {
                             {/* Image */}
                             <div className="relative h-64 bg-pearl-light overflow-hidden">
                               <img
-                                src={item.image}
+                                src={convertToImageKitPath(item.image)}
                                 alt={item.name}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />
