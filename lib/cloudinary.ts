@@ -149,6 +149,15 @@ export function getCloudinaryVideoUrl(
  * @returns Cloudinary URL or local path
  */
 export function convertToCloudinaryPath(localPath: string): string {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  
+  // If Cloudinary is not configured, return local path as-is
+  // This allows local development to work, but production needs the env var
+  if (!cloudName) {
+    // Return the original local path - this will work if files are in public folder
+    return localPath;
+  }
+  
   // Skip placeholder images - they don't exist in Cloudinary
   if (localPath.includes('placeholder')) {
     return localPath; // Return local path so it fails gracefully

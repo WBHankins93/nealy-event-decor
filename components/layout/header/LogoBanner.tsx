@@ -2,15 +2,19 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { getCloudinaryImageUrl } from "@/lib/cloudinary";
 
 export default function LogoBanner() {
+  // Use Cloudinary for banner image
+  const bannerUrl = getCloudinaryImageUrl("public/images/banner/homepage-banner");
+  
   return (
     <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center items-center overflow-hidden bg-pearl-white">
       {/* Full Banner with Logo */}
       <Link href="/" className="relative z-10 w-full flex items-center justify-center">
         <div className="w-full flex items-center justify-center">
           <Image
-            src="/images/banner/homepage-banner.png"
+            src={bannerUrl}
             alt="Nealy Event Decor"
             width={1920}
             height={96}

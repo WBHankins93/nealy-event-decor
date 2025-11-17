@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
 
 export default function AboutPage() {
   return (
@@ -77,7 +78,7 @@ export default function AboutPage() {
               className="relative rounded-lg overflow-hidden shadow-xl"
             >
               <video
-                src="/videos/about/about.mp4"
+                src={getCloudinaryVideoUrl("public/videos/about/about")}
                 autoPlay
                 muted
                 loop
