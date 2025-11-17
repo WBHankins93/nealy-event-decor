@@ -12,6 +12,7 @@ export default function RentalsPage() {
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<RentalItem | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // Wishlist context
   const { addToWishlist, isInWishlist } = useWishlistContext();
@@ -36,10 +37,30 @@ export default function RentalsPage() {
 
   const handleItemClick = (item: RentalItem) => {
     setSelectedItem(item);
+    setCurrentImageIndex(0);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
+    setCurrentImageIndex(0);
+  };
+
+  const getAllImages = (item: RentalItem): string[] => {
+    return [item.image, ...(item.images || [])];
+  };
+
+  const nextImage = () => {
+    if (selectedItem) {
+      const allImages = getAllImages(selectedItem);
+      setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedItem) {
+      const allImages = getAllImages(selectedItem);
+      setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+    }
   };
 
   const handleAddToWishlist = () => {
@@ -72,7 +93,7 @@ export default function RentalsPage() {
   const showAllItems = !selectedSubcategory && !selectedCategory;
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-32 md:pt-44 lg:pt-[320px]">
       {/* Luxury Hero */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}
@@ -470,13 +491,65 @@ export default function RentalsPage() {
                   <span className="text-2xl">×</span>
                 </button>
 
-                {/* Image */}
+                {/* Image Gallery */}
                 <div className="relative h-96 bg-pearl-light overflow-hidden">
-                  <img
-                    src={selectedItem.image}
-                    alt={selectedItem.name}
-                    className="w-full h-full object-cover"
-                  />
+                  {(() => {
+                    const allImages = getAllImages(selectedItem);
+                    const hasMultipleImages = allImages.length > 1;
+                    return (
+                      <>
+                        <img
+                          src={allImages[currentImageIndex]}
+                          alt={selectedItem.name}
+                          className="w-full h-full object-cover"
+                        />
+                        {hasMultipleImages && (
+                          <>
+                            {/* Navigation Arrows */}
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                prevImage();
+                              }}
+                              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-charcoal-black hover:text-signature-gold transition-colors shadow-lg z-10"
+                            >
+                              <span className="text-2xl">‹</span>
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                nextImage();
+                              }}
+                              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-charcoal-black hover:text-signature-gold transition-colors shadow-lg z-10"
+                            >
+                              <span className="text-2xl">›</span>
+                            </button>
+                            {/* Image Indicators */}
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                              {allImages.map((_, index) => (
+                                <button
+                                  key={index}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCurrentImageIndex(index);
+                                  }}
+                                  className={`w-2 h-2 rounded-full transition-all ${
+                                    index === currentImageIndex
+                                      ? "bg-signature-gold w-6"
+                                      : "bg-white/60 hover:bg-white/80"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            {/* Image Counter */}
+                            <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-montserrat text-charcoal-black z-10">
+                              {currentImageIndex + 1} / {allImages.length}
+                            </div>
+                          </>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 {/* Content */}

@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-pearl-white/80">
               <li>
                 <a 
-                  href="mailto:hello@nealyeventdecor.com"
+                  href="mailto:nealy.eventdecor@gmail.com"
                   className="hover:text-signature-gold transition-colors duration-300"
                 >
                   nealy.eventdecor@gmail.com

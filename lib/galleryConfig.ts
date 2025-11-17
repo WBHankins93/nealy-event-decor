@@ -1,9 +1,9 @@
 /**
  * Gallery Images Configuration
- * Maps all gallery images with their Supabase Storage URLs
+ * Maps all gallery images with their paths (supports both local and ImageKit)
  */
 
-import { getImageUrl } from './supabase';
+import { getImageKitUrl } from "./imagekit";
 
 /**
  * Gallery structure mapping
@@ -47,34 +47,36 @@ export const galleryData = {
 };
 
 /**
- * Helper function to get Supabase storage path
+ * Use ImageKit if configured, otherwise use local paths
+ * Set USE_IMAGEKIT=true in .env.local to enable ImageKit
+ */
+const USE_IMAGEKIT = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true';
+
+/**
+ * Helper function to get image path (ImageKit or local)
  * @param section - Gallery section (e.g., '03-Gallery')
  * @param folder - Folder name (e.g., 'BlueSofaLounge')
  * @param imageName - Image name without extension
- * @returns Storage path in Supabase
- */
-export function getStoragePath(section: string, folder: string, imageName: string): string {
-  // UPDATED: Match actual Supabase upload structure
-  return `${section}/${folder}/${imageName}.jpg`;
-}
-
-/**
- * Get full Supabase URL for an image
- * @param section - Gallery section
- * @param folder - Folder name
- * @param imageName - Image name without extension
- * @returns Full public URL from Supabase
+ * @returns ImageKit URL or local public folder path
  */
 export function getImagePath(section: string, folder: string, imageName: string): string {
-  const storagePath = getStoragePath(section, folder, imageName);
-  return getImageUrl(storagePath);
+  const localPath = `/images/gallery/${section}/${folder}/${imageName}.jpg`;
+  
+  if (USE_IMAGEKIT) {
+    // Use ImageKit path (matches the folder structure in ImageKit)
+    const imageKitPath = `images/gallery/${section}/${folder}/${imageName}.jpg`;
+    return getImageKitUrl(imageKitPath, { format: 'auto', quality: 80 });
+  }
+  
+  // Use local public folder paths
+  return localPath;
 }
 
 /**
  * Get all images for a specific gallery folder
  * @param section - Gallery section
  * @param folder - Folder name
- * @returns Array of Supabase image URLs
+ * @returns Array of local image paths
  */
 export function getGalleryImages(section: string, folder: string): string[] {
   const sectionData = galleryData[section as keyof typeof galleryData];

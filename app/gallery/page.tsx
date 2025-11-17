@@ -27,7 +27,7 @@ function GalleryContent() {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-32 md:pt-44 lg:pt-[320px]">
       {/* Hero Section with Luxury Design */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}

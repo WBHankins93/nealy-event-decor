@@ -22,15 +22,17 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
   
-      if (res.ok) {
-        alert("Message sent successfully!");
+      const data = await res.json();
+  
+      if (res.ok && data.success) {
+        alert("Message sent successfully! We'll get back to you soon.");
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
-        alert("Failed to send message. Please try again later.");
+        alert(data.error || "Failed to send message. Please try again later.");
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
-      alert("An unexpected error occurred.");
+      alert("An unexpected error occurred. Please try again later.");
     }
   };
   
@@ -42,7 +44,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-32 md:pt-44 lg:pt-[320px]">
       {/* Luxury Hero */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}
@@ -216,8 +218,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-semibold text-forest-green mb-1">Email</p>
-                      <a href="mailto:hello@nealyeventdecor.com" className="text-charcoal-black/70 hover:text-signature-gold transition-colors">
-                        hello@nealyeventdecor.com
+                      <a href="mailto:nealy.eventdecor@gmail.com" className="text-charcoal-black/70 hover:text-signature-gold transition-colors">
+                        nealy.eventdecor@gmail.com
                       </a>
                     </div>
                   </div>
@@ -231,7 +233,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-semibold text-forest-green mb-1">Phone</p>
                       <a href="tel:+1234567890" className="text-charcoal-black/70 hover:text-signature-gold transition-colors">
-                        (123) 456-7890
+                        (972) 415-3514
                       </a>
                     </div>
                   </div>

@@ -8,7 +8,7 @@ import { getImagePath } from "@/lib/galleryConfig";
 
 export default function HomePage() {
   return (
-    <div className="pt-32">
+    <div className="pt-32 md:pt-44 lg:pt-[280px]">
       <HeroSection />
       
       {/* Introduction Section */}

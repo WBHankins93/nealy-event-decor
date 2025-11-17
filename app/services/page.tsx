@@ -111,7 +111,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen pt-32 md:pt-44 lg:pt-[320px]">
       {/* Luxury Hero */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}
@@ -194,12 +194,14 @@ export default function ServicesPage() {
                 href="/gallery?filter=italian-romance"
                 className="group block bg-gradient-to-br from-meadow-sage to-forest-emerald rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                {/* Image Placeholder */}
-                <div className="relative h-80 bg-forest-green/20 flex items-center justify-center overflow-hidden">
+                {/* Image */}
+                <div className="relative h-80 overflow-hidden">
+                  <img
+                    src="/images/services/italian-romance.jpg"
+                    alt="Italian Romance Setup"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
-                  <span className="text-pearl-white/30 text-6xl font-playfair group-hover:scale-110 transition-transform duration-500">
-                    e
-                  </span>
                   
                   {/* Overlay on Hover */}
                   <div className="absolute inset-0 bg-charcoal-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
@@ -241,12 +243,14 @@ export default function ServicesPage() {
                 href="/gallery?filter=blue-sofa-lounge"
                 className="group block bg-gradient-to-br from-[#4A5F7F] to-[#2C3E50] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                {/* Image Placeholder */}
-                <div className="relative h-80 bg-[#3A4F6F]/20 flex items-center justify-center overflow-hidden">
+                {/* Image */}
+                <div className="relative h-80 overflow-hidden">
+                  <img
+                    src="/images/services/BlueSofaLounge2.jpg"
+                    alt="Blue Sofa Lounge"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
-                  <span className="text-pearl-white/30 text-6xl font-playfair group-hover:scale-110 transition-transform duration-500">
-                    e
-                  </span>
                   
                   {/* Overlay on Hover */}
                   <div className="absolute inset-0 bg-charcoal-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">

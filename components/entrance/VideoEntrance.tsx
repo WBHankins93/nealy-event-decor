@@ -10,11 +10,13 @@ interface VideoEntranceProps {
 
 export default function VideoEntranceOptimized({ 
   onComplete,
-  videoUrl = 'https://sikaxiyfzkexnnkjkuhg.supabase.co/storage/v1/object/public/gallery/animations/dreams.mp4'
+  videoUrl = '/videos/entrance/Video no text.mp4'
 }: VideoEntranceProps) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [showVideo, setShowVideo] = useState(true);
   const [canPlay, setCanPlay] = useState(false);
+  const [showImage6, setShowImage6] = useState(false);
+  const [showImage7, setShowImage7] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -30,6 +32,24 @@ export default function VideoEntranceOptimized({
       video.play().catch((error) => {
         console.log('Auto-play prevented:', error);
       });
+      
+      // Show image 6 at 3 seconds
+      setTimeout(() => {
+        setShowImage6(true);
+      }, 3000);
+      
+      // Show image 7 at 4 seconds
+      setTimeout(() => {
+        setShowImage7(true);
+      }, 4000);
+      
+      // Stop video at 7 seconds to avoid white flash
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+        }
+        handleComplete();
+      }, 7000);
     };
 
     const handleEnded = () => {
@@ -92,12 +112,13 @@ export default function VideoEntranceOptimized({
             </motion.div>
           )}
 
-          {/* Video with immediate display */}
+          {/* Video with full screen coverage */}
           <video
             ref={videoRef}
-            className="w-full h-full object-contain md:object-cover"
+            className="w-full h-full object-cover"
             muted
             playsInline
+            autoPlay
             preload="auto"
             disablePictureInPicture
             controlsList="nodownload nofullscreen noremoteplayback"
@@ -106,6 +127,38 @@ export default function VideoEntranceOptimized({
             <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+
+          {/* Text Images Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+            <AnimatePresence>
+              {showImage6 && canPlay && (
+                <motion.img
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  src="/videos/entrance/6.png"
+                  alt=""
+                  className="w-full h-auto object-contain"
+                  style={{ maxHeight: '100vh', maxWidth: '100vw', width: '100%' }}
+                />
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {showImage7 && canPlay && (
+                <motion.img
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  src="/videos/entrance/7.png"
+                  alt=""
+                  className="absolute w-full h-auto object-contain"
+                  style={{ maxHeight: '100vh', maxWidth: '100vw', width: '100%' }}
+                />
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Skip Button - appears immediately */}
           {isPlaying && (

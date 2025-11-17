@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { getImageKitVideoUrl } from "@/lib/imagekit";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -88,7 +89,13 @@ export default function HeroSection() {
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="https://sikaxiyfzkexnnkjkuhg.supabase.co/storage/v1/object/public/gallery/animations/home-page-video.mp4" type="video/mp4" />
+        <source 
+          src={process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' 
+            ? getImageKitVideoUrl("videos/animations/home-page-video.mp4")
+            : "/videos/animations/home-page-video.mp4"
+          } 
+          type="video/mp4" 
+        />
       </video>
 
       {/* Overlay for readability */}

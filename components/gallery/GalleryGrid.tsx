@@ -23,20 +23,20 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch images from Supabase via galleryConfig
+    // Fetch images from local public folder via galleryConfig
     const loadGalleryImages = () => {
       try {
         const blueSofaImages = getGalleryImages('03-Gallery', 'BlueSofaLounge');
         const italianRomanceImages = getGalleryImages('03-Gallery', 'ItalianRomanceSetup');
         const weddingImages = getGalleryImages('03-Gallery', 'WeddingHighlights');
 
-        // Build gallery items with Supabase URLs
+        // Build gallery items with local image paths
         const items: GalleryItemType[] = [
           // Blue Sofa Lounge items
           ...blueSofaImages.map((image: string, index: number) => ({
             id: index + 1,
             title: `Blue Sofa Lounge`,
-            category: "blue-sofa",
+            category: "blue-sofa-lounge",
             image: image
           })),
           // Italian Romance items

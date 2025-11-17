@@ -43,16 +43,25 @@ next-env.d.ts
 .env.local
 .env*.local
 
-# Gallery images (now on Supabase)
-public/images/gallery/**/*.jpg
-public/images/gallery/**/*.jpeg
-public/images/gallery/**/*.png
-public/images/gallery/**/*.gif
-public/images/gallery/**/*.webp
+# Media files (now on ImageKit)
+# Images
+public/images/**/*.jpg
+public/images/**/*.jpeg
+public/images/**/*.png
+public/images/**/*.gif
+public/images/**/*.webp
 
-# Video files
-public/animations/*.mp4
-public/animations/*.mov
+# Videos
+public/videos/**/*.mp4
+public/videos/**/*.mov
+public/videos/**/*.webm
+public/animations/**/*.mp4
+public/animations/**/*.mov
+public/animations/**/*.webm
+
+# Keep SVG files (small, can stay in repo)
+!public/**/*.svg
 
 # Upload scripts and reports
 supabase-upload-report.json
+imagekit-upload-report.json

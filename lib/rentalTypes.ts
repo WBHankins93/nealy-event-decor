@@ -5,6 +5,7 @@ export interface RentalItem {
   subtitle: string;
   description: string;
   image: string;
+  images?: string[]; // Additional images for gallery view
   dimensions?: string;
   quantity?: string;
 }
