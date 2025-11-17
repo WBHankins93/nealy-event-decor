@@ -16,7 +16,7 @@ import { put, list, head } from '@vercel/blob';
 
 /**
  * Get Vercel Blob URL for a file
- * @param filePath - Path to the file in blob storage
+ * @param filePath - Path to the file in blob storage (with or without 'public/' prefix)
  * @returns Blob URL
  */
 export function getBlobUrl(filePath: string): string {
@@ -28,7 +28,12 @@ export function getBlobUrl(filePath: string): string {
   }
 
   // Remove leading slash if present
-  const cleanPath = filePath.startsWith("/") ? filePath.slice(1) : filePath;
+  let cleanPath = filePath.startsWith("/") ? filePath.slice(1) : filePath;
+  
+  // Add 'public/' prefix if not present (files are uploaded with this prefix)
+  if (!cleanPath.startsWith("public/")) {
+    cleanPath = `public/${cleanPath}`;
+  }
   
   return `${blobStoreUrl}/${cleanPath}`;
 }
