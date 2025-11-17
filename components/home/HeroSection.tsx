@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getImageKitVideoUrl } from "@/lib/imagekit";
+import { getBlobUrl } from "@/lib/vercelBlob";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -90,8 +90,8 @@ export default function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source 
-          src={process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT
-            ? getImageKitVideoUrl("public/animations/home-page-video.mp4")
+          src={process.env.NEXT_PUBLIC_BLOB_STORE_URL
+            ? getBlobUrl("animations/home-page-video.mp4")
             : "/animations/home-page-video.mp4"
           } 
           type="video/mp4" 

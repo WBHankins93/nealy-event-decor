@@ -10,12 +10,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '*.imagekit.io',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ik.imagekit.io',
+        hostname: '*.public.blob.vercel-storage.com',
         pathname: '/**',
       },
     ],

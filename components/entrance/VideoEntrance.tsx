@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getImageKitVideoUrl } from "@/lib/imagekit";
+import { getBlobUrl } from "@/lib/vercelBlob";
 
 interface VideoEntranceProps {
   onComplete: () => void;
@@ -13,11 +13,10 @@ export default function VideoEntranceOptimized({
   onComplete,
   videoUrl
 }: VideoEntranceProps) {
-  // Determine video URL - use ImageKit if enabled, otherwise use local path
-  const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
-                     !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
-  const defaultVideoUrl = useImageKit
-    ? getImageKitVideoUrl("public/videos/entrance/Video no text.mp4")
+  // Determine video URL - use Vercel Blob if enabled, otherwise use local path
+  const useBlob = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
+  const defaultVideoUrl = useBlob
+    ? getBlobUrl("videos/entrance/Video no text.mp4")
     : '/videos/entrance/Video no text.mp4';
   
   const finalVideoUrl = videoUrl || defaultVideoUrl;

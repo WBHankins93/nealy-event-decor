@@ -43,7 +43,7 @@ next-env.d.ts
 .env.local
 .env*.local
 
-# Media files (now on ImageKit)
+# Media files (now on Vercel Blob)
 # Images
 public/images/**/*.jpg
 public/images/**/*.jpeg
@@ -65,3 +65,4 @@ public/animations/**/*.webm
 # Upload scripts and reports
 supabase-upload-report.json
 imagekit-upload-report.json
+vercel-blob-upload-report.json

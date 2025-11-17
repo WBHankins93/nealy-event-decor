@@ -6,7 +6,7 @@ import { useState } from "react";
 import { rentalCategories } from "@/lib/rentalData";
 import { RentalItem, RentalSubcategory } from "@/lib/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlistContext";
-import { convertToImageKitPath } from "@/lib/imagekit";
+import { convertToBlobPath } from "@/lib/vercelBlob";
 
 export default function RentalsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -48,8 +48,8 @@ export default function RentalsPage() {
 
   const getAllImages = (item: RentalItem): string[] => {
     const images = [item.image, ...(item.images || [])];
-    // Convert to ImageKit paths if enabled
-    return images.map(img => convertToImageKitPath(img));
+    // Convert to Vercel Blob paths if enabled
+    return images.map(img => convertToBlobPath(img));
   };
 
   const nextImage = () => {
@@ -325,7 +325,7 @@ export default function RentalsPage() {
                             {/* Image */}
                             <div className="relative h-64 bg-pearl-light overflow-hidden">
                               <img
-                                src={convertToImageKitPath(item.image)}
+                                src={convertToBlobPath(item.image)}
                                 alt={item.name}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />

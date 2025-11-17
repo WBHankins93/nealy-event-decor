@@ -1,13 +1,11 @@
-import { getImageKitVideoUrl } from "@/lib/imagekit";
+import { getBlobUrl } from "@/lib/vercelBlob";
 
 export default function VideoPreloadHead() {
-    // Only use ImageKit if explicitly enabled AND endpoint is configured
-    const useImageKit = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
-                       !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
-    const videoUrl = useImageKit 
-      ? getImageKitVideoUrl("public/videos/entrance/Video no text.mp4")
+    const useBlob = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
+    const videoUrl = useBlob 
+      ? getBlobUrl("videos/entrance/Video no text.mp4")
       : "/videos/entrance/Video no text.mp4";
-    const imageKitEndpoint = process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+    const blobStoreUrl = process.env.NEXT_PUBLIC_BLOB_STORE_URL;
     
     return (
       <>
@@ -19,17 +17,17 @@ export default function VideoPreloadHead() {
           type="video/mp4"
           crossOrigin="anonymous"
         />
-        {/* Preconnect to ImageKit or local for faster connection */}
-        {useImageKit && imageKitEndpoint ? (
+        {/* Preconnect to Vercel Blob for faster connection */}
+        {useBlob && blobStoreUrl ? (
           <>
             <link
               rel="preconnect"
-              href={imageKitEndpoint}
+              href={blobStoreUrl}
               crossOrigin="anonymous"
             />
             <link
               rel="dns-prefetch"
-              href={imageKitEndpoint}
+              href={blobStoreUrl}
             />
           </>
         ) : null}

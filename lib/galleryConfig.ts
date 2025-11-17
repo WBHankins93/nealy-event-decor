@@ -1,9 +1,9 @@
 /**
  * Gallery Images Configuration
- * Maps all gallery images with their paths (supports both local and ImageKit)
+ * Maps all gallery images with their paths (supports both local and Vercel Blob)
  */
 
-import { getImageKitUrl } from "./imagekit";
+import { getBlobUrl } from "./vercelBlob";
 
 /**
  * Gallery structure mapping
@@ -47,27 +47,25 @@ export const galleryData = {
 };
 
 /**
- * Use ImageKit if configured, otherwise use local paths
- * Set USE_IMAGEKIT=true in .env.local to enable ImageKit
- * Only use ImageKit if both the flag is true AND the endpoint is configured
+ * Use Vercel Blob if configured, otherwise use local paths
+ * Set NEXT_PUBLIC_BLOB_STORE_URL in .env.local to enable Vercel Blob
  */
-const USE_IMAGEKIT = process.env.NEXT_PUBLIC_USE_IMAGEKIT === 'true' && 
-                     !!process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT;
+const USE_BLOB = !!process.env.NEXT_PUBLIC_BLOB_STORE_URL;
 
 /**
- * Helper function to get image path (ImageKit or local)
+ * Helper function to get image path (Vercel Blob or local)
  * @param section - Gallery section (e.g., '03-Gallery')
  * @param folder - Folder name (e.g., 'BlueSofaLounge')
  * @param imageName - Image name without extension
- * @returns ImageKit URL or local public folder path
+ * @returns Vercel Blob URL or local public folder path
  */
 export function getImagePath(section: string, folder: string, imageName: string): string {
   const localPath = `/images/gallery/${section}/${folder}/${imageName}.jpg`;
   
-  if (USE_IMAGEKIT) {
-    // Use ImageKit path (matches the folder structure in ImageKit - includes 'public/' prefix)
-    const imageKitPath = `public/images/gallery/${section}/${folder}/${imageName}.jpg`;
-    return getImageKitUrl(imageKitPath, { format: 'auto', quality: 80 });
+  if (USE_BLOB) {
+    // Use Vercel Blob path (matches the folder structure - no 'public/' prefix)
+    const blobPath = `images/gallery/${section}/${folder}/${imageName}.jpg`;
+    return getBlobUrl(blobPath);
   }
   
   // Use local public folder paths
