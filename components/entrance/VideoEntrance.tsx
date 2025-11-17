@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
+import { getVideoUrl } from "@/lib/videoUrls";
 
 interface VideoEntranceProps {
   onComplete: () => void;
@@ -13,9 +13,8 @@ export default function VideoEntranceOptimized({
   onComplete,
   videoUrl
 }: VideoEntranceProps) {
-  // Use Cloudinary for video (with "public/" prefix to match upload structure)
-  // Note: File is "Video-no-text.mp4" (with hyphens, not spaces)
-  const defaultVideoUrl = getCloudinaryVideoUrl("public/videos/entrance/Video-no-text");
+  // Use hardcoded Cloudinary URL for reliable production loading
+  const defaultVideoUrl = getVideoUrl("entrance");
   
   const finalVideoUrl = videoUrl || defaultVideoUrl;
   const [isPlaying, setIsPlaying] = useState(true);

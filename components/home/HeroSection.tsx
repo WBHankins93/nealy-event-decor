@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
+import { getVideoUrl } from "@/lib/videoUrls";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -98,7 +98,7 @@ export default function HeroSection() {
         }}
       >
         <source 
-          src={getCloudinaryVideoUrl("public/animations/home-page-video")}
+          src={getVideoUrl("homePage")}
           type="video/mp4" 
         />
         <source 

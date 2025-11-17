@@ -1,7 +1,7 @@
-import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
+import { getVideoUrl } from "@/lib/videoUrls";
 
 export default function VideoPreloadHead() {
-    const videoUrl = getCloudinaryVideoUrl("public/videos/entrance/Video-no-text");
+    const videoUrl = getVideoUrl("entrance");
     const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
     const cloudinaryDomain = cloudName ? `res.cloudinary.com` : null;
     
