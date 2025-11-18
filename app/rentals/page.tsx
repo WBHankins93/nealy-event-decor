@@ -3,10 +3,10 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { rentalCategories } from "@/lib/rentalData";
-import { RentalItem, RentalSubcategory } from "@/lib/rentalTypes";
-import { useWishlistContext } from "@/lib/wishlistContext";
-import { convertToCloudinaryPath } from "@/lib/cloudinary";
+import { rentalCategories } from "@/lib/rentals/rentalData";
+import { RentalItem, RentalSubcategory } from "@/lib/rentals/rentalTypes";
+import { useWishlistContext } from "@/lib/wishlist/wishlistContext";
+import { convertToCloudinaryPath } from "@/lib/media/cloudinary";
 
 export default function RentalsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -592,9 +592,14 @@ export default function RentalsPage() {
                         <span className="block text-xs font-montserrat uppercase tracking-wider text-charcoal-black/50 mb-1">
                           Dimensions
                         </span>
-                        <span className="text-sm text-charcoal-black">
+                        <span className="text-sm text-charcoal-black font-montserrat">
                           {selectedItem.dimensions}
                         </span>
+                        {selectedItem.dimensionsNote && (
+                          <span className="block text-xs text-charcoal-black/60 mt-1 italic">
+                            {selectedItem.dimensionsNote}
+                          </span>
+                        )}
                       </div>
                     )}
                     {selectedItem.quantity && (

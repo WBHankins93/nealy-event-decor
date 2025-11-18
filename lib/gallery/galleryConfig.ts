@@ -3,7 +3,7 @@
  * Maps all gallery images with their paths (supports local, Supabase, and Cloudinary)
  */
 
-import { getCloudinaryImageUrl } from "./cloudinary";
+import { getCloudinaryImageUrl } from "../media/cloudinary";
 
 /**
  * Gallery structure mapping

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { getVideoUrl } from "@/lib/videoUrls";
+import { getVideoUrl } from "@/lib/media/videoUrls";
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getVideoUrl } from "@/lib/videoUrls";
+import { getVideoUrl } from "@/lib/media/videoUrls";
 
 interface VideoEntranceProps {
   onComplete: () => void;

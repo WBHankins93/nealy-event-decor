@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroSection from "@/components/home/HeroSection";
 import GalleryImage from "@/components/gallery/GalleryImage";
-import { getImagePath } from "@/lib/galleryConfig";
+import { getImagePath } from "@/lib/gallery/galleryConfig";
 
 export default function HomePage() {
   return (

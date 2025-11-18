@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import GalleryItem from "./GalleryItem";
 import GalleryImage from "@/components/gallery/GalleryImage";
-import { getGalleryImages } from "@/lib/galleryConfig";
+import { getGalleryImages } from "@/lib/gallery/galleryConfig";
 
 interface GalleryGridProps {
   activeFilter: string;

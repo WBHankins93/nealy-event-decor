@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { getCloudinaryImageUrl } from "@/lib/cloudinary";
+import { getCloudinaryImageUrl } from "@/lib/media/cloudinary";
 
 export default function LogoBanner() {
-  // Use Cloudinary for banner image
-  const bannerUrl = getCloudinaryImageUrl("public/images/banner/homepage-banner");
+  // Use Cloudinary for banner image - new single banner image
+  const bannerUrl = getCloudinaryImageUrl("public/images/banner/HomepageBannerforWebsiteView");
   
   return (
     <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center items-center overflow-hidden bg-pearl-white">

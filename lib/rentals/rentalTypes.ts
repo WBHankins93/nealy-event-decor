@@ -6,7 +6,8 @@ export interface RentalItem {
   description: string;
   image: string;
   images?: string[]; // Additional images for gallery view
-  dimensions?: string;
+  dimensions?: string; // Clean measurements only (H, W, L)
+  dimensionsNote?: string; // Additional details/notes about dimensions
   quantity?: string;
 }
 

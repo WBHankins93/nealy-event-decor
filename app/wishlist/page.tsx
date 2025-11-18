@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { useWishlistContext } from "@/lib/wishlistContext";
-import { getAllRentalItems } from "@/lib/rentalHelpers";
-import { RentalItem } from "@/lib/rentalTypes";
+import { useWishlistContext } from "@/lib/wishlist/wishlistContext";
+import { getAllRentalItems } from "@/lib/rentals/rentalHelpers";
+import { RentalItem } from "@/lib/rentals/rentalTypes";
 
 function WishlistItemCard({ item, onRemove }: { item: RentalItem; onRemove: (id: string) => void }) {
   const [imageError, setImageError] = useState(false);

@@ -1,4 +1,4 @@
-import { WishlistProvider } from "@/lib/wishlistContext";
+import { WishlistProvider } from "@/lib/wishlist/wishlistContext";
 
 export default function WishlistLayout({
   children,

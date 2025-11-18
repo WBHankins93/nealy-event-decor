@@ -1,4 +1,4 @@
-import { getVideoUrl } from "@/lib/videoUrls";
+import { getVideoUrl } from "@/lib/media/videoUrls";
 
 export default function VideoPreloadHead() {
     const videoUrl = getVideoUrl("entrance");

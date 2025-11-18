@@ -1,5 +1,5 @@
-import { rentalCategories } from "@/lib/rentalData";
-import { RentalItem } from "@/lib/rentalTypes";
+import { rentalCategories } from "./rentalData";
+import { RentalItem } from "./rentalTypes";
 
 /**
  * Get all rental items from all categories and subcategories
