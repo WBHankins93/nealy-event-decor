@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { rentalCategories } from "@/lib/rentals/rentalData";
-import { RentalItem, RentalSubcategory } from "@/lib/rentals/rentalTypes";
+import { RentalItem } from "@/lib/rentals/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlist/wishlistContext";
 import { convertToCloudinaryPath } from "@/lib/media/cloudinary";
 

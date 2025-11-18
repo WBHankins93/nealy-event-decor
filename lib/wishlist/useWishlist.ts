@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { RentalItem } from './rentalTypes';
+import { RentalItem } from '../rentals/rentalTypes';
 
 const WISHLIST_STORAGE_KEY = 'nealy-event-decor-wishlist';
 const WISHLIST_EXPIRY_DAYS = 30; // Wishlist expires after 30 days
