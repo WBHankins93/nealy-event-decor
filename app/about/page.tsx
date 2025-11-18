@@ -6,7 +6,7 @@ import { getVideoUrl } from "@/lib/media/videoUrls";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-32 md:pt-44 lg:pt-[320px]">
+    <div className="min-h-screen pt-28 md:pt-36 lg:pt-[240px]">
       {/* Luxury Hero */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-wine-burgundy to-wine-burgundy/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}

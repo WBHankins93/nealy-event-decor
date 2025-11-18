@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function FAQsPage() {
   return (
-    <div className="pt-32 md:pt-44 lg:pt-[320px]">
+    <div className="pt-28 md:pt-36 lg:pt-[240px]">
       {/* Luxury Hero */}
       <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
         {/* Decorative Elements */}

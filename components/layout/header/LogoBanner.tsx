@@ -17,7 +17,7 @@ export default function LogoBanner() {
             src={bannerUrl}
             alt="Nealy Event Decor"
             width={1920}
-            height={96}
+            height={150}
             className="w-full h-auto"
             priority
           />
