@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getVideoUrl } from "@/lib/media/videoUrls";
 
@@ -23,6 +23,14 @@ export default function VideoEntranceOptimized({
   const [showImage6, setShowImage6] = useState(false);
   const [showImage7, setShowImage7] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleComplete = useCallback(() => {
+    setIsPlaying(false);
+    setTimeout(() => {
+      setShowVideo(false);
+      onComplete();
+    }, 300);
+  }, [onComplete]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -77,15 +85,7 @@ export default function VideoEntranceOptimized({
       video.removeEventListener('ended', handleEnded);
       video.removeEventListener('error', handleError);
     };
-  }, []);
-
-  const handleComplete = () => {
-    setIsPlaying(false);
-    setTimeout(() => {
-      setShowVideo(false);
-      onComplete();
-    }, 300);
-  };
+  }, [handleComplete]);
 
   const handleSkip = () => {
     if (videoRef.current) {

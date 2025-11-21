@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import GalleryItem from "./GalleryItem";
 import GalleryImage from "@/components/gallery/GalleryImage";
 import { getGalleryImages } from "@/lib/gallery/galleryConfig";
@@ -71,7 +71,7 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
     : galleryItems.filter(item => item.category === activeFilter);
 
   // Navigate through images in lightbox
-  const navigateImage = (direction: 'prev' | 'next') => {
+  const navigateImage = useCallback((direction: 'prev' | 'next') => {
     if (selectedImage === null) return;
     
     const currentIndex = filteredItems.findIndex(item => item.id === selectedImage);
@@ -84,7 +84,7 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
     }
     
     setSelectedImage(filteredItems[newIndex].id);
-  };
+  }, [selectedImage, filteredItems]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -98,7 +98,7 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [selectedImage, filteredItems]);
+  }, [selectedImage, filteredItems, navigateImage]);
 
   if (isLoading) {
     return (

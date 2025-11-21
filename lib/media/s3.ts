@@ -37,12 +37,12 @@ export function getS3Url(path: string): string {
   }
   
   // Remove leading slash if present
-  let cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const pathWithoutSlash = path.startsWith('/') ? path.slice(1) : path;
   
   // Ensure path starts with folder structure
-  if (!cleanPath.startsWith('01-Website-Creation/')) {
-    cleanPath = `01-Website-Creation/${cleanPath}`;
-  }
+  const cleanPath = pathWithoutSlash.startsWith('01-Website-Creation/') 
+    ? pathWithoutSlash 
+    : `01-Website-Creation/${pathWithoutSlash}`;
   
   // Generate S3 URL
   // Format: https://{bucket}.s3.{region}.amazonaws.com/{path}
@@ -84,7 +84,7 @@ export function getS3Url(path: string): string {
 export function getS3ImageUrl(
   folder: string,
   filename: string,
-  options?: {
+  _options?: {
     width?: number;
     height?: number;
     quality?: number;
@@ -119,8 +119,6 @@ export function getS3VideoUrl(folder: string, filename: string): string {
   // Remove extension from filename if present
   const nameWithoutExt = filename.replace(/\.[^/.]+$/, '');
   
-  // Try common video extensions
-  const extensions = ['.mp4', '.webm', '.mov'];
   const bucketName = process.env.NEXT_PUBLIC_S3_BUCKET_NAME;
   
   if (!bucketName) {
@@ -224,7 +222,7 @@ export function convertToS3Path(localPath: string): string {
   }
   
   // Remove leading slash if present
-  let cleanPath = localPath.startsWith("/") ? localPath.slice(1) : localPath;
+  const cleanPath = localPath.startsWith("/") ? localPath.slice(1) : localPath;
   
   // Map local paths to S3 folders
   const pathMap: Record<string, string> = {

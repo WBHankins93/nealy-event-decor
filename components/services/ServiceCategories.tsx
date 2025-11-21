@@ -1,14 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
 import HeroSection from "@/components/home/HeroSection";
 // import EntranceOverlay from "@/components/entrance/EntranceOverlay";
 
 export default function HomePage() {
   // Always show entrance on page load
-  const [showEntrance, setShowEntrance] = useState(true);
+  const showEntrance = true;
 
   // const handleEntranceComplete = () => {
   //   setShowEntrance(false);

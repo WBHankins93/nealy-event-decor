@@ -3,7 +3,7 @@
  * Use these to verify S3 paths and URLs are correct
  */
 
-import { getS3ImageUrl, getS3Url, S3_FOLDER_MAP } from './s3';
+import { getS3ImageUrl, S3_FOLDER_MAP } from './s3';
 
 /**
  * Debug function to log S3 URLs for verification
