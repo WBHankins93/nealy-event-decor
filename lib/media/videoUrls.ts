@@ -1,36 +1,47 @@
 /**
- * Cloudinary Video URLs
- * These are the exact URLs from Cloudinary after upload
- * Using hardcoded URLs ensures reliable loading in production
+ * Video URL Configuration
+ * Supports S3 (primary) and local paths (development fallback)
  */
 
-const CLOUDINARY_VIDEOS = {
-  entrance: "https://res.cloudinary.com/dlsv2rwt0/video/upload/v1763413841/Video-no-text_cylokl.mp4",
-  homePage: "https://res.cloudinary.com/dlsv2rwt0/video/upload/v1763413793/home-page-video_ee5c9d.mp4",
-  about: "https://res.cloudinary.com/dlsv2rwt0/video/upload/v1763413825/about_dh1da6.mp4",
+import { getS3VideoBySection } from './s3';
+
+// Video filename mappings for S3
+const VIDEO_FILENAMES = {
+  entrance: 'Video-no-text.mp4', // In "01 Landing Page" folder
+  homePage: 'home-page-video.mp4', // In "02 Home Page" folder
+  about: 'about.mp4', // In "05 About" folder
+} as const;
+
+// Local paths for development fallback
+const LOCAL_VIDEOS = {
+  entrance: "/videos/entrance/Video-no-text.mp4",
+  homePage: "/animations/home-page-video.mp4",
+  about: "/videos/about/about.mp4",
 } as const;
 
 /**
  * Get video URL by key
- * Falls back to local path if Cloudinary is not configured (for development)
+ * Priority: S3 > Local (development fallback)
  */
-export function getVideoUrl(key: keyof typeof CLOUDINARY_VIDEOS): string {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+export function getVideoUrl(key: keyof typeof VIDEO_FILENAMES): string {
+  const s3Bucket = process.env.NEXT_PUBLIC_S3_BUCKET_NAME;
   
-  // If Cloudinary is configured, use the hardcoded Cloudinary URL
-  if (cloudName) {
-    return CLOUDINARY_VIDEOS[key];
+  // Use S3 if configured
+  if (s3Bucket) {
+    const sectionMap: Record<keyof typeof VIDEO_FILENAMES, 'banner' | 'home' | 'about'> = {
+      entrance: 'banner', // Landing page video
+      homePage: 'home',
+      about: 'about',
+    };
+    
+    const section = sectionMap[key];
+    const filename = VIDEO_FILENAMES[key];
+    return getS3VideoBySection(section, filename);
   }
   
   // Fallback to local paths for development
-  const localPaths = {
-    entrance: "/videos/entrance/Video-no-text.mp4",
-    homePage: "/animations/home-page-video.mp4",
-    about: "/videos/about/about.mp4",
-  };
-  
-  return localPaths[key];
+  return LOCAL_VIDEOS[key];
 }
 
-export default CLOUDINARY_VIDEOS;
+export default VIDEO_FILENAMES;
 

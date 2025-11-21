@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { getS3ImageBySection } from "@/lib/media/s3";
 
 export default function ServicesPage() {
   const customPackages = [
     {
       id: 1,
-      name: "Signature Accent",
+      name: "The Spotlight Piece",
       price: "$750",
       tagline: "Perfect for: Clients who want one standout custom piece to elevate their event.",
       description: "This is for the host who wants one unforgettable piece that makes guests say wow.",
@@ -22,11 +23,11 @@ export default function ServicesPage() {
         "Mini floral arch",
         "Acrylic drink wall"
       ],
-      color: "forest-green"
+      color: "forest-emerald"
     },
     {
       id: 2,
-      name: "Signature Scene",
+      name: "The Signature Collection",
       price: "$1,800",
       tagline: "Perfect for: Clients who want a fully designed set area that tells a story — ideal for photo ops, lounges, or ceremony focal points.",
       description: "Transform one space into a full visual experience — cohesive, elegant, and completely yours.",
@@ -46,7 +47,7 @@ export default function ServicesPage() {
     },
     {
       id: 3,
-      name: "Bespoke Event Design",
+      name: "The Tailored Experience",
       price: "$4,000",
       tagline: "Perfect for: Clients hosting high-end events, weddings, or branded experiences who want an immersive, custom-designed environment.",
       description: "Your dream aesthetic, built from the ground up — every detail handcrafted by Nealy.",
@@ -63,7 +64,7 @@ export default function ServicesPage() {
         "Corporate brand activation",
         "Large-scale themed celebration"
       ],
-      color: "wine-burgundy"
+      color: "warm-terracotta"
     }
   ];
 
@@ -183,7 +184,7 @@ export default function ServicesPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Italian Romance Setup */}
+            {/* The Tuscany Soiree */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -197,8 +198,10 @@ export default function ServicesPage() {
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden">
                   <img
-                    src="/images/services/italian-romance.jpg"
-                    alt="Italian Romance Setup"
+                    src={process.env.NEXT_PUBLIC_S3_BUCKET_NAME 
+                      ? getS3ImageBySection('services', 'italian-romance.jpg')
+                      : '/images/services/italian-romance.jpg'}
+                    alt="The Tuscany Soiree"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
@@ -219,7 +222,7 @@ export default function ServicesPage() {
                 {/* Content */}
                 <div className="bg-white p-6">
                   <h3 className="font-playfair text-2xl text-forest-green mb-2 group-hover:text-signature-gold transition-colors">
-                    Italian Romance Setup
+                    The Tuscany Soiree
                   </h3>
                   <p className="text-charcoal-black/70 text-sm mb-4">
                     Eleganza mediterranea for your special day
@@ -232,7 +235,7 @@ export default function ServicesPage() {
               </Link>
             </motion.div>
 
-            {/* Blue Sofa Lounge */}
+            {/* The Sapphire Social Lounge */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -246,8 +249,10 @@ export default function ServicesPage() {
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden">
                   <img
-                    src="/images/services/BlueSofaLounge2.jpg"
-                    alt="Blue Sofa Lounge"
+                    src={process.env.NEXT_PUBLIC_S3_BUCKET_NAME 
+                      ? getS3ImageBySection('services', 'BlueSofaLounge2.jpg')
+                      : '/images/services/BlueSofaLounge2.jpg'}
+                    alt="The Sapphire Social Lounge"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal-black/60 via-transparent to-transparent" />
@@ -268,7 +273,7 @@ export default function ServicesPage() {
                 {/* Content */}
                 <div className="bg-white p-6">
                   <h3 className="font-playfair text-2xl text-forest-green mb-2 group-hover:text-signature-gold transition-colors">
-                    Blue Sofa Lounge
+                    The Sapphire Social Lounge
                   </h3>
                   <p className="text-charcoal-black/70 text-sm mb-4">
                     Luxurious velvet seating for intimate gatherings
@@ -319,23 +324,42 @@ export default function ServicesPage() {
                     : `border-${pkg.color}/20`
                 }`}
               >
-                {/* Package Header with Number */}
-                <div className={`relative h-48 bg-gradient-to-br ${
-                  pkg.color === 'forest-green' 
-                    ? 'from-meadow-sage to-forest-emerald'
+                {/* Package Header with Number - Shiny Gradient */}
+                <div className={`relative h-48 overflow-hidden ${
+                  pkg.color === 'forest-emerald' 
+                    ? 'bg-gradient-to-br from-forest-emerald via-[#015532] to-forest-green'
                     : pkg.color === 'signature-gold'
-                    ? 'from-signature-gold to-[#D4AF37]'
-                    : 'from-wine-burgundy to-[#8B4054]'
+                    ? 'bg-gradient-to-br from-[#F4D03F] via-signature-gold to-[#B8941F]'
+                    : 'bg-gradient-to-br from-[#E67C2A] via-warm-terracotta to-[#A0521A]'
                 }`}>
-                  <div className="absolute top-6 left-6 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                    <div className={`w-10 h-10 rounded-full bg-${pkg.color} flex items-center justify-center text-white font-bold`}>
+                  {/* Shiny Overlay Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-white/40 opacity-40" />
+                  
+                  {/* Title Badge - Top Left */}
+                  <div className="absolute top-6 left-6 z-10 flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                    <div className={`w-10 h-10 rounded-full border-2 ${
+                      pkg.color === 'forest-emerald'
+                        ? 'bg-forest-emerald border-forest-emerald text-white'
+                        : pkg.color === 'signature-gold'
+                        ? 'bg-signature-gold border-signature-gold text-white'
+                        : 'bg-warm-terracotta border-warm-terracotta text-white'
+                    } flex items-center justify-center font-bold`}>
                       {pkg.id}
                     </div>
-                    <span className="font-playfair font-semibold text-charcoal-black text-lg">
+                    <span className="font-playfair font-semibold text-lg text-charcoal-black">
                       {pkg.name}
                     </span>
                   </div>
-                  <div className={`absolute bottom-6 right-6 bg-${pkg.color}/90 backdrop-blur-sm text-pearl-white px-6 py-2 rounded-full font-semibold`}>
+                  
+                  {/* Price Badge - Bottom Right */}
+                  <div className={`absolute bottom-6 right-6 z-10 ${
+                    pkg.color === 'forest-emerald'
+                      ? 'bg-forest-emerald/90'
+                      : pkg.color === 'signature-gold'
+                      ? 'bg-signature-gold/90'
+                      : 'bg-warm-terracotta/90'
+                  } backdrop-blur-sm text-pearl-white px-6 py-2 rounded-full font-semibold shadow-lg`}>
                     Starting at {pkg.price}
                   </div>
                 </div>
@@ -378,18 +402,17 @@ export default function ServicesPage() {
 
                   <Link 
                     href="/contact" 
-                    className={`block w-full text-center bg-${pkg.color} text-pearl-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300`}
+                    className={`block w-full text-center py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity duration-300 text-pearl-white ${
+                      pkg.color === 'forest-emerald'
+                        ? 'bg-forest-emerald'
+                        : pkg.color === 'signature-gold'
+                        ? 'bg-signature-gold'
+                        : 'bg-warm-terracotta'
+                    }`}
                   >
                     Choose {pkg.name} →
                   </Link>
                 </div>
-
-                {/* Featured Badge */}
-                {pkg.featured && (
-                  <div className="absolute top-4 right-4 bg-charcoal-black text-signature-gold px-3 py-1 rounded-full text-xs font-semibold tracking-wider">
-                    MOST POPULAR
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
@@ -397,7 +420,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Our Process Section */}
-      <section className="section-padding bg-wine-burgundy text-pearl-white">
+      <section className="section-padding bg-meadow-lavender text-pearl-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -455,7 +478,7 @@ export default function ServicesPage() {
 
       
       {/* CTA */}
-      <section className="section-padding bg-forest-green text-pearl-white">
+      <section className="section-padding bg-light-red text-pearl-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

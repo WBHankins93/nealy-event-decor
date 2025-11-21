@@ -32,17 +32,17 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
 
         // Build gallery items with local image paths
         const items: GalleryItemType[] = [
-          // Blue Sofa Lounge items
+          // The Sapphire Social Lounge items
           ...blueSofaImages.map((image: string, index: number) => ({
             id: index + 1,
-            title: `Blue Sofa Lounge`,
+            title: `The Sapphire Social Lounge`,
             category: "blue-sofa-lounge",
             image: image
           })),
-          // Italian Romance items
+          // The Tuscany Soiree items
           ...italianRomanceImages.map((image: string, index: number) => ({
             id: blueSofaImages.length + index + 1,
-            title: `Italian Romance`,
+            title: `The Tuscany Soiree`,
             category: "italian-romance",
             image: image
           })),

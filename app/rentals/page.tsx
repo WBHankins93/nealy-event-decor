@@ -6,7 +6,7 @@ import { useState } from "react";
 import { rentalCategories } from "@/lib/rentals/rentalData";
 import { RentalItem } from "@/lib/rentals/rentalTypes";
 import { useWishlistContext } from "@/lib/wishlist/wishlistContext";
-import { convertToCloudinaryPath } from "@/lib/media/cloudinary";
+import { convertToS3Path } from "@/lib/media/s3";
 
 export default function RentalsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -54,8 +54,8 @@ export default function RentalsPage() {
 
   const getAllImages = (item: RentalItem): string[] => {
     const images = [item.image, ...(item.images || [])];
-    // Convert to Cloudinary paths if enabled
-    return images.map(img => convertToCloudinaryPath(img));
+    // Convert to S3 paths if enabled, otherwise use local paths
+    return images.map(img => convertToS3Path(img));
   };
 
   const nextImage = () => {
@@ -331,7 +331,7 @@ export default function RentalsPage() {
                             {/* Image */}
                             <div className="relative h-64 bg-pearl-light overflow-hidden">
                               <img
-                                src={convertToCloudinaryPath(item.image)}
+                                src={convertToS3Path(item.image)}
                                 alt={item.name}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               />
@@ -431,12 +431,12 @@ export default function RentalsPage() {
                       {/* Image */}
                       <div className="relative h-64 bg-pearl-light overflow-hidden">
                         <img
-                          src={convertToCloudinaryPath(item.image)}
+                          src={convertToS3Path(item.image)}
                           alt={item.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                           onError={(e) => {
-                            // Fallback to local path if Cloudinary fails
+                            // Fallback to local path if S3 fails
                             const img = e.currentTarget;
                             if (!img.src.includes(item.image)) {
                               img.src = item.image;

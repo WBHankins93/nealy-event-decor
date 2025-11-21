@@ -99,15 +99,19 @@ export default function AboutPage() {
               className="space-y-6"
             >
               <p className="body-lg text-charcoal-black/90 leading-relaxed">
-                Nealy was born from a lifelong desire to create beauty and elevate spaces into something extraordinary. With a deep love for architecture, design, and the art of building, every piece crafted under Nealy carries intention, emotion, and artistry.
+                Nealy was created from a lifelong desire to build beauty — to transform ordinary spaces into experiences that feel cinematic, intentional, and unforgettable. Rooted in a love for architecture, design, and the craft of building by hand, every piece is created with purpose. Nothing is accidental. Every texture, every silhouette, every detail is chosen to evoke emotion.
               </p>
 
               <p className="body-lg text-charcoal-black/90 leading-relaxed">
-                At Nealy, we don&apos;t just design décor; we bring imagination into form. From initial sketches to final fabrication, each piece is built to capture your vision in a way that feels deeply personal and unforgettable. I believe in crafting environments that speak — where every line, texture, and color flows seamlessly to tell your story.
+                At Nealy, we don&apos;t just design décor. We sculpt atmosphere.
+              </p>
+
+              <p className="body-lg text-charcoal-black/90 leading-relaxed">
+                From the first sketch to the final installation, your vision becomes something you can step into — a space that feels deeply personal, artfully curated, and uniquely yours.
               </p>
 
               <p className="body-lg text-charcoal-black/90 leading-relaxed italic">
-                More than a backdrop, each installation is a feeling — a reflection of your dream brought to life with precision, passion, and care.
+                Each installation is more than a moment of décor. It&apos;s a feeling — a story told through color, structure, and light. A dream brought to life with precision, passion, and soul.
               </p>
             </motion.div>
           </motion.div>

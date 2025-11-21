@@ -2,8 +2,17 @@ import { getVideoUrl } from "@/lib/media/videoUrls";
 
 export default function VideoPreloadHead() {
     const videoUrl = getVideoUrl("entrance");
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-    const cloudinaryDomain = cloudName ? `res.cloudinary.com` : null;
+    const s3Bucket = process.env.NEXT_PUBLIC_S3_BUCKET_NAME;
+    const cloudfrontDomain = process.env.NEXT_PUBLIC_S3_CLOUDFRONT_DOMAIN;
+    const region = process.env.NEXT_PUBLIC_S3_REGION || 'us-east-1';
+    
+    // Determine S3 domain for preconnect
+    let s3Domain: string | null = null;
+    if (cloudfrontDomain) {
+      s3Domain = cloudfrontDomain;
+    } else if (s3Bucket) {
+      s3Domain = `${s3Bucket}.s3.${region}.amazonaws.com`;
+    }
     
     return (
       <>
@@ -15,17 +24,17 @@ export default function VideoPreloadHead() {
           type="video/mp4"
           crossOrigin="anonymous"
         />
-        {/* Preconnect to Cloudinary for faster connection */}
-        {cloudinaryDomain ? (
+        {/* Preconnect to S3 for faster connection */}
+        {s3Domain ? (
           <>
             <link
               rel="preconnect"
-              href={`https://${cloudinaryDomain}`}
+              href={`https://${s3Domain}`}
               crossOrigin="anonymous"
             />
             <link
               rel="dns-prefetch"
-              href={`https://${cloudinaryDomain}`}
+              href={`https://${s3Domain}`}
             />
           </>
         ) : null}

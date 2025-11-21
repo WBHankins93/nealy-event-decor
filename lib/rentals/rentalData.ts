@@ -464,7 +464,7 @@ export const rentalCategories: RentalCategory[] = [
           },
           {
             "id": "blue-sofa-lounge",
-            "name": "Blue Sofa Lounge",
+            "name": "The Sapphire Social Lounge",
             "subtitle": "The Bluebell",
             "description": "",
             "image": "/images/rentals/BlueSofaLoungeTheBluebell.jpg",
@@ -474,7 +474,7 @@ export const rentalCategories: RentalCategory[] = [
           },
           {
             "id": "italian-romance-setup",
-            "name": "Italian Romance Setup",
+            "name": "The Tuscany Soiree",
             "subtitle": "The Papavero",
             "description": "",
             "image": "/images/rentals/ItalianRomanceSetupThePapavero.jpg",

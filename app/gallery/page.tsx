@@ -21,8 +21,8 @@ function GalleryContent() {
 
   const filters = [
     { id: "all", label: "All Events" },
-    { id: "blue-sofa-lounge", label: "Blue Sofa Lounge" },
-    { id: "italian-romance", label: "Italian Romance" },
+    { id: "blue-sofa-lounge", label: "The Sapphire Social Lounge" },
+    { id: "italian-romance", label: "The Tuscany Soiree" },
     { id: "wedding-highlights", label: "Wedding Highlights" },
   ];
 

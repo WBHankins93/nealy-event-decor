@@ -14,10 +14,10 @@ export default function HomePage() {
       {/* Main Content Wrapper with Green Gradient Edges */}
       <div className="relative bg-warm-eggshell">
         {/* Left Green Gradient Edge */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 lg:w-24 bg-gradient-to-r from-meadow-sage/40 via-meadow-sage/20 to-transparent pointer-events-none z-0" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 lg:w-24 bg-gradient-to-r from-meadow-sage/70 via-meadow-sage/40 to-transparent pointer-events-none z-0" />
         
         {/* Right Green Gradient Edge */}
-        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 lg:w-24 bg-gradient-to-l from-meadow-sage/40 via-meadow-sage/20 to-transparent pointer-events-none z-0" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 lg:w-24 bg-gradient-to-l from-meadow-sage/70 via-meadow-sage/40 to-transparent pointer-events-none z-0" />
         
         <div className="relative z-10">
           {/* Introduction Section - Content Box */}
@@ -30,7 +30,7 @@ export default function HomePage() {
                 transition={{ duration: 0.8 }}
                 className="max-w-4xl mx-auto"
               >
-                <div className="bg-warm-eggshell rounded-lg border border-charcoal-black/10 shadow-sm p-8 md:p-12 text-center space-y-6">
+                <div className="bg-white rounded-lg border-2 border-charcoal-black/20 shadow-lg p-8 md:p-12 text-center space-y-6">
                   <h2 className="heading-lg text-forest-green">
                     Luxury Fabrication for Unforgettable Moments
                   </h2>
@@ -55,7 +55,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8 }}
-                className="bg-warm-eggshell rounded-lg border border-charcoal-black/10 shadow-sm p-8 md:p-12"
+                className="bg-white rounded-lg border-2 border-charcoal-black/20 shadow-lg p-8 md:p-12"
               >
                 <div className="text-center mb-12">
                   <h2 className="heading-lg text-forest-green mb-6">Gallery</h2>
@@ -67,12 +67,12 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                   {[
                     {
-                      title: "Blue Sofa",
+                      title: "The Sapphire Social Lounge",
                       subtitle: "Event Design",
                       image: getImagePath('03-Gallery', 'BlueSofaLounge', 'IMG_0936'),
                     },
                     {
-                      title: "Italian Romance",
+                      title: "The Tuscany Soiree",
                       subtitle: "Luxury Decor",
                       image: getImagePath('03-Gallery', 'ItalianRomanceSetup', 'business-pics-45'),
                     },
@@ -139,7 +139,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-pearl-white rounded-lg border border-charcoal-black/10 shadow-lg p-8 md:p-12">
+            <div className="bg-white rounded-lg border-2 border-charcoal-black/20 shadow-lg p-8 md:p-12">
               <div className="text-center mb-12">
                 <h2 className="heading-lg text-forest-green mb-6">
                   What We Create
@@ -209,11 +209,11 @@ export default function HomePage() {
           >
             {[
               {
-                title: "Blue Sofa",
+                title: "The Sapphire Social Lounge",
                 image: getImagePath('03-Gallery', 'BlueSofaLounge', 'IMG_0936'),
               },
               {
-                title: "Italian Romance",
+                title: "The Tuscany Soiree",
                 image: getImagePath('03-Gallery', 'ItalianRomanceSetup', 'business-pics-45'),
               },
               {

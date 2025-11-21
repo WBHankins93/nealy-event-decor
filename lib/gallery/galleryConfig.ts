@@ -1,13 +1,14 @@
 /**
  * Gallery Images Configuration
- * Maps all gallery images with their paths (supports local, Supabase, and Cloudinary)
+ * Maps all gallery images with their paths (S3 primary, local fallback)
  */
 
-import { getCloudinaryImageUrl } from "../media/cloudinary";
+import { getS3ImageUrl } from "../media/s3";
 
 /**
  * Gallery structure mapping
  * Add your gallery folders and their images here
+ * These correspond to subfolders in S3: 01-Website-Creation/03 Gallery/
  */
 export const galleryData = {
   '03-Gallery': {
@@ -47,29 +48,17 @@ export const galleryData = {
 };
 
 /**
- * Use Cloudinary if configured
- * Set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME in .env.local to enable Cloudinary
- */
-const USE_CLOUDINARY = !!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-
-/**
- * Helper function to get image path (Cloudinary or local)
+ * Helper function to get image path (S3 primary, local fallback)
  * @param section - Gallery section (e.g., '03-Gallery')
  * @param folder - Folder name (e.g., 'BlueSofaLounge')
  * @param imageName - Image name without extension
- * @returns Cloudinary URL or local public folder path
+ * @returns S3 URL or local public folder path
  */
 export function getImagePath(section: string, folder: string, imageName: string): string {
-  const localPath = `/images/gallery/${section}/${folder}/${imageName}.jpg`;
-  
-  if (USE_CLOUDINARY) {
-    // Use Cloudinary path (matches the upload structure with "public/" prefix and no extension)
-    const cloudinaryPath = `public/images/gallery/${section}/${folder}/${imageName}`;
-    return getCloudinaryImageUrl(cloudinaryPath);
-  }
-  
-  // Use local public folder paths
-  return localPath;
+  // Use S3 if configured, otherwise fallback to local
+  // S3 folder structure: 01-Website-Creation/03 Gallery/{folder}/{imageName}.jpg
+  const s3Folder = `03 Gallery/${folder}`;
+  return getS3ImageUrl(s3Folder, `${imageName}.jpg`);
 }
 
 /**
