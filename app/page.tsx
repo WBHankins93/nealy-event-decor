@@ -199,6 +199,22 @@ export default function HomePage() {
       {/* CTA Section - Light Pink with Gallery Images */}
       <section className="section-padding bg-light-red">
         <div className="container-custom">
+          {/* CTA Heading and Subheading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-3xl mx-auto text-center mb-12 space-y-4"
+          >
+            <h2 className="heading-lg text-charcoal-black">
+              Ready to Create Something Unforgettable?
+            </h2>
+            <p className="body-lg text-charcoal-black/80">
+              Let&apos;s bring your vision to life with custom décor that tells your unique story
+            </p>
+          </motion.div>
+
           {/* Gallery Images Row */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -240,28 +256,20 @@ export default function HomePage() {
             ))}
           </motion.div>
 
-          {/* CTA Content */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center space-y-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <h2 className="heading-lg text-charcoal-black">
-              Ready to Create Something Unforgettable?
-            </h2>
-            <p className="body-lg text-charcoal-black/80">
-              Let&apos;s bring your vision to life with custom décor that tells your unique story
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary">
-                Contact!
-              </Link>
-              <Link href="/contact" className="btn-secondary border-charcoal-black text-charcoal-black hover:bg-charcoal-black hover:text-pearl-white">
-                Sign Up for Newsletter
-              </Link>
-            </div>
+            <Link href="/contact" className="btn-primary">
+              Contact!
+            </Link>
+            <Link href="/contact" className="btn-secondary border-charcoal-black text-charcoal-black hover:bg-charcoal-black hover:text-pearl-white">
+              Sign Up for Newsletter
+            </Link>
           </motion.div>
         </div>
       </section>
