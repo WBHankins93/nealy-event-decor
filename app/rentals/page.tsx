@@ -18,6 +18,12 @@ export default function RentalsPage() {
   // Wishlist context
   const { addToWishlist, isInWishlist } = useWishlistContext();
 
+  // Filter to only show the 5 main categories: Bars, Decor, Lounge Furniture, Lighting, Table top
+  const allowedCategoryNames = ['Bars', 'Décor', 'Lounge Furniture', 'Lighting', 'Table Top'];
+  const filteredCategories = rentalCategories.filter(cat => 
+    allowedCategoryNames.includes(cat.name)
+  );
+
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
     setSelectedSubcategory(null);
@@ -76,7 +82,7 @@ export default function RentalsPage() {
   const getItemsToDisplay = () => {
     if (!selectedSubcategory) return [];
     
-    for (const category of rentalCategories) {
+    for (const category of filteredCategories) {
       for (const subcategory of category.subcategories) {
         if (subcategory.id === selectedSubcategory) {
           return subcategory.items;
@@ -88,7 +94,7 @@ export default function RentalsPage() {
 
   const getSelectedCategoryData = () => {
     if (!selectedCategory) return null;
-    return rentalCategories.find(cat => cat.id === selectedCategory);
+    return filteredCategories.find(cat => cat.id === selectedCategory);
   };
 
   const itemsToDisplay = getItemsToDisplay();
@@ -96,16 +102,16 @@ export default function RentalsPage() {
   const showAllItems = !selectedSubcategory && !selectedCategory;
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 lg:pt-[240px]">
+    <div className="min-h-screen">
       {/* Luxury Hero */}
-      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
+      <section className="relative pb-16 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden pt-28 md:pt-36 lg:pt-[240px]">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-signature-gold rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-wine-burgundy rounded-full blur-3xl" />
         </div>
 
-        <div className="container-custom text-center relative z-10">
+        <div className="container-custom text-center relative z-10 pt-20 md:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -147,12 +153,12 @@ export default function RentalsPage() {
         </div>
       </section>
 
-      {/* Sticky Category Navigation Bar - Maroon Bar */}
-      <div className="sticky top-0 z-40 bg-wine-burgundy shadow-lg">
+      {/* Sticky Category Navigation Bar - Pink Bar */}
+      <div className="sticky top-0 z-40 bg-light-red shadow-lg">
         <div className="w-full">
           <div className="overflow-x-auto">
             <nav className="flex items-center justify-center min-w-max px-4">
-              {rentalCategories.map((category) => (
+              {filteredCategories.map((category) => (
                 <div
                   key={category.id}
                   className="relative static"
@@ -176,7 +182,7 @@ export default function RentalsPage() {
 
         {/* Subcategory Dropdowns */}
         <div className="relative">
-          {rentalCategories.map((category) => (
+          {filteredCategories.map((category) => (
             <AnimatePresence key={`dropdown-${category.id}`}>
               {hoveredCategory === category.id && category.subcategories.length > 0 && (
                 <motion.div
@@ -249,7 +255,7 @@ export default function RentalsPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pt-8 max-w-6xl mx-auto"
               >
-                {rentalCategories.map((category) => {
+                {filteredCategories.map((category) => {
                   const totalItems = category.subcategories.reduce((sum, sub) => sum + sub.items.length, 0);
                   return (
                     <button
@@ -391,7 +397,7 @@ export default function RentalsPage() {
 
               {/* Subcategory Header */}
               {(() => {
-                for (const category of rentalCategories) {
+                for (const category of filteredCategories) {
                   for (const subcategory of category.subcategories) {
                     if (subcategory.id === selectedSubcategory) {
                       return (

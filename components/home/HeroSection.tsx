@@ -78,7 +78,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden -mt-28 md:-mt-36 lg:-mt-[240px] pt-28 md:pt-36 lg:pt-[240px]">
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -87,7 +87,7 @@ export default function HeroSection() {
         muted
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 right-0 w-full h-full object-cover"
         onError={(e) => {
           console.error('Video load error:', e);
           // Fallback to local path if Cloudinary fails

@@ -130,7 +130,7 @@ function parseDimensions(dimensionsText) {
 }
 
 // Read the Excel file
-const workbook = XLSX.readFile('scripts/data/Inventory.xlsx');
+const workbook = XLSX.readFile('scripts/data/Inventory-updated.xlsx');
 const sheetName = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetName];
 const rawData = XLSX.utils.sheet_to_json(worksheet, { 
@@ -176,9 +176,8 @@ rawData.forEach((row, index) => {
   // Skip empty rows
   if (!category && !name && !itemType) return;
   
-  // Check if this is a main category
-  const mainCategories = ['Bars', 'Décor', 'Games', 'Umbrellas', 'Vessels + Containers', 
-                          'Lounge Furniture', 'Lighting', 'Table Top', 'Linens', 'Packages'];
+  // Check if this is a main category - Only the 5 main categories we want to display
+  const mainCategories = ['Bars', 'Décor', 'Lounge Furniture', 'Lighting', 'Table Top'];
   
   if (mainCategories.includes(category)) {
     currentCategory = category;
@@ -196,7 +195,15 @@ rawData.forEach((row, index) => {
   }
   
   // Check if this is a subcategory (has category but no name/itemType)
+  // BUT first check if this category is actually a main category we want to track
+  // If it's a main category, skip it (we only want the 5 filtered ones)
   if (category && !name && !itemType) {
+    // Don't create subcategories for main categories that we're filtering out
+    if (mainCategories.includes(category)) {
+      // This is a main category header, not a subcategory
+      return;
+    }
+    
     currentSubcategory = category.trim();
     
     if (currentCategory && categories[currentCategory]) {
@@ -270,15 +277,20 @@ rawData.forEach((row, index) => {
 // Convert to the format expected by rentalData.ts
 const rentalCategories = categoryOrder.map(catName => {
   const cat = categories[catName];
-  return {
-    id: cat.id,
-    name: cat.name,
-    subcategories: cat.subcategories.map(sub => ({
+  // Filter out empty subcategories - only keep subcategories that have items
+  const subcategoriesWithItems = cat.subcategories
+    .filter(sub => sub.items && sub.items.length > 0)
+    .map(sub => ({
       id: sub.id,
       name: sub.name,
       description: sub.description || `${sub.name} for your event needs`,
       items: sub.items
-    }))
+    }));
+  
+  return {
+    id: cat.id,
+    name: cat.name,
+    subcategories: subcategoriesWithItems
   };
 });
 

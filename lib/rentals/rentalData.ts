@@ -35,11 +35,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheFiore6'ItalianTiledWhiteBar.jpg",
             "dimensions": "Height:44in Length:72.75in Width:24.25in",
             "dimensionsNote": "Fits 2 bartenders comfortably",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheFiore6'ItalianTiledWhiteBar2.jpg",
-              "/images/rentals/TheFiore6'ItalianTiledWhiteBar3.jpg"
-            ]
+            "quantity": "1"
           },
           {
             "id": "olive",
@@ -49,10 +45,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheOlive6'GreenTiledBar.jpg",
             "dimensions": "Height:44in Length:72.75in Width:24.25in",
             "dimensionsNote": "Fits 2 bartenders comfortably",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheOlive6'GreenTiledBar2.jpg"
-            ]
+            "quantity": "1"
           },
           {
             "id": "gardenia",
@@ -62,12 +55,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall.jpg",
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall2.jpg",
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall3.jpg",
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall4.jpg"
-            ]
+            "quantity": "1"
           },
           {
             "id": "olive-side-table",
@@ -77,18 +65,9 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheOliveSideTable4'GreenTiledBar.jpg",
             "dimensions": "Height: 45in Length: 50in",
             "dimensionsNote": "",
-            "quantity": "2",
-            "images": [
-              "/images/rentals/TheOliveSideTable4'GreenTiledBar2.jpg"
-            ]
+            "quantity": "2"
           }
         ]
-      },
-      {
-        "id": "bar-cart",
-        "name": "Bar Cart",
-        "description": "Bar Cart for your event needs",
-        "items": []
       },
       {
         "id": "drink-displays",
@@ -103,12 +82,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall.jpg",
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall2.jpg",
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall3.jpg",
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall4.jpg"
-            ]
+            "quantity": "1"
           }
         ]
       }
@@ -131,11 +105,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheCamellia8'WhiteArch.jpg",
             "dimensions": "Height: 8ft Length: 4ft",
             "dimensionsNote": "",
-            "quantity": "2",
-            "images": [
-              "/images/rentals/TheCamellia8'WhiteArch2.jpg",
-              "/images/rentals/TheCamellia8'WhiteArch3.jpg"
-            ]
+            "quantity": "2"
           },
           {
             "id": "papavero",
@@ -145,12 +115,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/ThePapaveroLargeItalianFountain.jpg",
             "dimensions": "Height: 60in Width: 35in",
             "dimensionsNote": "",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/ThePapaveroLargeItalianFountain2.jpg",
-              "/images/rentals/ThePapaveroLargeItalianFountain3.jpg",
-              "/images/rentals/ThePapaveroLargeItalianFountain4.jpg"
-            ]
+            "quantity": "1"
           },
           {
             "id": "juniper",
@@ -160,10 +125,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheJuniper12'FernWall.jpg",
             "dimensions": "Height: 8ft Length: 12ft",
             "dimensionsNote": "",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheJuniper12'FernWall2.jpg"
-            ]
+            "quantity": "1"
           }
         ]
       },
@@ -180,29 +142,10 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheFernBrassBirdCage.jpg",
             "dimensions": "height: 16.5in Height: 13in",
             "dimensionsNote": "Cage 1: Cage 2:",
-            "quantity": "3",
-            "images": [
-              "/images/rentals/TheFernBrassBirdCage2.jpg"
-            ]
+            "quantity": "3"
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "games",
-    "name": "Games",
-    "subcategories": []
-  },
-  {
-    "id": "umbrellas",
-    "name": "Umbrellas",
-    "subcategories": []
-  },
-  {
-    "id": "vessels-containers",
-    "name": "Vessels + Containers",
-    "subcategories": [
+      },
       {
         "id": "candle-holder-votives",
         "name": "Candle Holder + Votives",
@@ -216,11 +159,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheLotusTallGlassCandleHolder.jpg",
             "dimensions": "Height: 4in",
             "dimensionsNote": "",
-            "quantity": "24",
-            "images": [
-              "/images/rentals/TheLotusTallGlassCandleHolder2.jpg",
-              "/images/rentals/TheLotusTallGlassCandleHolder3.jpg"
-            ]
+            "quantity": "24"
           },
           {
             "id": "jasmine",
@@ -230,10 +169,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheJasmineShortGlassCandleHolder.jpg",
             "dimensions": "Height: 2.76in Width: 1.77in",
             "dimensionsNote": "",
-            "quantity": "60",
-            "images": [
-              "/images/rentals/TheJasmineShortGlassCandleHolder2.jpg"
-            ]
+            "quantity": "60"
           },
           {
             "id": "lariat-collection",
@@ -243,11 +179,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheLariatCollectionClearCrystalCandleHolder.jpg",
             "dimensions": "Height: 7in Height 5in",
             "dimensionsNote": "Tall Candle Holder: Short Candle Holder:",
-            "quantity": "4",
-            "images": [
-              "/images/rentals/TheLariatCollectionClearCrystalCandleHolder2.jpg",
-              "/images/rentals/TheLariatCollectionClearCrystalCandleHolder3.jpg"
-            ]
+            "quantity": "4"
           }
         ]
       },
@@ -264,10 +196,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheFreesiaCollectionVintageGlassBudVase.jpg",
             "dimensions": "varies",
             "dimensionsNote": "",
-            "quantity": "64",
-            "images": [
-              "/images/rentals/TheFreesiaCollectionVintageGlassBudVase3.jpg"
-            ]
+            "quantity": "64"
           },
           {
             "id": "delphinium",
@@ -277,10 +206,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheDelphiniumBlueGlassVase.jpg",
             "dimensions": "varies",
             "dimensionsNote": "",
-            "quantity": "3",
-            "images": [
-              "/images/rentals/TheDelphiniumBlueGlassVase2.jpg"
-            ]
+            "quantity": "3"
           }
         ]
       },
@@ -297,10 +223,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheAureliaGoldOvalMirrorTray.jpg",
             "dimensions": "Length: 20in Width: 11.5in",
             "dimensionsNote": "",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheAureliaGoldOvalMirrorTray2.jpg"
-            ]
+            "quantity": "1"
           }
         ]
       }
@@ -323,10 +246,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheBluebellRoyalBlueVelvetSofa.jpg",
             "dimensions": "Height: 31in Length: 78in Width: 32in",
             "dimensionsNote": "",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheBluebellRoyalBlueVelvetSofa2.jpg"
-            ]
+            "quantity": "1"
           }
         ]
       },
@@ -343,10 +263,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheCalendulaOvalOvalMarbledCoffeeTable.jpg",
             "dimensions": "Height: 18.5in Length: 47in",
             "dimensionsNote": "",
-            "quantity": "1",
-            "images": [
-              "/images/rentals/TheCalendulaOvalOvalMarbledCoffeeTable2.jpg"
-            ]
+            "quantity": "1"
           },
           {
             "id": "calendula-round",
@@ -366,10 +283,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheDahliaBrassMirroredEndTable.jpg",
             "dimensions": "Height: 32.5in Length: 27in",
             "dimensionsNote": "",
-            "quantity": "",
-            "images": [
-              "/images/rentals/TheDahliaBrassMirroredEndTable2.jpg"
-            ]
+            "quantity": ""
           }
         ]
       }
@@ -392,12 +306,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheIndigoBloomHandmadeTasselChandelier.jpg",
             "dimensions": "Height: 36in",
             "dimensionsNote": "",
-            "quantity": "2",
-            "images": [
-              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier2.jpg",
-              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier3.jpg",
-              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier4.jpg"
-            ]
+            "quantity": "2"
           }
         ]
       },
@@ -414,12 +323,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/ThePoppyHandmadeFloralTaperCandles.jpg",
             "dimensions": "Customizable Candle & Flower Color for addt'l $20",
             "dimensionsNote": "",
-            "quantity": "40",
-            "images": [
-              "/images/rentals/ThePoppyHandmadeFloralTaperCandles2.jpg",
-              "/images/rentals/ThePoppyHandmadeFloralTaperCandles3.jpg",
-              "/images/rentals/ThePoppyHandmadeFloralTaperCandles4.jpg"
-            ]
+            "quantity": "40"
           }
         ]
       }
@@ -442,11 +346,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheMarigoldGoldBeadedCharger.jpg",
             "dimensions": "Diam: 13in",
             "dimensionsNote": "Material: Plastic",
-            "quantity": "50",
-            "images": [
-              "/images/rentals/TheMarigoldGoldBeadedCharger2.jpg",
-              "/images/rentals/TheMarigoldGoldBeadedCharger3.jpg"
-            ]
+            "quantity": "50"
           },
           {
             "id": "petal",
@@ -456,11 +356,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/ThePetalPinkFloralPlate.jpg",
             "dimensions": "Length: 8in Width: 8in",
             "dimensionsNote": "",
-            "quantity": "8",
-            "images": [
-              "/images/rentals/ThePetalPinkFloralPlate2.jpg",
-              "/images/rentals/ThePetalPinkFloralPlate3.jpg"
-            ]
+            "quantity": "8"
           }
         ]
       },
@@ -477,10 +373,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheWillowSageGreenLinenNapkin.jpg",
             "dimensions": "Length: 17in Width: 17in",
             "dimensionsNote": "",
-            "quantity": "50",
-            "images": [
-              "/images/rentals/TheWillowSageGreenLinenNapkin2.jpg"
-            ]
+            "quantity": "50"
           },
           {
             "id": "rose",
@@ -490,10 +383,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheRoseGoldRoseandPearlNapkinRing.jpg",
             "dimensions": "",
             "dimensionsNote": "",
-            "quantity": "49",
-            "images": [
-              "/images/rentals/TheRoseGoldRoseandPearlNapkinRing2.jpg"
-            ]
+            "quantity": "49"
           },
           {
             "id": "viola",
@@ -503,12 +393,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheViolaBlueMediterraneanPlate.jpg",
             "dimensions": "Length: 8in Width: 8in",
             "dimensionsNote": "",
-            "quantity": "11",
-            "images": [
-              "/images/rentals/TheViolaBlueMediterraneanPlate2.jpg",
-              "/images/rentals/TheViolaBlueMediterraneanPlate3.jpg",
-              "/images/rentals/TheViolaBlueMediterraneanPlate4.jpg"
-            ]
+            "quantity": "11"
           },
           {
             "id": "lariat-collection",
@@ -518,12 +403,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheLariatCollectionClearCrystalAssortment.jpg",
             "dimensions": "Length: 12in Width: 12in Height: 7.25in Height: 7in Height: 5in",
             "dimensionsNote": "Bowl: Vase: Tall Candle Holder: Shor Candle Holdert:",
-            "quantity": "6",
-            "images": [
-              "/images/rentals/TheLariatCollectionClearCrystalAssortment2.jpg",
-              "/images/rentals/TheLariatCollectionClearCrystalAssortment3.jpg",
-              "/images/rentals/TheLariatCollectionClearCrystalAssortment4.jpg"
-            ]
+            "quantity": "6"
           },
           {
             "id": "mimosa-collection",
@@ -533,11 +413,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheMimosaCollectionColorfulGlassBottles.jpg",
             "dimensions": "varies",
             "dimensionsNote": "",
-            "quantity": "",
-            "images": [
-              "/images/rentals/TheMimosaCollectionColorfulGlassBottles2.jpg",
-              "/images/rentals/TheMimosaCollectionColorfulGlassBottles3.jpg"
-            ]
+            "quantity": ""
           },
           {
             "id": "freesia-collection",
@@ -547,11 +423,7 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles.jpg",
             "dimensions": "varies",
             "dimensionsNote": "",
-            "quantity": "64",
-            "images": [
-              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles2.jpg",
-              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles3.jpg"
-            ]
+            "quantity": "64"
           },
           {
             "id": "frostflower",
@@ -561,21 +433,12 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheFrostflowerTallDrinkCooler.jpg",
             "dimensions": "72 Quart",
             "dimensionsNote": "",
-            "quantity": "2",
-            "images": [
-              "/images/rentals/TheFrostflowerTallDrinkCooler2.jpg"
-            ]
+            "quantity": "2"
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "linens",
-    "name": "Linens",
-    "subcategories": [
+      },
       {
-        "id": "default",
+        "id": "linens",
         "name": "Linens",
         "description": "Linens for your event needs",
         "items": [
@@ -587,24 +450,18 @@ export const rentalCategories: RentalCategory[] = [
             "image": "/images/rentals/TheSnowdropSolidWhiteLinen70inx120inRectangle.jpg",
             "dimensions": "fits 6 ft & 8 ft tables",
             "dimensionsNote": "",
-            "quantity": "9",
-            "images": [
-              "/images/rentals/TheSnowdropSolidWhiteLinen70inx120inRectangle2.jpg"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "packages",
-    "name": "Packages",
-    "subcategories": [
-      {
-        "id": "default",
-        "name": "Packages",
-        "description": "Packages for your event needs",
-        "items": [
+            "quantity": "9"
+          },
+          {
+            "id": "sets",
+            "name": "SETS:",
+            "subtitle": "",
+            "description": "",
+            "image": "/images/rentals/SETS.jpg",
+            "dimensions": "",
+            "dimensionsNote": "",
+            "quantity": ""
+          },
           {
             "id": "blue-sofa-lounge",
             "name": "Blue Sofa Lounge",

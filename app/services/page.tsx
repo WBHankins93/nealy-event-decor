@@ -111,16 +111,16 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-28 md:pt-36 lg:pt-[240px]">
+    <div className="min-h-screen">
       {/* Luxury Hero */}
-      <section className="relative pt-20 pb-16 md:pt-24 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden">
+      <section className="relative pb-16 md:pb-20 bg-gradient-to-b from-forest-green to-forest-green/95 text-pearl-white overflow-hidden pt-28 md:pt-36 lg:pt-[240px]">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-signature-gold rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-wine-burgundy rounded-full blur-3xl" />
         </div>
 
-        <div className="container-custom text-center relative z-10">
+        <div className="container-custom text-center relative z-10 pt-20 md:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
