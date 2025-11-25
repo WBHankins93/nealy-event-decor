@@ -172,7 +172,7 @@ function convertS3PathToLocal(s3Path: string): string {
  * Map page/section names to S3 folder names
  */
 export const S3_FOLDER_MAP = {
-  banner: '01 Landing Page ', // Note: trailing space matches S3 folder name
+  banner: '02 Home Page', // Banner image is in 02 Home Page folder
   home: '02 Home Page',
   gallery: '03 Gallery',
   services: '04 Services',
