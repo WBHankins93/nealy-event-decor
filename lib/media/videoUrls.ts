@@ -3,7 +3,7 @@
  * Supports S3 (primary) and local paths (development fallback)
  */
 
-import { getS3VideoBySection } from './s3';
+import { getS3VideoBySection, getS3VideoUrl } from './s3';
 
 // Video filename mappings for S3
 const VIDEO_FILENAMES = {
@@ -28,8 +28,13 @@ export function getVideoUrl(key: keyof typeof VIDEO_FILENAMES): string {
   
   // Use S3 if configured
   if (s3Bucket) {
+    // Entrance video is in "01 Landing Page " (with trailing space), not in banner section
+    if (key === 'entrance') {
+      return getS3VideoUrl('01 Landing Page ', VIDEO_FILENAMES[key]);
+    }
+    
     const sectionMap: Record<keyof typeof VIDEO_FILENAMES, 'banner' | 'home' | 'about'> = {
-      entrance: 'banner', // Landing page video
+      entrance: 'banner', // Not used, handled above
       homePage: 'home',
       about: 'about',
     };
