@@ -79,9 +79,24 @@ export default function VideoEntranceOptimized({
     };
 
     const handleError = (e: Event) => {
-      console.error('Video error:', e);
-      // If video fails, skip to homepage after 2 seconds
-      setTimeout(() => handleComplete(), 2000);
+      const video = e.currentTarget as HTMLVideoElement;
+      console.error('❌ Video error:', e);
+      console.error('❌ Video error code:', video.error?.code);
+      console.error('❌ Video error message:', video.error?.message);
+      console.error('❌ Video src:', video.src);
+      console.error('❌ Video currentSrc:', video.currentSrc);
+      console.error('❌ Video networkState:', video.networkState);
+      
+      // Try fallback to local if S3 fails
+      if (video.src && !video.src.includes('/videos/entrance/')) {
+        console.log('🔄 Attempting fallback to local video');
+        video.src = '/videos/entrance/Video-no-text.mp4';
+        video.load();
+      } else {
+        // If video fails completely, skip to homepage after 2 seconds
+        console.log('⏭️ Skipping to homepage due to video error');
+        setTimeout(() => handleComplete(), 2000);
+      }
     };
 
     // Listen for when video can play through without stopping
@@ -138,11 +153,17 @@ export default function VideoEntranceOptimized({
             controlsList="nodownload nofullscreen noremoteplayback"
             crossOrigin="anonymous"
             onError={(e) => {
-              console.error('Video load error:', e);
-              // Fallback to local path if Cloudinary fails
               const video = e.currentTarget;
-              if (video.src && !video.src.includes('/videos/')) {
+              console.error('❌ Video onError handler:', e);
+              console.error('❌ Video src:', video.src);
+              console.error('❌ Video currentSrc:', video.currentSrc);
+              console.error('❌ Video error object:', video.error);
+              
+              // Fallback to local path if S3 fails
+              if (video.src && !video.src.includes('/videos/entrance/')) {
+                console.log('🔄 Falling back to local video');
                 video.src = '/videos/entrance/Video-no-text.mp4';
+                video.load();
               }
             }}
           >
