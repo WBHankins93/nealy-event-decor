@@ -33,6 +33,8 @@ export default function GalleryItem({ item, index, onClick }: GalleryItemProps) 
           width={800}
           height={1000}
           className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+          priority={index < 6}
+          loading={index < 6 ? 'eager' : 'lazy'}
         />
 
         {/* Luxury Gradient Overlay */}
