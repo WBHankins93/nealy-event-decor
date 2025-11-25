@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroSection from "@/components/home/HeroSection";
 import GalleryImage from "@/components/gallery/GalleryImage";
-import { getImagePath } from "@/lib/gallery/galleryConfig";
-import { getS3ImageBySection } from "@/lib/media/s3";
+import { getS3ImageUrl } from "@/lib/media/s3";
 
 export default function HomePage() {
   return (
@@ -70,17 +69,17 @@ export default function HomePage() {
                     {
                       title: "The Sapphire Social Lounge",
                       subtitle: "Event Design",
-                      image: getImagePath('03-Gallery', 'Blue Sofa Lounge', 'G_BSL_P1'),
+                      image: getS3ImageUrl('02 Home Page/Gallery', 'HP_G_P1.png'),
                     },
                     {
                       title: "The Tuscany Soiree",
                       subtitle: "Luxury Decor",
-                      image: getImagePath('03-Gallery', 'Italian Romance Setup', 'G_IRS_P1.png'),
+                      image: getS3ImageUrl('02 Home Page/Gallery', 'HP_G_P2.jpg'),
                     },
                     {
                       title: "Wedding Highlights",
                       subtitle: "Event Styling",
-                      image: getImagePath('03-Gallery', 'Wedding Highlights', 'G_WH_P1.png'),
+                      image: getS3ImageUrl('02 Home Page/Gallery', 'HP_G_P3.jpg'),
                     },
                   ].map((item, index) => (
                     <motion.div
@@ -222,20 +221,24 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
           >
             {[
               {
-                title: "The Sapphire Social Lounge",
-                image: getImagePath('03-Gallery', 'Blue Sofa Lounge', 'G_BSL_P1'),
+                title: "Carousel Image 1",
+                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P1.jpg'),
               },
               {
-                title: "The Tuscany Soiree",
-                image: getImagePath('03-Gallery', 'Italian Romance Setup', 'G_IRS_P1.png'),
+                title: "Carousel Image 2",
+                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P2.jpg'),
               },
               {
-                title: "Wedding Highlights",
-                image: getImagePath('03-Gallery', 'Wedding Highlights', 'G_WH_P1.png'),
+                title: "Carousel Image 3",
+                      image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P3.ARW'), // Note: ARW format may need conversion to JPG for web display
+              },
+              {
+                title: "Carousel Image 4",
+                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P4.jpg'),
               },
             ].map((item, index) => (
               <motion.div
