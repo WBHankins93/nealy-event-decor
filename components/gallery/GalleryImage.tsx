@@ -43,7 +43,7 @@ export default function GalleryImage({
             console.error(`Failed to load image: ${imgSrc}`);
             setHasError(true);
           }}
-          unoptimized={imgSrc.includes('.s3.') || imgSrc.includes('amazonaws.com')}
+          unoptimized={imgSrc.includes('.s3.') || imgSrc.includes('amazonaws.com') || imgSrc.includes('s3.us-east-2')}
           {...props}
         />
       )}
