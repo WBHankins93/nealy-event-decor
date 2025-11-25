@@ -33,6 +33,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "6' Italian Tiled White Bar",
             "description": "A modern white bar accented with Italian tiles for a touch of European charm  Bar Fits 2 comfortably.",
             "image": "/images/rentals/TheFiore6'ItalianTiledWhiteBar.jpg",
+            "images": [
+              "/images/rentals/TheFiore6'ItalianTiledWhiteBar2.jpg"
+            ],
             "dimensions": "Height:44in Length:72.75in Width:24.25in",
             "dimensionsNote": "Fits 2 bartenders comfortably",
             "quantity": "1"
@@ -53,6 +56,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "8' White Drink Display + 8' Fern Wall",
             "description": "2 Arched Bookcases perfect for displaying glassware, florals, or bottles paired with Fern Wall covering remaining sides.",
             "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall.jpg",
+            "images": [
+              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall1.jpg",
+              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall3.jpg"
+            ],
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
             "quantity": "1"
@@ -80,6 +87,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "8' White Drink Display + 8' Fern Wall",
             "description": "2 Arched Bookcases perfect for displaying glassware, florals, or bottles paired with Fern Wall covering remaining sides.",
             "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall.jpg",
+            "images": [
+              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall1.jpg",
+              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall3.jpg"
+            ],
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
             "quantity": "1"
@@ -103,6 +114,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "8' White Arch",
             "description": "Make a statement with our stunning 8ft White Arch — a timeless piece that elevates any event design. Crafted with a smooth, clean finish and graceful curves, this versatile structure serves as the perfect backdrop for ceremonies or photo moments",
             "image": "/images/rentals/TheCamellia8'WhiteArch.jpg",
+            "images": [
+              "/images/rentals/TheCamellia8'WhiteArch2.jpg"
+            ],
             "dimensions": "Height: 8ft Length: 4ft",
             "dimensionsNote": "",
             "quantity": "2"
@@ -113,6 +127,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Large Italian Fountain",
             "description": "Handcrafted Italian-inspired fountain. Designed with intricate blue and yellow mosaic tiles framed by textured white stone",
             "image": "/images/rentals/ThePapaveroLargeItalianFountain.jpg",
+            "images": [
+              "/images/rentals/ThePapaveroLargeItalianFountain2.jpg",
+              "/images/rentals/ThePapaveroLargeItalianFountain3.jpg"
+            ],
             "dimensions": "Height: 60in Width: 35in",
             "dimensionsNote": "",
             "quantity": "1"
@@ -122,7 +140,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Juniper",
             "subtitle": "12' Fern Wall",
             "description": "Lush mix of artificial greenery perfect for photo backdrops or accent walls.",
-            "image": "/images/rentals/TheJuniper12'FernWall.jpg",
+            "image": "/images/rentals/TheJuniper12'FernWall .png",
             "dimensions": "Height: 8ft Length: 12ft",
             "dimensionsNote": "",
             "quantity": "1"
@@ -139,7 +157,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Fern",
             "subtitle": "Brass Bird Cage",
             "description": "Whimsical gold bird cage with leaf detail, ideal for candles or florals.",
-            "image": "/images/rentals/TheFernBrassBirdCage.jpg",
+            "image": "/images/rentals/TheFERNBrassBirdCage.jpg",
             "dimensions": "height: 16.5in Height: 13in",
             "dimensionsNote": "Cage 1: Cage 2:",
             "quantity": "3"
@@ -156,7 +174,11 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Lotus",
             "subtitle": "Tall Glass Candle Holder",
             "description": "Clear glass Taper Candle Holder. Statement pieces for romantic ambient lighting. **Candle sticks must be purchased separately are not included in rental.",
-            "image": "/images/rentals/TheLotusTallGlassCandleHolder.jpg",
+            "image": "/images/rentals/TheLotusTallGlassCandlerHolder.jpg",
+            "images": [
+              "/images/rentals/TheLotusTallGlassCandlerHolder2.jpg",
+              "/images/rentals/TheLotusTallGlassCandlerHolder3.jpg"
+            ],
             "dimensions": "Height: 4in",
             "dimensionsNote": "",
             "quantity": "24"
@@ -167,6 +189,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Short Glass Candle Holder",
             "description": "Ribbed glass Taper Candle Holder **Candle sticks must be purchased separately are not included in rental.",
             "image": "/images/rentals/TheJasmineShortGlassCandleHolder.jpg",
+            "images": [
+              "/images/rentals/TheJasmineShortGlassCandleHolder1.jpg"
+            ],
             "dimensions": "Height: 2.76in Width: 1.77in",
             "dimensionsNote": "",
             "quantity": "60"
@@ -193,7 +218,11 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Freesia Collection",
             "subtitle": "Vintage Glass Bud Vase",
             "description": "Small Vintage Glass bottles/ bud vases Timeless accents that bring character and charm to any display.",
-            "image": "/images/rentals/TheFreesiaCollectionVintageGlassBudVase.jpg",
+            "image": "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles.jpg",
+            "images": [
+              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles1.jpg",
+              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles3.jpg"
+            ],
             "dimensions": "varies",
             "dimensionsNote": "",
             "quantity": "64"
@@ -221,6 +250,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Gold Oval Mirror Tray",
             "description": "Antique Gold polished mirror tray with floral detail around sides and handles. Ideal for styling",
             "image": "/images/rentals/TheAureliaGoldOvalMirrorTray.jpg",
+            "images": [
+              "/images/rentals/TheAureliaGoldOvalMirrorTray1.jpg"
+            ],
             "dimensions": "Length: 20in Width: 11.5in",
             "dimensionsNote": "",
             "quantity": "1"
@@ -244,6 +276,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Royal Blue Velvet Sofa",
             "description": "Plush, luxurious velvet seating with a bold color statement. Comfortably fits 2/3",
             "image": "/images/rentals/TheBluebellRoyalBlueVelvetSofa.jpg",
+            "images": [
+              "/images/rentals/TheBluebellRoyalBlueVelvetSofa2.jpg",
+              "/images/rentals/TheBluebellRoyalBlueVelvetSofa3.jpg"
+            ],
             "dimensions": "Height: 31in Length: 78in Width: 32in",
             "dimensionsNote": "",
             "quantity": "1"
@@ -261,6 +297,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Oval Marbled Coffee Table",
             "description": "",
             "image": "/images/rentals/TheCalendula:OvalOvalMarbledCoffeeTable.jpg",
+            "images": [
+              "/images/rentals/TheCalendula.jpg",
+              "/images/rentals/TheCalendula1.jpg"
+            ],
             "dimensions": "Height: 18.5in Length: 47in",
             "dimensionsNote": "",
             "quantity": "1"
@@ -270,7 +310,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Calendula: round",
             "subtitle": "Round Marbled End Table",
             "description": "Elegant side table combining marble textures and gold tones.",
-            "image": "/images/rentals/TheCalendularoundRoundMarbledEndTable.jpg",
+            "image": "/images/rentals/TheCalendula:roundRoundMarbledEndTable .jpg",
             "dimensions": "Height: 24in Diam: 23.75in",
             "dimensionsNote": "",
             "quantity": "1"
@@ -302,8 +342,13 @@ export const rentalCategories: RentalCategory[] = [
             "id": "indigo-bloom",
             "name": "The Indigo Bloom",
             "subtitle": "Handmade Tassel Chandelier",
-            "description": "Handcrafted with artistry and intention, the Royal Blue Tassel Chandelier is a stunning statement piece that brings texture, movement, and depth to any space. Designed with three cascading tiers of soft tassels, it flows effortlessly around a central pendant light, creating a dreamy play of light and shadow.",
-            "image": "/images/rentals/TheIndigoBloomHandmadeTasselChandelier.jpg",
+            "description": "Handcrafted with artistry and intention, the Royal Blue Tassel Chandelier is a stunning statement piece that brings texture, movement, and depth to any space. Designed with three cascading tiers of soft tassels, it flows effortlessly around a central pendant light, creating a dreamy play of light and shadow.",
+            "image": "/images/rentals/TheIndigoBloomHandmadeTasselChandelier .jpg",
+            "images": [
+              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier2 .jpg",
+              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier3.jpg",
+              "/images/rentals/TheIndigoBloomHandmadeTasselChandelier4.jpg"
+            ],
             "dimensions": "Height: 36in",
             "dimensionsNote": "",
             "quantity": "2"
@@ -321,6 +366,11 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Handmade Floral Taper Candles",
             "description": "Elegant white pillar candles adorned with delicate handmade paper flowers in soft, romantic hues. Each candle features carefully placed blossoms in customizable colors with pearl-like centers that catch the light beautifully. The flowers are artfully arranged along the length of each candle, creating a charming garden-inspired aesthetic.",
             "image": "/images/rentals/ThePoppyHandmadeFloralTaperCandles.jpg",
+            "images": [
+              "/images/rentals/ThePoppyHandmadeFloralTaperCandles2.jpg",
+              "/images/rentals/ThePoppyHandmadeFloralTaperCandles3.jpg",
+              "/images/rentals/ThePoppyHandmadeFloralTaperCandles4.jpg"
+            ],
             "dimensions": "Customizable Candle & Flower Color for addt'l $20",
             "dimensionsNote": "",
             "quantity": "40"
@@ -343,7 +393,11 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Marigold",
             "subtitle": "Gold Beaded Charger",
             "description": "Clear Gold Beaded Charger Plates Elegant base pieces to elevate your table design.",
-            "image": "/images/rentals/TheMarigoldGoldBeadedCharger.jpg",
+            "image": "/images/rentals/theMarigoldGoldBeadedCharger.jpg",
+            "images": [
+              "/images/rentals/theMarigoldGoldBeadedCharger1.jpg",
+              "/images/rentals/theMarigoldGoldBeadedCharger2.jpg"
+            ],
             "dimensions": "Diam: 13in",
             "dimensionsNote": "Material: Plastic",
             "quantity": "50"
@@ -354,6 +408,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Pink Floral Plate",
             "description": "Soft, feminine square glass pink plates with intricate floral detailing painted on.",
             "image": "/images/rentals/ThePetalPinkFloralPlate.jpg",
+            "images": [
+              "/images/rentals/ThePetalPinkFloralPlate3.jpg",
+              "/images/rentals/ThePetalPinkFloralPlate4.jpg"
+            ],
             "dimensions": "Length: 8in Width: 8in",
             "dimensionsNote": "",
             "quantity": "8"
@@ -371,6 +429,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Sage Green Linen Napkin",
             "description": "Sage Green Polyestrer Linen Napkins",
             "image": "/images/rentals/TheWillowSageGreenLinenNapkin.jpg",
+            "images": [
+              "/images/rentals/TheWillowSageGreenLinenNapkin1.jpg",
+              "/images/rentals/TheWillowSageGreenLinenNapkin2.jpg"
+            ],
             "dimensions": "Length: 17in Width: 17in",
             "dimensionsNote": "",
             "quantity": "50"
@@ -380,7 +442,10 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Rose",
             "subtitle": "Gold Rose and Pearl Napkin Ring",
             "description": "Crafted from polished gold metal, this delicate piece features a white rose and pearl detail on either end, creating a soft, romantic charm that complements any tablescape.",
-            "image": "/images/rentals/TheRoseGoldRoseandPearlNapkinRing.jpg",
+            "image": "/images/rentals/TheROSEGoldRoseandPearlNapkinRing.jpg",
+            "images": [
+              "/images/rentals/TheROSEGoldRoseandPearlNapkinRing2.jpg"
+            ],
             "dimensions": "",
             "dimensionsNote": "",
             "quantity": "49"
@@ -389,8 +454,15 @@ export const rentalCategories: RentalCategory[] = [
             "id": "viola",
             "name": "The Viola",
             "subtitle": "Blue Mediterranean Plate",
-            "description": "artisan-crafted pieces inspired by the charm of seaside dining. Each plate is handmade with subtle variations in color and texture, giving every piece its own character. Though designed as plates, their smaller size makes them perfect for use as decorative coasters or layering accents beneath chargers or glassware, adding a sophisticated pop of blue to your setting.",
-            "image": "/images/rentals/TheViolaBlueMediterraneanPlate.jpg",
+            "description": "artisan-crafted pieces inspired by the charm of seaside dining. Each plate is handmade with subtle variations in color and texture, giving every piece its own character. Though designed as plates, their smaller size makes them perfect for use as decorative coasters or layering accents beneath chargers or glassware, adding a sophisticated pop of blue to your setting.",
+            "image": "/images/rentals/TheViola BlueMediterraneanPlate.jpg",
+            "images": [
+              "/images/rentals/TheViolaBlueMediterraneanPlate-Type1.jpg",
+              "/images/rentals/TheViolaBlueMediterraneanPlate-Type2.jpg",
+              "/images/rentals/TheViolaBlueMediterraneanPlate-Type3.jpg",
+              "/images/rentals/TheViolaBlueMediterraneanPlate1.jpg",
+              "/images/rentals/TheViolaBlueMediterraneanPlate2.jpg"
+            ],
             "dimensions": "Length: 8in Width: 8in",
             "dimensionsNote": "",
             "quantity": "11"
@@ -411,6 +483,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Colorful Glass Bottles",
             "description": "Assorted Eclectic and vibrant colored glass bottles; perfect for adding playful texture.",
             "image": "/images/rentals/TheMimosaCollectionColorfulGlassBottles.jpg",
+            "images": [
+              "/images/rentals/TheMimosaCollectionColorfulGlassBottles1.jpg"
+            ],
             "dimensions": "varies",
             "dimensionsNote": "",
             "quantity": ""
@@ -421,6 +496,10 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Vintage Clear Glass Bottles",
             "description": "Small Vintage Glass bottles/ bud vases Timeless accents that bring character and charm to any display.",
             "image": "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles.jpg",
+            "images": [
+              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles1.jpg",
+              "/images/rentals/TheFreesiaCollectionVintageClearGlassBottles3.jpg"
+            ],
             "dimensions": "varies",
             "dimensionsNote": "",
             "quantity": "64"
@@ -431,6 +510,9 @@ export const rentalCategories: RentalCategory[] = [
             "subtitle": "Tall Drink Cooler",
             "description": "Portable standing cooler, easily customizable ideal for outdoor bar setups.",
             "image": "/images/rentals/TheFrostflowerTallDrinkCooler.jpg",
+            "images": [
+              "/images/rentals/TheFrostflowerTallDrinkCooler1.jpg"
+            ],
             "dimensions": "72 Quart",
             "dimensionsNote": "",
             "quantity": "2"
@@ -447,7 +529,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Snowdrop",
             "subtitle": "Solid White Linen | 70 in x 120 in Rectangle",
             "description": "Crisp, clean, and versatile to complement any tablescape.",
-            "image": "/images/rentals/TheSnowdropSolidWhiteLinen70inx120inRectangle.jpg",
+            "image": "/images/rentals/TheSnowdropSolidWhiteLinen|70x120Rectangle.jpg",
             "dimensions": "fits 6 ft & 8 ft tables",
             "dimensionsNote": "",
             "quantity": "9"
@@ -467,7 +549,11 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Sapphire Social Lounge",
             "subtitle": "The Bluebell",
             "description": "",
-            "image": "/images/rentals/BlueSofaLoungeTheBluebell.jpg",
+            "image": "/images/rentals/TheBluebellRoyalBlueVelvetSofa.jpg",
+            "images": [
+              "/images/rentals/TheBluebellRoyalBlueVelvetSofa2.jpg",
+              "/images/rentals/TheBluebellRoyalBlueVelvetSofa3.jpg"
+            ],
             "dimensions": "",
             "dimensionsNote": "",
             "quantity": ""
@@ -477,7 +563,11 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Tuscany Soiree",
             "subtitle": "The Papavero",
             "description": "",
-            "image": "/images/rentals/ItalianRomanceSetupThePapavero.jpg",
+            "image": "/images/rentals/ThePapaveroLargeItalianFountain.jpg",
+            "images": [
+              "/images/rentals/ThePapaveroLargeItalianFountain2.jpg",
+              "/images/rentals/ThePapaveroLargeItalianFountain3.jpg"
+            ],
             "dimensions": "",
             "dimensionsNote": "",
             "quantity": ""
