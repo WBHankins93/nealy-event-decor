@@ -143,7 +143,8 @@ function convertS3PathToLocal(s3Path: string): string {
   
   // Map folder names to local paths
   const folderMap: Record<string, string> = {
-    '01 Landing Page': '/images/banner',
+    '01 Landing Page ': '/images/banner', // Note: trailing space matches S3
+    '01 Landing Page': '/images/banner', // Fallback for paths without trailing space
     '02 Home Page': '/images/home',
     '03 Gallery': '/images/gallery',
     '04 Services': '/images/services',
@@ -171,7 +172,7 @@ function convertS3PathToLocal(s3Path: string): string {
  * Map page/section names to S3 folder names
  */
 export const S3_FOLDER_MAP = {
-  banner: '01 Landing Page',
+  banner: '01 Landing Page ', // Note: trailing space matches S3 folder name
   home: '02 Home Page',
   gallery: '03 Gallery',
   services: '04 Services',
@@ -226,7 +227,7 @@ export function convertToS3Path(localPath: string): string {
   
   // Map local paths to S3 folders
   const pathMap: Record<string, string> = {
-    'images/banner': '01 Landing Page',
+    'images/banner': '01 Landing Page ', // Note: trailing space matches S3 folder name
     'images/home': '02 Home Page',
     'images/gallery': '03 Gallery',
     'images/services': '04 Services',

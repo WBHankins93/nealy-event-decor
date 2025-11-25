@@ -21,10 +21,10 @@ export default function VideoEntranceOptimized({
   
   // Get text overlay images from S3 or use local fallback
   const image6Url = process.env.NEXT_PUBLIC_S3_BUCKET_NAME
-    ? getS3ImageUrl('01 Landing Page/Text for Video', '6.png')
+    ? getS3ImageUrl('01 Landing Page /Text for Video', '6.png')
     : '/videos/entrance/6.png';
   const image7Url = process.env.NEXT_PUBLIC_S3_BUCKET_NAME
-    ? getS3ImageUrl('01 Landing Page/Text for Video', '7.png')
+    ? getS3ImageUrl('01 Landing Page /Text for Video', '7.png')
     : '/videos/entrance/7.png';
   const [isPlaying, setIsPlaying] = useState(true);
   const [showVideo, setShowVideo] = useState(true);
