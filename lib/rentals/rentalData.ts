@@ -52,7 +52,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Gardenia",
             "subtitle": "8' White Drink Display + 8' Fern Wall",
             "description": "2 Arched Bookcases perfect for displaying glassware, florals, or bottles paired with Fern Wall covering remaining sides.",
-            "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall.jpg",
+            "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall.jpg",
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
             "quantity": "1"
@@ -62,7 +62,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Olive: Side Table",
             "subtitle": "4' Green Tiled Bar",
             "description": "Handmade Wood bar featuring deep green tiles and concrete bartop for a touch of natural ambiance.",
-            "image": "/images/rentals/TheOliveSideTable4'GreenTiledBar.jpg",
+            "image": "/images/rentals/TheOlive:SideTable4'GreenTiledBar .jpg",
             "dimensions": "Height: 45in Length: 50in",
             "dimensionsNote": "",
             "quantity": "2"
@@ -79,7 +79,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Gardenia",
             "subtitle": "8' White Drink Display + 8' Fern Wall",
             "description": "2 Arched Bookcases perfect for displaying glassware, florals, or bottles paired with Fern Wall covering remaining sides.",
-            "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay8'FernWall.jpg",
+            "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall.jpg",
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
             "quantity": "1"
@@ -260,7 +260,7 @@ export const rentalCategories: RentalCategory[] = [
             "name": "The Calendula: Oval",
             "subtitle": "Oval Marbled Coffee Table",
             "description": "",
-            "image": "/images/rentals/TheCalendulaOvalOvalMarbledCoffeeTable.jpg",
+            "image": "/images/rentals/TheCalendula:OvalOvalMarbledCoffeeTable.jpg",
             "dimensions": "Height: 18.5in Length: 47in",
             "dimensionsNote": "",
             "quantity": "1"
