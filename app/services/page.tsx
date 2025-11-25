@@ -420,7 +420,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Our Process Section */}
-      <section className="section-padding bg-meadow-lavender text-pearl-white">
+      <section className="section-padding bg-meadow-lavender">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -429,10 +429,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="heading-lg text-signature-gold mb-6">
+            <h2 className="heading-lg text-charcoal-black mb-6">
               Our Process
             </h2>
-            <p className="body-lg text-pearl-white/90 max-w-3xl mx-auto">
+            <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
               A seamless journey from vision to reality
             </p>
           </motion.div>
@@ -461,15 +461,15 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-pearl-white/5 backdrop-blur-sm p-8 rounded-lg border border-signature-gold/20"
+                className="bg-white/20 backdrop-blur-sm p-8 rounded-lg border border-charcoal-black/20"
               >
-                <p className="text-5xl font-playfair text-signature-gold/30 mb-4">
+                <p className="text-5xl font-playfair text-charcoal-black/20 mb-4">
                   {step.step}
                 </p>
-                <h3 className="heading-sm text-signature-gold mb-4">
+                <h3 className="heading-sm text-charcoal-black mb-4">
                   {step.title}
                 </h3>
-                <p className="text-pearl-white/80">{step.description}</p>
+                <p className="text-charcoal-black/70">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -478,7 +478,7 @@ export default function ServicesPage() {
 
       
       {/* CTA */}
-      <section className="section-padding bg-light-red text-pearl-white">
+      <section className="section-padding bg-light-red">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -487,10 +487,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center space-y-8"
           >
-            <h2 className="heading-lg text-signature-gold">
+            <h2 className="heading-lg text-charcoal-black">
               Ready to Create Something Unforgettable?
             </h2>
-            <p className="body-lg text-pearl-white/90">
+            <p className="body-lg text-charcoal-black/80">
               Let&apos;s bring your vision to life with custom décor that tells your unique story
             </p>
             <Link href="/contact" className="btn-primary inline-block">
