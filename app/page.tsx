@@ -234,7 +234,7 @@ export default function HomePage() {
               },
               {
                 title: "Carousel Image 3",
-                      image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P3.ARW'), // Note: ARW format may need conversion to JPG for web display
+                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P3.jpg'),
               },
               {
                 title: "Carousel Image 4",
