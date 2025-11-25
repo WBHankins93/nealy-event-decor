@@ -20,7 +20,7 @@ module.exports = {
         },
         meadow: {
           sage: '#9CAF88',
-          lavender: '#B19CD9',
+          lavender: '#C4A2C8',
         },
         forest: {
           green: '#2C3E28',
