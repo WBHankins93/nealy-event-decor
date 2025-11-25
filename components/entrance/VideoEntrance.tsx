@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getVideoUrl } from "@/lib/media/videoUrls";
+import { getS3ImageUrl } from "@/lib/media/s3";
 
 interface VideoEntranceProps {
   onComplete: () => void;
@@ -17,6 +18,14 @@ export default function VideoEntranceOptimized({
   const defaultVideoUrl = getVideoUrl("entrance");
   
   const finalVideoUrl = videoUrl || defaultVideoUrl;
+  
+  // Get text overlay images from S3 or use local fallback
+  const image6Url = process.env.NEXT_PUBLIC_S3_BUCKET_NAME
+    ? getS3ImageUrl('01 Landing Page/Text for Video', '6.png')
+    : '/videos/entrance/6.png';
+  const image7Url = process.env.NEXT_PUBLIC_S3_BUCKET_NAME
+    ? getS3ImageUrl('01 Landing Page/Text for Video', '7.png')
+    : '/videos/entrance/7.png';
   const [isPlaying, setIsPlaying] = useState(true);
   const [showVideo, setShowVideo] = useState(true);
   const [canPlay, setCanPlay] = useState(false);
@@ -151,7 +160,7 @@ export default function VideoEntranceOptimized({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
-                  src="/videos/entrance/6.png"
+                  src={image6Url}
                   alt=""
                   className="w-full h-auto object-contain"
                   style={{ maxHeight: '100vh', maxWidth: '100vw', width: '100%' }}
@@ -165,7 +174,7 @@ export default function VideoEntranceOptimized({
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 2, ease: "easeInOut" }}
-                  src="/videos/entrance/7.png"
+                  src={image7Url}
                   alt=""
                   className="absolute w-full h-auto object-contain"
                   style={{ maxHeight: '100vh', maxWidth: '100vw', width: '100%' }}
