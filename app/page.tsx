@@ -5,6 +5,7 @@ import Link from "next/link";
 import HeroSection from "@/components/home/HeroSection";
 import GalleryImage from "@/components/gallery/GalleryImage";
 import { getImagePath } from "@/lib/gallery/galleryConfig";
+import { getS3ImageBySection } from "@/lib/media/s3";
 
 export default function HomePage() {
   return (
@@ -69,17 +70,17 @@ export default function HomePage() {
                     {
                       title: "The Sapphire Social Lounge",
                       subtitle: "Event Design",
-                      image: getImagePath('03-Gallery', 'BlueSofaLounge', 'IMG_0936'),
+                      image: getImagePath('03-Gallery', 'Blue Sofa Lounge', 'G_BSL_P1'),
                     },
                     {
                       title: "The Tuscany Soiree",
                       subtitle: "Luxury Decor",
-                      image: getImagePath('03-Gallery', 'ItalianRomanceSetup', 'business-pics-45'),
+                      image: getImagePath('03-Gallery', 'Italian Romance Setup', 'G_IRS_P1.png'),
                     },
                     {
                       title: "Wedding Highlights",
                       subtitle: "Event Styling",
-                      image: getImagePath('03-Gallery', 'WeddingHighlights', 'IMG_5071'),
+                      image: getImagePath('03-Gallery', 'Wedding Highlights', 'G_WH_P1.png'),
                     },
                   ].map((item, index) => (
                     <motion.div
@@ -226,15 +227,15 @@ export default function HomePage() {
             {[
               {
                 title: "The Sapphire Social Lounge",
-                image: getImagePath('03-Gallery', 'BlueSofaLounge', 'IMG_0936'),
+                image: getImagePath('03-Gallery', 'Blue Sofa Lounge', 'G_BSL_P1'),
               },
               {
                 title: "The Tuscany Soiree",
-                image: getImagePath('03-Gallery', 'ItalianRomanceSetup', 'business-pics-45'),
+                image: getImagePath('03-Gallery', 'Italian Romance Setup', 'G_IRS_P1.png'),
               },
               {
                 title: "Wedding Highlights",
-                image: getImagePath('03-Gallery', 'WeddingHighlights', 'IMG_5071'),
+                image: getImagePath('03-Gallery', 'Wedding Highlights', 'G_WH_P1.png'),
               },
             ].map((item, index) => (
               <motion.div

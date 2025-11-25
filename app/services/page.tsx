@@ -199,7 +199,7 @@ export default function ServicesPage() {
                 <div className="relative h-80 overflow-hidden">
                   <img
                     src={process.env.NEXT_PUBLIC_S3_BUCKET_NAME 
-                      ? getS3ImageBySection('services', 'italian-romance.jpg')
+                      ? getS3ImageBySection('services', 'Ser_IRS_P1.jpg')
                       : '/images/services/italian-romance.jpg'}
                     alt="The Tuscany Soiree"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -250,7 +250,7 @@ export default function ServicesPage() {
                 <div className="relative h-80 overflow-hidden">
                   <img
                     src={process.env.NEXT_PUBLIC_S3_BUCKET_NAME 
-                      ? getS3ImageBySection('services', 'BlueSofaLounge2.jpg')
+                      ? getS3ImageBySection('services', 'Ser_BSL_P1.jpg')
                       : '/images/services/BlueSofaLounge2.jpg'}
                     alt="The Sapphire Social Lounge"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

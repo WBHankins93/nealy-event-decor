@@ -7,9 +7,9 @@ import { getS3VideoBySection } from './s3';
 
 // Video filename mappings for S3
 const VIDEO_FILENAMES = {
-  entrance: 'Video-no-text.mp4', // In "01 Landing Page" folder
-  homePage: 'home-page-video.mp4', // In "02 Home Page" folder
-  about: 'about.mp4', // In "05 About" folder
+  entrance: 'Video no text.mp4', // In "01 Landing Page" folder
+  homePage: 'BW- Home Page Video.mp4', // In "02 Home Page" folder
+  about: 'About page video.mp4', // In "05 About" folder
 } as const;
 
 // Local paths for development fallback

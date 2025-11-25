@@ -26,9 +26,9 @@ export default function GalleryGrid({ activeFilter }: GalleryGridProps) {
     // Fetch images from local public folder via galleryConfig
     const loadGalleryImages = () => {
       try {
-        const blueSofaImages = getGalleryImages('03-Gallery', 'BlueSofaLounge');
-        const italianRomanceImages = getGalleryImages('03-Gallery', 'ItalianRomanceSetup');
-        const weddingImages = getGalleryImages('03-Gallery', 'WeddingHighlights');
+        const blueSofaImages = getGalleryImages('03-Gallery', 'Blue Sofa Lounge');
+        const italianRomanceImages = getGalleryImages('03-Gallery', 'Italian Romance Setup');
+        const weddingImages = getGalleryImages('03-Gallery', 'Wedding Highlights');
 
         // Build gallery items with local image paths
         const items: GalleryItemType[] = [

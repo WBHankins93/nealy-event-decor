@@ -12,36 +12,34 @@ import { getS3ImageUrl } from "../media/s3";
  */
 export const galleryData = {
   '03-Gallery': {
-    BlueSofaLounge: [
-      'business pics-08',
-      'IMG_0936',
-      'IMG_0937',
-      'IMG_0948',
-      'IMG_0949'
+    'Blue Sofa Lounge': [
+      'G_BSL_P1.jpg',
+      'G_BSL_P2.jpg',
+      'G_BSL_P3.png',
+      'G_BSL_P4.jpg',
+      'G_BSL_P5.jpg'
     ],
-    ItalianRomanceSetup: [
-      'business pics-21',
-      'business pics-22',
-      'business pics-30',
-      'business pics-34',
-      'business pics-40',
-      'business pics-41',
-      'business pics-49',
-      'business pics-51',
-      'business pics-52',
-      'business-pics-45',
-      'IMG_0941',
-      'IMG_0947'
+    'Italian Romance Setup': [
+      'G_IRS_P1.png',
+      'G_IRS_P2.png',
+      'G_IRS_P3.png',
+      'G_IRS_P4.png',
+      'G_IRS_P5.png',
+      'G_IRS_P6.png',
+      'G_IRS_P7.png',
+      'G_IRS_P8.png',
+      'G_IRS_P9.jpg',
+      'G_IRS_P10.jpg',
+      'G_IRS_P11.jpg'
     ],
-    WeddingHighlights: [
-      '18',
-      '19',
-      '20',
-      '21',
-      'DSC00014',
-      'DSC01533-2',
-      'DSC01576',
-      'IMG_5071'
+    'Wedding Highlights': [
+      'G_WH_P1.png',
+      'G_WH_P2.png',
+      'G_WH_P3.png',
+      'G_WH_P4.png',
+      'G_WH_P6.jpg',
+      'G_WH_P7.png',
+      'G_WH_P8.jpg'
     ]
   }
   // Add more gallery sections as you upload them
@@ -56,9 +54,11 @@ export const galleryData = {
  */
 export function getImagePath(section: string, folder: string, imageName: string): string {
   // Use S3 if configured, otherwise fallback to local
-  // S3 folder structure: 01-Website-Creation/03 Gallery/{folder}/{imageName}.jpg
+  // S3 folder structure: 01-Website-Creation/03 Gallery/{folder}/{imageName}
+  // imageName can include extension or not - getS3ImageUrl will handle it
   const s3Folder = `03 Gallery/${folder}`;
-  return getS3ImageUrl(s3Folder, `${imageName}.jpg`);
+  // If imageName already has extension, use it; otherwise getS3ImageUrl will add .jpg
+  return getS3ImageUrl(s3Folder, imageName.includes('.') ? imageName : `${imageName}.jpg`);
 }
 
 /**

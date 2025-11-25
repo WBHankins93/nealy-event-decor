@@ -8,17 +8,14 @@
       "HEAD"
     ],
     "AllowedOrigins": [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "https://nealyevents.com",
-      "https://www.nealyevents.com",
-      "https://*.vercel.app",
-      "https://*.netlify.app"
+      "*"
     ],
     "ExposeHeaders": [
       "ETag",
       "Content-Length",
-      "Content-Type"
+      "Content-Type",
+      "Date",
+      "Last-Modified"
     ],
     "MaxAgeSeconds": 3000
   }

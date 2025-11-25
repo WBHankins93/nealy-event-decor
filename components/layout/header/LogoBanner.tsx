@@ -6,9 +6,13 @@ import { getS3ImageBySection } from "@/lib/media/s3";
 
 export default function LogoBanner() {
   // Get banner image from S3 or use local fallback
+  // Note: Banner image may not exist in S3 yet, fallback to local
   const bannerImage = process.env.NEXT_PUBLIC_S3_BUCKET_NAME
     ? getS3ImageBySection('banner', 'HP_Banner.png')
     : '/images/banner/HP_Banner.png';
+  
+  // If S3 is configured but image doesn't exist, fallback to local
+  // This will be handled by Next.js Image component's onError
   
   return (
     <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center items-center overflow-hidden m-0 p-0">
