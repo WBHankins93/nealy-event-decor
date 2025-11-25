@@ -1,0 +1,26 @@
+[
+  {
+    "AllowedHeaders": [
+      "*"
+    ],
+    "AllowedMethods": [
+      "GET",
+      "HEAD"
+    ],
+    "AllowedOrigins": [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://nealyevents.com",
+      "https://www.nealyevents.com",
+      "https://*.vercel.app",
+      "https://*.netlify.app"
+    ],
+    "ExposeHeaders": [
+      "ETag",
+      "Content-Length",
+      "Content-Type"
+    ],
+    "MaxAgeSeconds": 3000
+  }
+]
+
