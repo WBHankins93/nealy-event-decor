@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Luxury Hero */}
-      <section className="relative pb-16 md:pb-20 bg-gradient-to-b from-[#B19CD9] to-[#B19CD9]/95 text-pearl-white overflow-hidden pt-28 md:pt-36 lg:pt-[240px]">
+      <section className="relative pb-16 md:pb-20 bg-gradient-to-b from-meadow-lavender to-meadow-lavender/95 overflow-hidden pt-28 md:pt-36 lg:pt-[240px]">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-signature-gold rounded-full blur-3xl" />
@@ -29,18 +29,18 @@ export default function AboutPage() {
               transition={{ delay: 0.2 }}
               className="inline-block"
             >
-              <span className="inline-block px-6 py-2 border border-signature-gold/30 rounded-full text-signature-gold font-montserrat text-sm tracking-widest uppercase">
+              <span className="inline-block px-6 py-2 border border-charcoal-black/30 rounded-full text-charcoal-black font-montserrat text-sm tracking-widest uppercase">
                 About Us
               </span>
             </motion.div>
 
             {/* Main Heading */}
-            <h1 className="heading-xl text-signature-gold">
+            <h1 className="heading-xl text-charcoal-black">
               Our Story
             </h1>
             
             {/* Description */}
-            <p className="text-xl md:text-2xl font-playfair text-pearl-white/90 italic leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl font-playfair text-charcoal-black/80 italic leading-relaxed max-w-3xl mx-auto">
               Where legacy meets creation.
             </p>
 
@@ -51,9 +51,9 @@ export default function AboutPage() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex items-center justify-center gap-4 pt-4"
             >
-              <div className="w-16 h-px bg-signature-gold/50" />
-              <div className="w-2 h-2 bg-signature-gold rounded-full" />
-              <div className="w-16 h-px bg-signature-gold/50" />
+              <div className="w-16 h-px bg-charcoal-black/50" />
+              <div className="w-2 h-2 bg-charcoal-black rounded-full" />
+              <div className="w-16 h-px bg-charcoal-black/50" />
             </motion.div>
           </motion.div>
         </div>
