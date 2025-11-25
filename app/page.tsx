@@ -79,7 +79,7 @@ export default function HomePage() {
                     {
                       title: "Wedding Highlights",
                       subtitle: "Event Styling",
-                      image: getS3ImageUrl('02 Home Page/Gallery', 'HP_G_P3.jpg'),
+                      image: getS3ImageUrl('02 Home Page/Gallery', 'HP_ G_P3.jpg'), // Note: filename has a space between HP_ and G_P3
                     },
                   ].map((item, index) => (
                     <motion.div
