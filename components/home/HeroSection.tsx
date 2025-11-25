@@ -17,74 +17,33 @@ export default function HeroSection() {
   useEffect(() => {
     if (!mounted) return;
     
-    console.log("🎥 Setting up video...");
     const video = videoRef.current;
-    
-    if (!video) {
-      console.log("❌ No video ref");
-      return;
-    }
+    if (!video) return;
 
-    console.log("✅ Video element found");
-    console.log("📊 Video readyState:", video.readyState);
-    console.log("📊 Video src:", video.currentSrc);
-    console.log("📊 Video paused:", video.paused);
-    
     const playVideo = async () => {
-      console.log("▶️ Attempting to play video...");
       try {
         video.muted = true;
         video.playsInline = true;
-        video.setAttribute('playsinline', 'true');
-        
-        const played = await video.play();
-        console.log("✅ Video playing!", played);
-        console.log("📊 After play - paused:", video.paused);
-        console.log("📊 Video currentTime:", video.currentTime);
-        console.log("📊 Video readyState:", video.readyState);
-        console.log("📊 Video networkState:", video.networkState);
-        
-        // Verify video is actually visible
-        const rect = video.getBoundingClientRect();
-        console.log("📊 Video dimensions:", rect.width, "x", rect.height);
-        console.log("📊 Video visible:", rect.width > 0 && rect.height > 0);
+        await video.play();
+        console.log("✅ Video playing!");
       } catch (err) {
         console.error("❌ Play failed:", err);
       }
     };
 
-    // Try multiple approaches
-    console.log("Checking readyState:", video.readyState);
-    
-    // Wait for video to be ready to play
-    const tryPlay = () => {
-      if (video.readyState >= 2) { // HAVE_CURRENT_DATA or higher
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener('loadeddata', () => {
         playVideo();
-      }
-    };
+      }, { once: true });
+      
+      video.addEventListener('canplay', () => {
+        playVideo();
+      }, { once: true });
+    }
 
-    // Try immediately if ready
-    tryPlay();
-
-    // Also listen for when video can actually play
-    video.addEventListener('canplay', () => {
-      console.log("📺 canplay event fired!");
-      tryPlay();
-    }, { once: true });
-
-    video.addEventListener('canplaythrough', () => {
-      console.log("📺 canplaythrough event fired!");
-      tryPlay();
-    }, { once: true });
-
-    video.addEventListener('loadeddata', () => {
-      console.log("📺 loadeddata event fired!");
-      tryPlay();
-    }, { once: true });
-
-    // Force load
     video.load();
-    console.log("📺 video.load() called");
 
     return () => {
       video.removeEventListener('loadeddata', playVideo);
@@ -106,50 +65,39 @@ export default function HeroSection() {
         muted
         playsInline
         preload="auto"
-        crossOrigin="anonymous"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        style={{ minHeight: '100vh' }}
-        src={getVideoUrl("homePage")}
+        className="absolute top-0 left-0 right-0 w-full h-full object-cover z-0"
         onError={(e) => {
           console.error('Video load error:', e);
-          console.error('Failed URL:', e.currentTarget.src);
           // Fallback to local path if S3 fails
           const video = e.currentTarget;
           if (video.src && !video.src.includes('/animations/')) {
-            console.log('Falling back to local video');
             video.src = '/animations/home-page-video.mp4';
           }
         }}
         onLoadedData={() => {
           const video = videoRef.current;
           if (video) {
-            console.log('📹 Video loaded data event');
-            console.log('📹 Video currentSrc:', video.currentSrc);
-            console.log('📹 Video duration:', video.duration);
-            console.log('📹 Video videoWidth:', video.videoWidth);
-            console.log('📹 Video videoHeight:', video.videoHeight);
             video.play().catch(err => {
-              console.error('❌ Video play error:', err);
+              console.error('Video play error:', err);
             });
           }
         }}
-        onCanPlay={() => {
-          const video = videoRef.current;
-          if (video) {
-            console.log('📹 Video can play - duration:', video.duration, 'readyState:', video.readyState);
-          }
-        }}
-        onPlaying={() => {
-          console.log('▶️ Video is actually playing now!');
-        }}
       >
+        <source 
+          src={getVideoUrl("homePage")}
+          type="video/mp4" 
+        />
+        <source 
+          src="/animations/home-page-video.mp4"
+          type="video/mp4" 
+        />
       </video>
 
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-charcoal-black/30 z-10" />
 
       {/* Content */}
-      <div className="container-custom relative z-20 text-center">
+      <div className="container-custom relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
