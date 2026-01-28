@@ -35,7 +35,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Main Heading */}
-            <h1 className="heading-xl text-charcoal-black">
+            <h1 className="heading-xl text-signature-gold">
               Our Story
             </h1>
             
