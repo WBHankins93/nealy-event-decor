@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Home } from "lucide-react";
 
 interface TopNavProps {
   isMobileMenuOpen?: boolean;
@@ -54,6 +55,16 @@ export default function TopNav({ isMobileMenuOpen, setIsMobileMenuOpen, isScroll
           >
             About
           </Link>
+          {/* House icon - only show when scrolled (gold banner hidden) */}
+          {isScrolled && (
+            <Link
+              href="/"
+              className="text-charcoal-black hover:text-signature-gold transition-colors duration-300"
+              aria-label="Home"
+            >
+              <Home className="w-4 h-4" />
+            </Link>
+          )}
           <Link
             href="/faqs"
             className="text-charcoal-black hover:text-signature-gold transition-colors duration-300"

@@ -77,6 +77,13 @@ export default function Header() {
           >
             <nav className="container-custom py-8 space-y-6">
               <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-lg font-montserrat tracking-wide uppercase text-charcoal-black hover:text-signature-gold transition-colors duration-300"
+              >
+                Home
+              </Link>
+              <Link
                 href="/about"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block text-lg font-montserrat tracking-wide uppercase text-charcoal-black hover:text-signature-gold transition-colors duration-300"
