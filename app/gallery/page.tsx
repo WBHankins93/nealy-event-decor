@@ -143,17 +143,9 @@ function GalleryContent() {
       {/* Gallery Grid */}
       <GalleryGrid activeFilter={activeFilter} />
 
-      {/* CTA Section with Luxury Design */}
-      <section className="relative section-padding bg-gradient-to-br from-wine-burgundy via-wine-burgundy/95 to-charcoal-black text-pearl-white overflow-hidden">
-        {/* Decorative Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-            backgroundSize: '48px 48px'
-          }} />
-        </div>
-
-        <div className="container-custom relative z-10">
+      {/* CTA Section */}
+      <section className="section-padding bg-light-red">
+        <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,24 +153,11 @@ function GalleryContent() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center space-y-8"
           >
-            {/* Decorative Icon */}
-            <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, type: "spring" }}
-              className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-signature-gold/20 text-signature-gold"
-            >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-            </motion.div>
-
-            <h2 className="heading-lg text-signature-gold">
+            <h2 className="heading-lg text-[#FEFDFB]">
               Let&apos;s Create Your Vision
             </h2>
             
-            <p className="body-lg text-pearl-white/90 leading-relaxed">
+            <p className="body-lg text-[#FEFDFB]/90 leading-relaxed">
               Ready to bring your event to life with custom décor that&apos;s uniquely yours? 
               Our team specializes in transforming spaces into unforgettable experiences.
             </p>
@@ -192,25 +171,12 @@ function GalleryContent() {
             >
               <motion.a
                 href="/contact"
-                className="inline-block px-10 py-4 bg-signature-gold text-charcoal-black font-montserrat font-semibold tracking-wide uppercase rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="btn-primary inline-block"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
                 Start Your Project
               </motion.a>
-            </motion.div>
-
-            {/* Decorative Bottom Border */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex items-center justify-center gap-4 pt-8"
-            >
-              <div className="w-24 h-px bg-signature-gold/50" />
-              <div className="w-3 h-3 bg-signature-gold rounded-full" />
-              <div className="w-24 h-px bg-signature-gold/50" />
             </motion.div>
           </motion.div>
         </div>
