@@ -429,10 +429,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="heading-lg text-charcoal-black mb-6">
+            <h2 className="heading-lg text-[#FEFDFB] mb-6">
               Our Process
             </h2>
-            <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
+            <p className="body-lg text-[#FEFDFB]/90 max-w-3xl mx-auto">
               A seamless journey from vision to reality
             </p>
           </motion.div>
@@ -463,13 +463,13 @@ export default function ServicesPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white/20 backdrop-blur-sm p-8 rounded-lg border border-charcoal-black/20"
               >
-                <p className="text-5xl font-playfair text-charcoal-black/20 mb-4">
+                <p className="text-5xl font-playfair text-signature-gold mb-4">
                   {step.step}
                 </p>
-                <h3 className="heading-sm text-charcoal-black mb-4">
+                <h3 className="heading-sm text-[#FEFDFB] mb-4">
                   {step.title}
                 </h3>
-                <p className="text-charcoal-black/70">{step.description}</p>
+                <p className="text-[#FEFDFB]/90">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -487,10 +487,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center space-y-8"
           >
-            <h2 className="heading-lg text-charcoal-black">
+            <h2 className="heading-lg text-[#FEFDFB]">
               Ready to Create Something Unforgettable?
             </h2>
-            <p className="body-lg text-charcoal-black/80">
+            <p className="body-lg text-[#FEFDFB]/90">
               Let&apos;s bring your vision to life with custom décor that tells your unique story
             </p>
             <Link href="/contact" className="btn-primary inline-block">
