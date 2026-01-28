@@ -234,7 +234,7 @@ export default function HomePage() {
               },
               {
                 title: "Carousel Image 3",
-                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_C_P3.jpg'),
+                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_ C_P3.jpg'), // Note: filename has a space between HP_ and C_P3
               },
               {
                 title: "Carousel Image 4",
