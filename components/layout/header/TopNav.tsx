@@ -49,12 +49,6 @@ export default function TopNav({ isMobileMenuOpen, setIsMobileMenuOpen, isScroll
 
         {/* Left side - About/FAQs/Contact - ONLY SHOW ON DESKTOP */}
         <nav className="hidden md:flex items-center gap-8 text-xs font-montserrat tracking-widest uppercase">
-          <Link
-            href="/about"
-            className="text-charcoal-black hover:text-signature-gold transition-colors duration-300"
-          >
-            About
-          </Link>
           {/* House icon - only show when scrolled (gold banner hidden) */}
           {isScrolled && (
             <Link
@@ -65,6 +59,12 @@ export default function TopNav({ isMobileMenuOpen, setIsMobileMenuOpen, isScroll
               <Home className="w-4 h-4" />
             </Link>
           )}
+          <Link
+            href="/about"
+            className="text-charcoal-black hover:text-signature-gold transition-colors duration-300"
+          >
+            About
+          </Link>
           <Link
             href="/faqs"
             className="text-charcoal-black hover:text-signature-gold transition-colors duration-300"
