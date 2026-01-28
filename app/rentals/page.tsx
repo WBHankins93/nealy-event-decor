@@ -167,7 +167,7 @@ export default function RentalsPage() {
                 >
                   {/* Category Button */}
                   <button
-                    className={`px-10 py-4 font-montserrat text-xs uppercase tracking-widest transition-all duration-300 whitespace-nowrap text-pearl-white hover:text-signature-gold`}
+                    className={`px-10 py-4 font-montserrat text-xs uppercase tracking-widest transition-all duration-300 whitespace-nowrap text-forest-green hover:text-signature-gold`}
                   >
                     {category.name}
                   </button>
