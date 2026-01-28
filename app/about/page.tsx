@@ -35,7 +35,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Main Heading */}
-            <h1 className="heading-xl text-charcoal-black">
+            <h1 className="heading-xl text-forest-green">
               Our Story
             </h1>
             
@@ -119,7 +119,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-forest-green text-pearl-white">
+      <section className="section-padding bg-light-red">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -128,10 +128,10 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center space-y-8"
           >
-            <h2 className="heading-lg text-signature-gold">
+            <h2 className="heading-lg text-[#FEFDFB]">
               Let&apos;s Create Together
             </h2>
-            <p className="body-lg text-pearl-white/90">
+            <p className="body-lg text-[#FEFDFB]/90">
               Every event is an opportunity to tell a story. Let us help you tell yours.
             </p>
             <Link href="/contact" className="btn-primary inline-block">
