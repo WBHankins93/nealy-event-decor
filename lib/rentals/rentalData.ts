@@ -533,44 +533,6 @@ export const rentalCategories: RentalCategory[] = [
             "dimensions": "fits 6 ft & 8 ft tables",
             "dimensionsNote": "",
             "quantity": "9"
-          },
-          {
-            "id": "sets",
-            "name": "SETS:",
-            "subtitle": "",
-            "description": "",
-            "image": "/images/rentals/SETS.jpg",
-            "dimensions": "",
-            "dimensionsNote": "",
-            "quantity": ""
-          },
-          {
-            "id": "blue-sofa-lounge",
-            "name": "The Sapphire Social Lounge",
-            "subtitle": "The Bluebell",
-            "description": "",
-            "image": "/images/rentals/TheBluebellRoyalBlueVelvetSofa.jpg",
-            "images": [
-              "/images/rentals/TheBluebellRoyalBlueVelvetSofa2.jpg",
-              "/images/rentals/TheBluebellRoyalBlueVelvetSofa3.jpg"
-            ],
-            "dimensions": "",
-            "dimensionsNote": "",
-            "quantity": ""
-          },
-          {
-            "id": "italian-romance-setup",
-            "name": "The Tuscany Soiree",
-            "subtitle": "The Papavero",
-            "description": "",
-            "image": "/images/rentals/ThePapaveroLargeItalianFountain.jpg",
-            "images": [
-              "/images/rentals/ThePapaveroLargeItalianFountain2.jpg",
-              "/images/rentals/ThePapaveroLargeItalianFountain3.jpg"
-            ],
-            "dimensions": "",
-            "dimensionsNote": "",
-            "quantity": ""
           }
         ]
       }
