@@ -234,7 +234,8 @@ export default function HomePage() {
               },
               {
                 title: "Carousel Image 3",
-                image: getS3ImageUrl('02 Home Page/Carousel', 'HP_ C_P3.jpg'), // Note: filename has a space between HP_ and C_P3
+                // Use local file path since this image is stored locally, not in S3
+                image: '/images/home-carousel/HP_C_P3.jpg',
               },
               {
                 title: "Carousel Image 4",
