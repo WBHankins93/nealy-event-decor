@@ -50,6 +50,8 @@ public/images/**/*.jpeg
 public/images/**/*.png
 public/images/**/*.gif
 public/images/**/*.webp
+# Exception: Keep carousel image 3 in repo
+!public/images/home-carousel/HP_C_P3.jpg
 
 # Videos
 public/videos/**/*.mp4

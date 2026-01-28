@@ -141,6 +141,14 @@ function convertS3PathToLocal(s3Path: string): string {
   // Remove "01-Website-Creation/" prefix
   localPath = localPath.replace(/^01-Website-Creation\//, '');
   
+  // Special handling for carousel images - they're in home-carousel folder
+  if (localPath.includes('Carousel')) {
+    const filename = localPath.split('/').pop() || '';
+    // Handle filename with space (HP_ C_P3.jpg) or without (HP_C_P3.jpg)
+    const normalizedFilename = filename.replace('HP_ C_P3', 'HP_C_P3');
+    return `/images/home-carousel/${normalizedFilename}`;
+  }
+  
   // Map folder names to local paths
   const folderMap: Record<string, string> = {
     '01 Landing Page ': '/images/banner', // Note: trailing space matches S3
