@@ -6,77 +6,6 @@ export const rentalCategories: RentalCategory[] = [
     "name": "Bars",
     "subcategories": [
       {
-        "id": "default",
-        "name": "Bars",
-        "description": "Bars for your event needs",
-        "items": [
-          {
-            "id": "magnolia",
-            "name": "The MAGNOLIA",
-            "subtitle": "6' Customizable Bar",
-            "description": "Sleek and timeless, this handmade white wood bar complements any event theme and is easily customizable. Panel Sizing __________ Bar Fits 2 comfortably.",
-            "image": "/images/rentals/TheMAGNOLIA6'CustomizableBar.jpg",
-            "dimensions": "H 44 L 72.75 W24.25",
-            "dimensionsNote": "Fits 2 bartenders comfortably",
-            "quantity": "1"
-          }
-        ]
-      },
-      {
-        "id": "bar",
-        "name": "Bar",
-        "description": "Bar for your event needs",
-        "items": [
-          {
-            "id": "fiore",
-            "name": "The Fiore",
-            "subtitle": "6' Italian Tiled White Bar",
-            "description": "A modern white bar accented with Italian tiles for a touch of European charm  Bar Fits 2 comfortably.",
-            "image": "/images/rentals/TheFiore6'ItalianTiledWhiteBar.jpg",
-            "images": [
-              "/images/rentals/TheFiore6'ItalianTiledWhiteBar2.jpg"
-            ],
-            "dimensions": "Height:44in Length:72.75in Width:24.25in",
-            "dimensionsNote": "Fits 2 bartenders comfortably",
-            "quantity": "1"
-          },
-          {
-            "id": "olive",
-            "name": "The Olive",
-            "subtitle": "6' Green Tiled Bar",
-            "description": "Handmade Wood bar featuring deep green tiles and concrete bartop for a touch of natural ambiance. Bar Fits 2 comfortably.",
-            "image": "/images/rentals/TheOlive6'GreenTiledBar.jpg",
-            "dimensions": "Height:44in Length:72.75in Width:24.25in",
-            "dimensionsNote": "Fits 2 bartenders comfortably",
-            "quantity": "1"
-          },
-          {
-            "id": "gardenia",
-            "name": "The Gardenia",
-            "subtitle": "8' White Drink Display + 8' Fern Wall",
-            "description": "2 Arched Bookcases perfect for displaying glassware, florals, or bottles paired with Fern Wall covering remaining sides.",
-            "image": "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall.jpg",
-            "images": [
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall1.jpg",
-              "/images/rentals/TheGardenia8'WhiteDrinkDisplay+8'FernWall3.jpg"
-            ],
-            "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
-            "dimensionsNote": "Single bookcase: Double bookcase:",
-            "quantity": "1"
-          },
-          {
-            "id": "olive-side-table",
-            "name": "The Olive: Side Table",
-            "subtitle": "4' Green Tiled Bar",
-            "description": "Handmade Wood bar featuring deep green tiles and concrete bartop for a touch of natural ambiance.",
-            "image": "/images/rentals/TheOlive:SideTable4'GreenTiledBar .jpg",
-            "dimensions": "Height: 45in Length: 50in",
-            "dimensionsNote": "",
-            "quantity": "2"
-          }
-        ]
-      },
-      {
         "id": "drink-displays",
         "name": "Drink Displays",
         "description": "Drink Displays for your event needs",
@@ -94,6 +23,43 @@ export const rentalCategories: RentalCategory[] = [
             "dimensions": "Height: 8ft Length: 4ft Height: 8ft Length: 8ft",
             "dimensionsNote": "Single bookcase: Double bookcase:",
             "quantity": "1"
+          }
+        ]
+      },
+      {
+        "id": "bar",
+        "name": "Bar",
+        "description": "Bar for your event needs",
+        "items": [
+          {
+            "id": "fiore",
+            "name": "The Fiore",
+            "subtitle": "6' Italian Tiled White Bar",
+            "description": "A modern white bar accented with Italian tiles for a touch of European charm  Bar Fits 2 comfortably.",
+            "image": "/images/rentals/TheFiore6'ItalianTiledWhiteBar.jpg",
+            "dimensions": "Height:44in Length:72.75in Width:24.25in",
+            "dimensionsNote": "Fits 2 bartenders comfortably",
+            "quantity": "1"
+          },
+          {
+            "id": "olive",
+            "name": "The Olive",
+            "subtitle": "6' Green Tiled Bar",
+            "description": "Handmade Wood bar featuring deep green tiles and concrete bartop for a touch of natural ambiance. Bar Fits 2 comfortably.",
+            "image": "/images/rentals/TheOlive6'GreenTiledBar.jpg",
+            "dimensions": "Height:44in Length:72.75in Width:24.25in",
+            "dimensionsNote": "Fits 2 bartenders comfortably",
+            "quantity": "1"
+          },
+          {
+            "id": "olive-side-table",
+            "name": "The Olive: Side Table",
+            "subtitle": "4' Green Tiled Bar",
+            "description": "Handmade Wood bar featuring deep green tiles and concrete bartop for a touch of natural ambiance.",
+            "image": "/images/rentals/TheOlive:SideTable4'GreenTiledBar .jpg",
+            "dimensions": "Height: 45in Length: 50in",
+            "dimensionsNote": "",
+            "quantity": "2"
           }
         ]
       }
