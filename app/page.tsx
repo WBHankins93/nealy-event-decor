@@ -129,8 +129,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Services Overview - Dark Green with White Content Box */}
-      <section className="section-padding bg-[#D2691E]">
+      {/* Services Overview - Light Purple with White Text and Gold Accents */}
+      <section className="section-padding bg-meadow-lavender">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -139,12 +139,12 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="bg-white rounded-lg border-2 border-charcoal-black/20 shadow-lg p-8 md:p-12">
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg border border-charcoal-black/20 p-8 md:p-12">
               <div className="text-center mb-12">
-                <h2 className="heading-lg text-forest-green mb-6">
+                <h2 className="heading-lg text-[#FEFDFB] mb-6">
                   What We Create
                 </h2>
-                <p className="body-lg text-charcoal-black/80 max-w-3xl mx-auto">
+                <p className="body-lg text-[#FEFDFB]/90 max-w-3xl mx-auto">
                   From concept to creation, we craft custom event elements that leave lasting impressions
                 </p>
               </div>
@@ -172,10 +172,10 @@ export default function HomePage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="text-center"
                   >
-                    <h3 className="heading-sm text-forest-green mb-4">
+                    <h3 className="heading-sm text-signature-gold mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-charcoal-black/70">{service.description}</p>
+                    <p className="text-[#FEFDFB]/90">{service.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -207,10 +207,10 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center mb-12 space-y-4"
           >
-            <h2 className="heading-lg text-charcoal-black">
+            <h2 className="heading-lg text-[#FEFDFB]">
               Ready to Create Something Unforgettable?
             </h2>
-            <p className="body-lg text-charcoal-black/80">
+            <p className="body-lg text-[#FEFDFB]/90">
               Let&apos;s bring your vision to life with custom décor that tells your unique story
             </p>
           </motion.div>
@@ -271,7 +271,7 @@ export default function HomePage() {
             <Link href="/contact" className="btn-primary">
               Contact!
             </Link>
-            <Link href="/contact" className="btn-secondary border-charcoal-black text-charcoal-black hover:bg-charcoal-black hover:text-pearl-white">
+            <Link href="/contact" className="btn-secondary border-[#FEFDFB] text-[#FEFDFB] hover:bg-[#FEFDFB] hover:text-light-red">
               Sign Up for Newsletter
             </Link>
           </motion.div>
