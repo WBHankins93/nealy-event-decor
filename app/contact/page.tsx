@@ -18,7 +18,7 @@ export default function ContactPage() {
     e.preventDefault();
   
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/mzdgbazg", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -26,7 +26,7 @@ export default function ContactPage() {
   
       const data = await res.json();
   
-      if (res.ok && data.success) {
+      if (res.ok) {
         setModalMessage("Message sent successfully! We'll get back to you soon.");
         setIsSuccess(true);
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
