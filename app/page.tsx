@@ -130,7 +130,7 @@ export default function HomePage() {
       </div>
 
       {/* Services Overview - Dark Green with White Content Box */}
-      <section className="section-padding bg-forest-green">
+      <section className="section-padding bg-[#D2691E]">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
